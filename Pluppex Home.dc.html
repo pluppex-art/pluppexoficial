@@ -681,9 +681,7 @@
                   <li class="aq-tag"
                     style="padding: 0 24px; border-left: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
                     FOLLOW-UP</li>
-                  <li class="aq-tag"
-                    style="padding: 0 24px; border-left: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
-                    PROCESSOS COMERCIAIS</li>
+
                   <li class="aq-tag"
                     style="padding: 0 0 0 24px; border-left: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
                     AUTOMAÇÃO COMERCIAL</li>
@@ -691,9 +689,8 @@
               </div>
             </sc-if>
             <sc-if value="{{ isInteligencia }}" hint-placeholder-val="{{ false }}">
-              <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(28px, 4vw, 64px);">
-                <div>
+              <div>
+                <div style="max-width: 62ch;">
                   <p style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
                     INTELIGÊNCIA</p>
                   <h3
@@ -707,16 +704,8 @@
                     style="margin-top: 28px; padding: 14px 22px; font-size: 12.5px; letter-spacing: 0.1em;">VER A
                     OPERAÇÃO</a>
                 </div>
-                <div
-                  style="align-self: start; border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 28px; background: linear-gradient(160deg, rgba(116,62,228,0.2), rgba(46,168,240,0.08) 55%, transparent 78%);">
-                  <p style="margin: 0; font-family: var(--font-heading); font-size: 28px; letter-spacing: 0.1em;">
-                    AURORA</p>
-                  <p style="margin: 12px 0 0; font-size: 12px; letter-spacing: 0.16em; color: var(--color-accent-200);">
-                    A INTELIGÊNCIA DA MÁQUINA DE RECEITA.</p>
-                  <p style="margin: 24px 0 0; font-size: 15px; line-height: 1.6; color: var(--color-neutral-300);">A
-                    inteligência que entende e movimenta sua operação. Não é um produto separado: é parte da Máquina
-                    de Receita.</p>
-                </div>
+                <img src="Aurora/aurora-fluxo.png" alt="Aurora — do sinal à receita"
+                  style="width: 100%; height: auto; display: block; margin-top: clamp(36px, 5vw, 56px); border-radius: var(--radius-lg); border: 1px solid var(--color-divider);">
               </div>
             </sc-if>
             <sc-if value="{{ isOperacao }}" hint-placeholder-val="{{ false }}">
