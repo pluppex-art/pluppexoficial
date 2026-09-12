@@ -829,182 +829,10 @@
                     INDICADORES</li>
                 </ul>
 
-                <!-- VEJA A MÁQUINA FUNCIONANDO INSIDE OPERAÇÃO -->
-                <div style="margin-top: 48px; border-top: 1px solid var(--color-divider); padding-top: 36px;">
-                  <p style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
-                    VEJA A MÁQUINA FUNCIONANDO</p>
-                  <div data-tabs="1"
-                    style="display: flex; flex-wrap: wrap; gap: 10px; overflow-x: auto; padding-bottom: 4px;">
-                    <sc-for list="{{ foldTabs }}" as="t" hint-placeholder-count="4">
-                      <button type="button" class="{{ t.cls }}" onClick="{{ t.pick }}"
-                        style="font-size: 12px; letter-spacing: 0.1em; padding: 12px 20px; white-space: nowrap;">{{
-                        t.label }}</button>
-                    </sc-for>
-                  </div>
-                  <div style="margin-top: 36px;">
-                    <sc-if value="{{ isFoldAurora }}" hint-placeholder-val="{{ true }}">
-                      <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(32px, 5vw, 64px); align-items: start;">
-                        <div>
-                          <p
-                            style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent-300);">
-                            AURORA</p>
-                          <h2
-                            style="margin: 0; font-family: var(--font-heading); font-size: clamp(24px, 3.2vw, 42px); line-height: 1.08; letter-spacing: -0.03em;">
-                            SUA OPERAÇÃO RESPONDE A VOCÊ.</h2>
-                          <p
-                            style="margin: 20px 0 0; font-family: var(--font-heading); font-size: 14px; letter-spacing: 0.18em; color: var(--color-neutral-300);">
-                            PERGUNTE. CONSULTE. SOLICITE.</p>
-                          <p
-                            style="margin: 20px 0 0; max-width: 44ch; font-size: 16px; line-height: 1.6; color: var(--color-neutral-300);">
-                            Você não precisa abrir várias telas para descobrir o que está acontecendo na sua operação.
-                            Você pode perguntar para a Aurora.</p>
-                          <p
-                            style="margin: 28px 0 0; max-width: 30ch; font-family: var(--font-heading); font-size: clamp(18px, 2vw, 24px); line-height: 1.25; letter-spacing: -0.02em;">
-                            VOCÊ PERGUNTA. A AURORA ENTENDE. A OPERAÇÃO ACONTECE.</p>
-                          <p
-                            style="margin: 24px 0 0; font-family: ui-monospace, monospace; font-size: 11px; line-height: 1.6; color: var(--color-neutral-500);">
-                            Os diálogos ao lado são exemplos visuais. Os números não representam dados reais.</p>
-                        </div>
-                        <div
-                          style="border: 1px solid var(--color-divider); border-radius: var(--radius-lg); background: var(--color-surface); box-shadow: var(--shadow-md); overflow: hidden;">
-                          <div style="display: flex; border-bottom: 1px solid var(--color-divider);">
-                            <sc-for list="{{ auroraTabs }}" as="a" hint-placeholder-count="2">
-                              <button type="button" onClick="{{ a.pick }}" style="{{ a.style }}">{{ a.label
-                                }}</button>
-                            </sc-for>
-                          </div>
-                          <div
-                            style="padding: 24px; display: grid; gap: 14px; min-height: 320px; align-content: start;">
-                            <sc-for list="{{ auroraMsgs }}" as="m" hint-placeholder-count="4">
-                              <div style="{{ m.rowStyle }}">
-                                <div style="{{ m.bubbleStyle }}">
-                                  <span
-                                    style="display: block; font-size: 9.5px; letter-spacing: 0.18em; margin-bottom: 6px; opacity: 0.6;">{{
-                                    m.who }}</span>
-                                  {{ m.text }}
-                                </div>
-                              </div>
-                            </sc-for>
-                          </div>
-                        </div>
-                      </div>
-                    </sc-if>
-                    <sc-if value="{{ isFoldZap }}" hint-placeholder-val="{{ false }}">
-                      <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(32px, 5vw, 64px); align-items: start;">
-                        <div>
-                          <h2
-                            style="margin: 0; max-width: 22ch; font-family: var(--font-heading); font-size: clamp(24px, 3.2vw, 42px); line-height: 1.08; letter-spacing: -0.03em;">
-                            A OPERAÇÃO PODE COMEÇAR COM UMA MENSAGEM.</h2>
-                          <p
-                            style="margin: 20px 0 0; max-width: 46ch; font-size: 16px; line-height: 1.6; color: var(--color-neutral-300);">
-                            Você conversa com a Aurora pelo WhatsApp e solicita informações ou ações da operação. Ela
-                            consulta, responde e movimenta o S. P. Y. | CRM conforme as capacidades implementadas.</p>
-                          <div style="margin-top: 24px; display: grid; gap: 10px; max-width: 46ch;">
-                            <p
-                              style="margin: 0; padding: 14px 18px; border: 1px solid var(--color-divider); border-radius: var(--radius-md); font-size: 15px; color: var(--color-neutral-200);">
-                              “Me mostra as oportunidades quentes de hoje.”</p>
-                            <p
-                              style="margin: 0; padding: 14px 18px; border: 1px solid var(--color-divider); border-radius: var(--radius-md); font-size: 15px; color: var(--color-neutral-200);">
-                              “Adiciona esse contato como lead.”</p>
-                          </div>
-                        </div>
-                        <div
-                          style="display: grid; gap: 0; justify-items: stretch; max-width: 400px; margin: 0 auto; width: 100%;">
-                          <div
-                            style="padding: 20px 24px; border: 1px solid var(--color-divider); border-radius: var(--radius-md); font-family: var(--font-heading); font-size: 14px; letter-spacing: 0.16em;">
-                            WHATSAPP</div>
-                          <div
-                            style="height: 32px; width: 2px; margin-left: 28px; background: linear-gradient(180deg, #2ea8f0, #743ee4); background-size: 100% 200%; animation: pxflow 2.4s linear infinite;">
-                          </div>
-                          <div
-                            style="padding: 20px 24px; border: 1px solid var(--color-accent-700); border-radius: var(--radius-md); background: rgba(116,62,228,0.12); font-family: var(--font-heading); font-size: 14px; letter-spacing: 0.16em; color: var(--color-accent-200);">
-                            AURORA</div>
-                          <div
-                            style="height: 32px; width: 2px; margin-left: 28px; background: linear-gradient(180deg, #2ea8f0, #743ee4); background-size: 100% 200%; animation: pxflow 2.4s linear infinite;">
-                          </div>
-                          <div
-                            style="padding: 20px 24px; border: 1px solid var(--color-divider); border-radius: var(--radius-md); font-family: var(--font-heading); font-size: 14px; letter-spacing: 0.16em;">
-                            S. P. Y. | CRM</div>
-                          <div
-                            style="height: 32px; width: 2px; margin-left: 28px; background: linear-gradient(180deg, #2ea8f0, #743ee4); background-size: 100% 200%; animation: pxflow 2.4s linear infinite;">
-                          </div>
-                          <div
-                            style="padding: 20px 24px; border: 1px solid var(--color-divider); border-radius: var(--radius-md); font-family: var(--font-heading); font-size: 14px; letter-spacing: 0.16em;">
-                            OPERAÇÃO</div>
-                        </div>
-                      </div>
-                    </sc-if>
-                    <sc-if value="{{ isFoldRadar }}" hint-placeholder-val="{{ false }}">
-                      <div>
-                        <p
-                          style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent-300);">
-                          RADAR DE OPORTUNIDADES</p>
-                        <h2
-                          style="margin: 0; max-width: 26ch; font-family: var(--font-heading); font-size: clamp(24px, 3.2vw, 42px); line-height: 1.08; letter-spacing: -0.03em;">
-                          A AURORA TAMBÉM ENXERGA O QUE PODE PASSAR DESPERCEBIDO.</h2>
-                        <p
-                          style="margin: 20px 0 0; max-width: 52ch; font-size: 16px; line-height: 1.6; color: var(--color-neutral-300);">
-                          A inteligência identifica sinais relevantes dentro da operação e ajuda a encontrar
-                          oportunidades. Ela transforma esses sinais em informação e ação.</p>
-                        <div
-                          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; margin-top: 36px;">
-                          <p
-                            style="margin: 0; padding: 20px; border-top: 2px solid var(--color-accent); background: var(--color-surface); border-radius: 0 0 var(--radius-md) var(--radius-md); font-size: 14px; line-height: 1.45; letter-spacing: 0.04em;">
-                            LEAD DEMONSTROU INTENÇÃO DE COMPRA.</p>
-                          <p
-                            style="margin: 0; padding: 20px; border-top: 2px solid var(--color-accent-700); background: var(--color-surface); border-radius: 0 0 var(--radius-md) var(--radius-md); font-size: 14px; line-height: 1.45; letter-spacing: 0.04em;">
-                            OPORTUNIDADE ESTÁ SEM CONTATO.</p>
-                          <p
-                            style="margin: 0; padding: 20px; border-top: 2px solid var(--color-accent-700); background: var(--color-surface); border-radius: 0 0 var(--radius-md) var(--radius-md); font-size: 14px; line-height: 1.45; letter-spacing: 0.04em;">
-                            CLIENTE VOLTOU A INTERAGIR.</p>
-                          <p
-                            style="margin: 0; padding: 20px; border-top: 2px solid var(--color-accent-700); background: var(--color-surface); border-radius: 0 0 var(--radius-md) var(--radius-md); font-size: 14px; line-height: 1.45; letter-spacing: 0.04em;">
-                            NOVA NECESSIDADE IDENTIFICADA.</p>
-                          <p
-                            style="margin: 0; padding: 20px; border-top: 2px solid var(--color-accent-700); background: var(--color-surface); border-radius: 0 0 var(--radius-md) var(--radius-md); font-size: 14.5px; line-height: 1.45; letter-spacing: 0.04em;">
-                            FOLLOW-UP PODE SER NECESSÁRIO.</p>
-                        </div>
-                      </div>
-                    </sc-if>
-                    <sc-if value="{{ isFoldAtend }}" hint-placeholder-val="{{ false }}">
-                      <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(28px, 4vw, 64px); align-items: start;">
-                        <div>
-                          <p
-                            style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
-                            ATENDIMENTO AO CLIENTE</p>
-                          <h3
-                            style="margin: 0; font-family: var(--font-heading); font-size: clamp(24px, 2.8vw, 36px); line-height: 1.1; letter-spacing: -0.025em;">
-                            FALE COM QUEM OPERA A SUA CONTA.</h3>
-                          <p
-                            style="margin: 20px 0 0; max-width: 46ch; font-size: 16px; line-height: 1.6; color: var(--color-neutral-300);">
-                            Preencha o formulário e continue a conversa no WhatsApp. Suporte do S. P. Y. | CRM,
-                            campanhas, financeiro ou nova contratação.</p>
-                          <a class="btn btn-primary" href="Pluppex%20Atendimento.dc.html"
-                            style="margin-top: 28px; padding: 15px 24px; font-size: 12.5px; letter-spacing: 0.1em;">IR
-                            PARA O ATENDIMENTO</a>
-                        </div>
-                        <div style="display: grid; gap: 12px;">
-                          <p
-                            style="margin: 0; display: flex; gap: 16px; padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15.5px; line-height: 1.5;">
-                            <span
-                              style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">01</span>Preencha
-                            nome, telefone e e-mail.
-                          </p>
-                          <p
-                            style="margin: 0; display: flex; gap: 16px; padding: 16px 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); font-size: 15.5px; line-height: 1.5;">
-                            <span
-                              style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">02</span>Clique
-                            em “Falar no WhatsApp” e siga por lá.
-                          </p>
-                          <p
-                            style="margin: 8px 0 0; font-family: ui-monospace, monospace; font-size: 12.5px; letter-spacing: 0.06em; color: var(--color-neutral-400);">
-                            +55 63 98478-7555</p>
-                        </div>
-                      </div>
-                    </sc-if>
+                <div class="media-3d-wrapper" style="margin-top: 56px;">
+                  <div class="media-3d-card">
+                    <img src="Operacao/operacao.png" alt="Operação — a máquina de receita funcionando"
+                      style="width: 100%; height: auto; display: block;">
                   </div>
                 </div>
               </div>
@@ -1518,7 +1346,7 @@
   <script type="text/x-dc" data-dc-script
     data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280},&quot;defaultTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;AQUISIÇÃO&quot;,&quot;S. P. Y. | CRM&quot;,&quot;INTELIGÊNCIA&quot;,&quot;OPERAÇÃO&quot;],&quot;default&quot;:&quot;AQUISIÇÃO&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Soluções&quot;}}">
 class Component extends DCLogic {
-  state = { tab: null, auroraMode: "RESPONDER", model: "OPERAÇÃO", comps: ["AQUISIÇÃO", "S. P. Y. | CRM"], faq: 0, faqTouched: false, sent: false, menu: false };
+  state = { tab: null, model: "OPERAÇÃO", comps: ["AQUISIÇÃO", "S. P. Y. | CRM"], faq: 0, faqTouched: false, sent: false, menu: false };
 
   get journeySteps() {
     return [
@@ -1547,23 +1375,6 @@ class Component extends DCLogic {
     document.removeEventListener("keydown", this.onEsc);
   }
 
-  get dialogs() {
-    return {
-      "RESPONDER": [
-        ["Quantos leads entraram esta semana?", "Entraram 47 novos leads. 12 ainda não receberam contato."],
-        ["Quais oportunidades estão paradas?", "Encontrei 8 oportunidades sem movimentação há mais de 5 dias."],
-        ["Quanto temos para receber este mês?", "Você tem R$ 84.500 em valores a receber neste mês."],
-        ["Qual foi o último contato com a empresa X?", "O último contato foi registrado há 3 dias, por WhatsApp."]
-      ],
-      "AGIR": [
-        ["Cria esse novo lead.", "Lead criado no S. P. Y. | CRM."],
-        ["Atualiza essa oportunidade para proposta enviada.", "Oportunidade atualizada."],
-        ["Registra a reunião com a empresa X.", "Reunião registrada."],
-        ["Cria um follow-up para amanhã.", "Follow-up criado."]
-      ]
-    };
-  }
-
   get faqItems() {
     return [
       ["O que é uma Máquina de Receita?", "É uma operação conectada para gerar, converter e escalar receita: aquisição, sistema comercial, inteligência e operação funcionando como uma coisa só."],
@@ -1588,14 +1399,6 @@ class Component extends DCLogic {
 
   renderVals() {
     const tab = this.state.tab ?? (this.props.defaultTab ?? "AQUISIÇÃO");
-    const mode = this.state.auroraMode;
-    const pairs = this.dialogs[mode];
-    const flat = [];
-    pairs.forEach(([q, a]) => {
-      flat.push({ who: "VOCÊ", text: q, me: true });
-      flat.push({ who: "AURORA", text: a, me: false });
-    });
-    const shown = flat;
     const faqOpen = this.state.faqTouched ? this.state.faq : 0;
     const comps = this.state.comps;
     const combo = comps.length ? comps.join(" + ") + " + " + this.state.model : this.state.model;
@@ -1619,20 +1422,12 @@ class Component extends DCLogic {
         };
       }),
       menuAttr: this.state.menu ? "1" : "0",
-      foldTabs: ["AURORA", "WHATSAPP", "RADAR DE OPORTUNIDADES", "ATENDIMENTO AO CLIENTE"].map(label => ({
-        label, cls: "btn " + ((this.state.fold ?? "AURORA") === label ? "btn-primary" : "btn-secondary"),
-        pick: () => this.setState({ fold: label })
-      })),
-      isFoldAurora: (this.state.fold ?? "AURORA") === "AURORA",
-      isFoldZap: this.state.fold === "WHATSAPP",
-      isFoldRadar: this.state.fold === "RADAR DE OPORTUNIDADES",
-      isFoldAtend: this.state.fold === "ATENDIMENTO AO CLIENTE",
       solOpen: !!this.state.sol,
       solCaret: "display: flex; align-items: center; align-self: center; height: 14px; font-size: 36px; line-height: 1; transition: transform .2s; transform: rotate(" + (this.state.sol ? "0deg" : "-90deg") + ");",
       toggleSol: () => this.setState(s => ({ sol: !s.sol })),
       closeSol: () => this.setState({ sol: false, menu: false }),
       pickAcq: () => this.setState({ tab: "AQUISIÇÃO", sol: false, menu: false }),
-      pickInt: () => this.setState({ tab: "INTELIGÊNCIA", fold: "AURORA", sol: false, menu: false }),
+      pickInt: () => this.setState({ tab: "INTELIGÊNCIA", sol: false, menu: false }),
       pickOps: () => this.setState({ tab: "OPERAÇÃO", sol: false, menu: false }),
       pickSpy: () => this.setState({ tab: "ORGANIZAÇÃO", sol: false, menu: false }),
       toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
@@ -1644,22 +1439,6 @@ class Component extends DCLogic {
       isSpy: tab === "ORGANIZAÇÃO" || tab === "S. P. Y. | CRM",
       isInteligencia: tab === "INTELIGÊNCIA",
       isOperacao: tab === "OPERAÇÃO",
-      auroraTabs: ["RESPONDER", "AGIR"].map(label => ({
-        label,
-        style: "flex: 1; padding: 16px 18px; background: " + (mode === label ? "rgba(116,62,228,0.14)" : "transparent") +
-          "; border: 0; border-bottom: 2px solid " + (mode === label ? "var(--color-accent)" : "transparent") +
-          "; color: " + (mode === label ? "#f5f5f5" : "var(--color-neutral-400)") +
-          "; font-family: var(--font-heading); font-weight: 700; font-size: 12px; letter-spacing: 0.16em; cursor: pointer;",
-        pick: () => this.setState({ auroraMode: label })
-      })),
-      auroraMsgs: shown.map(m => ({
-        who: m.who, text: m.text,
-        rowStyle: "display: flex; justify-content: " + (m.me ? "flex-end" : "flex-start") + ";",
-        bubbleStyle: "max-width: 84%; padding: 14px 16px; border-radius: var(--radius-md); font-size: 14.5px; line-height: 1.5; " +
-          (m.me
-            ? "background: rgba(116,62,228,0.18); border: 1px solid var(--color-accent-700); color: #f5f5f5;"
-            : "background: #161619; border: 1px solid var(--color-neutral-800); color: var(--color-neutral-200);")
-      })),
       models: [
         ["PROJETO", "Para resolver um problema específico da sua operação."],
         ["MÓDULO", "Para implementar apenas o componente que sua empresa precisa."],
