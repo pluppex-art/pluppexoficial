@@ -793,10 +793,11 @@
                       OPERAÇÃO</p>
                     <h3
                       style="margin: 0; font-family: var(--font-heading); font-size: clamp(24px, 2.8vw, 36px); line-height: 1.1; letter-spacing: -0.025em;">
-                      FAZEMOS A MÁQUINA DE RECEITA FUNCIONAR.</h3>
+                      VEJA A MÁQUINA FUNCIONANDO</h3>
                     <p
                       style="margin: 20px 0 0; max-width: 46ch; font-size: 17px; line-height: 1.6; color: var(--color-neutral-300);">
-                      Da estratégia à operação.</p>
+                      Você conversa com a Aurora pelo WhatsApp e solicita informações ou ações da operação, ela
+                      consulta, responde e movimenta o S. P. Y. | CRM conforme as capacidades implementadas.</p>
                   </div>
                   <div class="media-3d-wrapper">
                     <div class="media-3d-card">
@@ -1515,9 +1516,9 @@
     </div>
   </x-dc>
   <script type="text/x-dc" data-dc-script
-    data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280},&quot;defaultTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;AQUISIÇÃO&quot;,&quot;S. P. Y. | CRM&quot;,&quot;INTELIGÊNCIA&quot;,&quot;OPERAÇÃO&quot;],&quot;default&quot;:&quot;AQUISIÇÃO&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Soluções&quot;},&quot;auroraAutoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Aurora&quot;}}">
+    data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280},&quot;defaultTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;AQUISIÇÃO&quot;,&quot;S. P. Y. | CRM&quot;,&quot;INTELIGÊNCIA&quot;,&quot;OPERAÇÃO&quot;],&quot;default&quot;:&quot;AQUISIÇÃO&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Soluções&quot;}}">
 class Component extends DCLogic {
-  state = { tab: null, auroraMode: "RESPONDER", reveal: 2, model: "OPERAÇÃO", comps: ["AQUISIÇÃO", "S. P. Y. | CRM"], faq: 0, faqTouched: false, sent: false, menu: false };
+  state = { tab: null, auroraMode: "RESPONDER", model: "OPERAÇÃO", comps: ["AQUISIÇÃO", "S. P. Y. | CRM"], faq: 0, faqTouched: false, sent: false, menu: false };
 
   get journeySteps() {
     return [
@@ -1539,13 +1540,9 @@ class Component extends DCLogic {
     this.onEsc = (e) => { if (e.key === "Escape") this.setState({ sol: false }); };
     document.addEventListener("keydown", this.onEsc);
     this.jTimer = setInterval(() => this.setState(s => ({ step: ((s.step ?? 0) + 1) % 5 })), 1500);
-    if (this.props.auroraAutoplay === false) return;
-    this.timer = setInterval(() => {
-      this.setState(s => ({ reveal: s.reveal >= 8 ? 2 : s.reveal + 2 }));
-    }, 1900);
   }
   componentWillUnmount() {
-    clearInterval(this.timer); clearInterval(this.jTimer);
+    clearInterval(this.jTimer);
     document.removeEventListener("click", this.onDocClick, true);
     document.removeEventListener("keydown", this.onEsc);
   }
@@ -1591,7 +1588,6 @@ class Component extends DCLogic {
 
   renderVals() {
     const tab = this.state.tab ?? (this.props.defaultTab ?? "AQUISIÇÃO");
-    const autoplay = this.props.auroraAutoplay ?? true;
     const mode = this.state.auroraMode;
     const pairs = this.dialogs[mode];
     const flat = [];
@@ -1599,7 +1595,7 @@ class Component extends DCLogic {
       flat.push({ who: "VOCÊ", text: q, me: true });
       flat.push({ who: "AURORA", text: a, me: false });
     });
-    const shown = autoplay ? flat.slice(0, this.state.reveal) : flat;
+    const shown = flat;
     const faqOpen = this.state.faqTouched ? this.state.faq : 0;
     const comps = this.state.comps;
     const combo = comps.length ? comps.join(" + ") + " + " + this.state.model : this.state.model;
@@ -1654,7 +1650,7 @@ class Component extends DCLogic {
           "; border: 0; border-bottom: 2px solid " + (mode === label ? "var(--color-accent)" : "transparent") +
           "; color: " + (mode === label ? "#f5f5f5" : "var(--color-neutral-400)") +
           "; font-family: var(--font-heading); font-weight: 700; font-size: 12px; letter-spacing: 0.16em; cursor: pointer;",
-        pick: () => this.setState({ auroraMode: label, reveal: 2 })
+        pick: () => this.setState({ auroraMode: label })
       })),
       auroraMsgs: shown.map(m => ({
         who: m.who, text: m.text,
