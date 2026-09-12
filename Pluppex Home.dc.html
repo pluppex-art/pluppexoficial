@@ -276,9 +276,18 @@
             row-gap: 24px;
           }
 
+          [data-journey] {
+            justify-content: center;
+          }
+
           [data-journey]>div {
-            flex: 1 1 44% !important;
+            flex: 1 1 100% !important;
             min-width: 0 !important;
+            justify-content: center;
+          }
+
+          .journey-track {
+            display: none !important;
           }
 
           [data-tabs] {
@@ -520,7 +529,7 @@
                 <div style="display: grid; justify-items: center; gap: 12px; width: 100%;">
                   <div
                     style="position: relative; display: flex; align-items: center; justify-content: center; width: 100%; height: 26px;">
-                    <span style="{{ j.trackStyle }}"></span>
+                    <span class="journey-track" style="{{ j.trackStyle }}"></span>
                     <span style="{{ j.dotStyle }}"></span>
                   </div>
                   <span style="{{ j.labelStyle }}">{{ j.label }}</span>
