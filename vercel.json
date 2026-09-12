@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/Pluppex Home.dc.html" },
+    { "source": "/landing", "destination": "/Pluppex Landing.dc.html" },
+    { "source": "/cases", "destination": "/Pluppex Cases.dc.html" },
+    { "source": "/blog", "destination": "/Pluppex Blog.dc.html" },
+    { "source": "/atendimento", "destination": "/Pluppex Atendimento.dc.html" }
+  ]
+}

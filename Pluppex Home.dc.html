@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="./support.js"></script>
+</head>
+
+<body>
+  <x-dc>
+    <helmet>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Pluppex | Máquina de Receita</title>
+      <meta name="description"
+        content="A Pluppex constrói, opera e escala máquinas de receita, conectando aquisição, tecnologia, inteligência e operação comercial para gerar, converter e escalar receita.">
+      <link rel="stylesheet" href="_ds/nocturne-de15a933-d8ff-47fb-8f32-38188ea293e4/styles.css">
+      <script src="_ds/nocturne-de15a933-d8ff-47fb-8f32-38188ea293e4/_ds_bundle.js"></script>
+      <style>
+        :root {
+          --color-bg: #050505;
+          --color-surface: #0e0e11;
+          --color-text: #f5f5f5;
+          --color-accent: #743ee4;
+          --color-divider: rgba(245, 245, 245, 0.12);
+          --color-accent-100: #f2edfe;
+          --color-accent-200: #ded2fc;
+          --color-accent-300: #c2adf9;
+          --color-accent-400: #9c7cf0;
+          --color-accent-500: #743ee4;
+          --color-accent-600: #5c2fbb;
+          --color-accent-700: #45238c;
+          --color-accent-800: #2d1760;
+          --color-accent-900: #180c35;
+          --color-neutral-100: #fafafa;
+          --color-neutral-200: #e6e6e8;
+          --color-neutral-300: #c9c9ce;
+          --color-neutral-400: #9a9aa2;
+          --color-neutral-500: #75757d;
+          --color-neutral-600: #55555c;
+          --color-neutral-700: #3a3a40;
+          --color-neutral-800: #232327;
+          --color-neutral-900: #121214;
+          --color-section: #180c35;
+          --color-section-glow: #2d1760;
+          --color-section-ghost: #5c2fbb;
+          --font-heading-weight: 800;
+          --shadow-sm: 0 0 0 1px #232327;
+          --shadow-md: 0 0 0 1px #3a3a40, 0 8px 24px rgba(0, 0, 0, 0.7);
+          --shadow-lg: 0 0 0 1px #55555c, 0 20px 48px rgba(0, 0, 0, 0.8);
+        }
+
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+          background: #050505;
+        }
+
+        body {
+          -webkit-font-smoothing: antialiased;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+
+        html {
+          scroll-behavior: smooth;
+        }
+
+        a {
+          color: var(--color-accent-300);
+          text-decoration: none;
+        }
+
+        a:hover {
+          color: var(--color-accent-200);
+        }
+
+        h1,
+        h2,
+        h3 {
+          font-weight: 800;
+        }
+
+        .btn-primary {
+          background: linear-gradient(90deg, #6a34dd, #1d63c9);
+          border-color: transparent;
+          color: #f5f5f5;
+          font-weight: 700;
+          box-shadow: 0 6px 22px -10px rgba(116, 62, 228, 0.9);
+        }
+
+        .btn-primary:hover {
+          background: linear-gradient(90deg, #7b46e8, #2472dc);
+          color: #f5f5f5;
+        }
+
+        .btn-primary:active {
+          background: linear-gradient(90deg, #55299f, #17509f);
+        }
+
+        @keyframes pxtravel {
+          0% {
+            background-position: 0% 0;
+          }
+
+          100% {
+            background-position: -200% 0;
+          }
+        }
+
+        @keyframes pxpulse {
+
+          0%,
+          100% {
+            transform: scale(1);
+          }
+
+          50% {
+            transform: scale(1.35);
+          }
+        }
+
+        @keyframes pxflow {
+          0% {
+            background-position: 0% 0;
+          }
+
+          100% {
+            background-position: 0 200%;
+          }
+        }
+
+        .crm-3d-wrapper {
+          perspective: 1200px;
+          padding: 14px 10px;
+        }
+
+        .crm-3d-card {
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          border-radius: var(--radius-lg);
+          overflow: hidden;
+          background: var(--color-surface);
+          box-shadow:
+            -25px 25px 50px rgba(0, 0, 0, 0.65),
+            0 0 70px rgba(116, 62, 228, 0.35),
+            0 0 110px rgba(46, 168, 240, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.25);
+          transform: rotateY(-11deg) rotateX(6deg) rotateZ(-1deg);
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+          transform-style: preserve-3d;
+          position: relative;
+        }
+
+        .crm-3d-card::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, transparent 45%);
+          pointer-events: none;
+          border-radius: var(--radius-lg);
+        }
+
+        .crm-3d-card:hover {
+          transform: rotateY(-2deg) rotateX(2deg) scale(1.03);
+          box-shadow:
+            -15px 35px 70px rgba(0, 0, 0, 0.75),
+            0 0 90px rgba(116, 62, 228, 0.5),
+            0 0 130px rgba(46, 168, 240, 0.35),
+            inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        }
+
+        @media (max-width: 900px) {
+          .crm-3d-card {
+            transform: none !important;
+          }
+        }
+
+        [data-navlinks] {
+          display: flex;
+          align-items: center;
+        }
+
+        [data-navtoggle] {
+          display: none;
+        }
+
+        [data-h1] {
+          white-space: nowrap;
+          font-size: min(5.1vw, 72px);
+        }
+
+        @media (max-width: 820px) {
+          [data-h1] {
+            white-space: normal;
+            font-size: clamp(30px, 8.4vw, 54px);
+            text-wrap: balance;
+          }
+        }
+
+        [data-tabs]::-webkit-scrollbar {
+          height: 0;
+        }
+
+        @media (max-width: 600px) {
+
+          section>div,
+          footer>div:first-child {
+            padding-top: 46px !important;
+            padding-bottom: 46px !important;
+          }
+
+          #topo>div {
+            padding-top: 40px !important;
+          }
+
+          header img {
+            height: 40px !important;
+          }
+
+          h2 {
+            font-size: clamp(24px, 7.4vw, 34px) !important;
+            line-height: 1.1 !important;
+          }
+
+          h3 {
+            font-size: clamp(20px, 6vw, 26px) !important;
+          }
+
+          [data-journey] {
+            row-gap: 24px;
+          }
+
+          [data-journey]>div {
+            flex: 1 1 44% !important;
+            min-width: 0 !important;
+          }
+
+          [data-tabs] {
+            flex-wrap: nowrap;
+          }
+
+          [data-tabs] .btn {
+            flex: 0 0 auto;
+          }
+
+          .btn-block,
+          [data-cta-mobile] {
+            width: 100%;
+          }
+
+          input.input,
+          select.input,
+          textarea.input {
+            font-size: 16px;
+          }
+        }
+
+        .hero-carousel {
+          position: relative;
+          width: 100%;
+          height: clamp(240px, 38vw, 520px);
+          border-radius: var(--radius-lg);
+          overflow: hidden;
+          border: 1px solid var(--color-divider);
+          background: var(--color-surface);
+        }
+
+        .hero-slide {
+          position: absolute;
+          inset: 0;
+        }
+
+        .hero-slide img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .hero-slide-placeholder {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: var(--font-heading);
+          font-size: 13px;
+          letter-spacing: 0.14em;
+          color: var(--color-neutral-600);
+          background: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0 18px, rgba(255, 255, 255, 0.045) 18px 36px);
+        }
+
+        .hero-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 38px;
+          height: 38px;
+          display: grid;
+          place-items: center;
+          border-radius: 50%;
+          border: 1px solid rgba(245, 245, 245, 0.18);
+          background: rgba(5, 5, 5, 0.35);
+          backdrop-filter: blur(6px);
+          color: var(--color-neutral-200);
+          opacity: 0.55;
+          cursor: pointer;
+          transition: opacity .2s ease, background .2s ease;
+          z-index: 2;
+        }
+
+        .hero-arrow:hover {
+          opacity: 1;
+          background: rgba(5, 5, 5, 0.55);
+        }
+
+        .hero-arrow-prev {
+          left: 14px;
+        }
+
+        .hero-arrow-next {
+          right: 14px;
+        }
+
+        .hero-dots {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 14px;
+          z-index: 2;
+          display: flex;
+          justify-content: center;
+          gap: 8px;
+        }
+
+        .hero-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: rgba(245, 245, 245, 0.35);
+          cursor: pointer;
+          padding: 0;
+          border: 0;
+          transition: background .2s ease, transform .2s ease;
+        }
+
+        .hero-dot[data-active="1"] {
+          background: #f5f5f5;
+          transform: scale(1.3);
+        }
+
+        @media (max-width: 600px) {
+          .hero-arrow {
+            width: 32px;
+            height: 32px;
+          }
+        }
+
+        @media (max-width: 1150px) {
+          [data-solpanel] {
+            position: static !important;
+            box-shadow: none;
+            background: transparent;
+            border: 0;
+            padding: 6px 0 0;
+            min-width: 0;
+          }
+
+          header>div {
+            display: flex !important;
+            flex-wrap: wrap;
+          }
+
+          [data-navtoggle] {
+            display: inline-flex;
+            order: 3;
+            margin-left: 12px !important;
+          }
+
+          [data-navcta] {
+            order: 2;
+            margin-left: auto;
+          }
+
+          [data-navlinks] {
+            order: 4;
+            width: 100%;
+          }
+
+          [data-navlinks] {
+            display: none;
+          }
+
+          [data-navlinks][data-open="1"] {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            width: 100%;
+            gap: 14px;
+            padding-top: 18px;
+            margin-top: 14px;
+            border-top: 1px solid var(--color-divider);
+          }
+
+          [data-navlinks][data-open="1"] .btn {
+            width: 100%;
+          }
+
+          [data-navtopics] {
+            flex-direction: column;
+            align-items: stretch !important;
+            flex: none;
+            gap: 14px;
+          }
+        }
+      </style>
+    </helmet>
+
+    <div
+      style="background-color: var(--color-bg); background-image: radial-gradient(60% 40% at 8% 2%, rgba(116,62,228,0.28), transparent 70%), radial-gradient(50% 38% at 92% 24%, rgba(46,168,240,0.16), transparent 72%), radial-gradient(70% 44% at 18% 58%, rgba(198,63,214,0.12), transparent 70%), radial-gradient(60% 40% at 88% 86%, rgba(46,168,240,0.14), transparent 72%); background-attachment: fixed; background-repeat: no-repeat; color: var(--color-text); font-family: var(--font-body); overflow-x: hidden;">
+
+      <header
+        style="position: sticky; top: 0; z-index: 40; background: rgba(5,5,5,0.82); backdrop-filter: blur(14px); border-bottom: 1px solid var(--color-divider); box-shadow: 0 1px 0 0 rgba(116,62,228,0.35), 0 2px 18px -8px rgba(46,168,240,0.35);">
+        <div
+          style="max-width: 1280px; margin: 0 auto; padding: 16px clamp(20px, 4vw, 48px); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px;">
+          <a href="#topo" style="flex: 0 0 auto; display: flex; align-items: center;"><img src="pluppex-logo.png"
+              alt="Pluppex" style="height: 62px; width: auto; display: block;"></a>
+          <button type="button" data-navtoggle="1" onClick="{{ toggleMenu }}" aria-label="Menu"
+            style="margin-left: auto; width: 40px; height: 40px; align-items: center; justify-content: center; background: transparent; border: 1px solid var(--color-divider); border-radius: var(--radius-md); color: var(--color-text); cursor: pointer;">
+            <span
+              style="display: block; width: 16px; height: 10px; border-top: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;"></span>
+          </button>
+          <nav data-navlinks="1" data-open="{{ menuAttr }}"
+            style="gap: 12px 32px; justify-content: center; flex-wrap: wrap; font-size: 12px; letter-spacing: 0.1em;">
+            <div data-navtopics="1"
+              style="display: flex; flex: 1; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px 32px;">
+              <div data-soldrop="1" style="position: relative;">
+                <button type="button" onClick="{{ toggleSol }}"
+                  style="display: flex; align-items: center; gap: 8px; background: transparent; border: 0; padding: 0; color: var(--color-neutral-300); font-family: var(--font-body); font-size: 12px; letter-spacing: 0.1em; cursor: pointer;"
+                  style-hover="color: #f5f5f5;">
+                  PARA SUA EMPRESA <span style="{{ solCaret }}">▾</span>
+                </button>
+                <sc-if value="{{ solOpen }}" hint-placeholder-val="{{ false }}">
+                  <div data-solpanel="1"
+                    style="position: absolute; top: calc(100% + 14px); left: 0; min-width: 268px; z-index: 50; display: grid; gap: 2px; padding: 10px; border: 1px solid var(--color-divider); border-radius: var(--radius-md); background: rgba(10,10,13,0.97); backdrop-filter: blur(12px); box-shadow: var(--shadow-md);">
+                    <p
+                      style="margin: 0; padding: 8px 12px 10px; font-size: 10px; letter-spacing: 0.18em; color: var(--color-neutral-500);">
+                      SOLUÇÕES</p>
+                    <a href="#solucoes" onClick="{{ pickAcq }}"
+                      style="padding: 11px 12px; border-radius: var(--radius-sm); color: var(--color-neutral-200); font-size: 12.5px; letter-spacing: 0.08em;"
+                      style-hover="background: rgba(116,62,228,0.16); color: #f5f5f5;">AQUISIÇÃO</a>
+                    <a href="#solucoes" onClick="{{ pickSpy }}"
+                      style="padding: 11px 12px; border-radius: var(--radius-sm); color: var(--color-neutral-200); font-size: 12.5px; letter-spacing: 0.08em;"
+                      style-hover="background: rgba(116,62,228,0.16); color: #f5f5f5;">ORGANIZAÇÃO</a>
+                    <a href="#aurora" onClick="{{ pickInt }}"
+                      style="padding: 11px 12px; border-radius: var(--radius-sm); color: var(--color-neutral-200); font-size: 12.5px; letter-spacing: 0.08em;"
+                      style-hover="background: rgba(116,62,228,0.16); color: #f5f5f5;">INTELIGÊNCIA · AURORA</a>
+                    <a href="#solucoes" onClick="{{ pickOps }}"
+                      style="padding: 11px 12px; border-radius: var(--radius-sm); color: var(--color-neutral-200); font-size: 12.5px; letter-spacing: 0.08em;"
+                      style-hover="background: rgba(116,62,228,0.16); color: #f5f5f5;">OPERAÇÃO</a>
+                    <span style="height: 1px; margin: 8px 12px; background: var(--color-divider);"></span>
+                    <a href="#maquina" onClick="{{ closeSol }}"
+                      style="padding: 11px 12px; border-radius: var(--radius-sm); color: var(--color-neutral-200); font-size: 12.5px; letter-spacing: 0.08em;"
+                      style-hover="background: rgba(116,62,228,0.16); color: #f5f5f5;">COMO A MÁQUINA FUNCIONA</a>
+                    <a href="#modelos" onClick="{{ closeSol }}"
+                      style="padding: 11px 12px; border-radius: var(--radius-sm); color: var(--color-neutral-200); font-size: 12.5px; letter-spacing: 0.08em;"
+                      style-hover="background: rgba(116,62,228,0.16); color: #f5f5f5;">MODELOS DE ENTREGA</a>
+                    <a href="#segmentos" onClick="{{ closeSol }}"
+                      style="padding: 11px 12px; border-radius: var(--radius-sm); color: var(--color-neutral-200); font-size: 12.5px; letter-spacing: 0.08em;"
+                      style-hover="background: rgba(116,62,228,0.16); color: #f5f5f5;">SEGMENTOS</a>
+                  </div>
+                </sc-if>
+              </div>
+              <a href="Pluppex%20Atendimento.dc.html" style="color: var(--color-neutral-300);"
+                style-hover="color: #f5f5f5;">ATENDIMENTO AO CLIENTE</a>
+            </div>
+          </nav>
+          <a class="btn btn-primary" data-navcta="1" href="#diagnostico"
+            style="font-size: 11.5px; letter-spacing: 0.1em; padding: 11px 18px; justify-self: end;">CONTRATE A
+            PLUPPEX</a>
+        </div>
+      </header>
+
+      <section id="topo">
+        <div
+          style="max-width: 1280px; margin: 0 auto; padding: clamp(28px, 6vh, 56px) clamp(20px, 4vw, 48px) 0;">
+          <div class="hero-carousel">
+            <sc-for list="{{ heroSlides }}" as="s" hint-placeholder-count="5">
+              <div class="hero-slide" style="{{ s.style }}">
+                <sc-if value="{{ s.hasImage }}" hint-placeholder-val="{{ false }}">
+                  <img src="{{ s.src }}" alt="{{ s.alt }}">
+                </sc-if>
+                <sc-if value="{{ s.noImage }}" hint-placeholder-val="{{ true }}">
+                  <div class="hero-slide-placeholder">
+                    <span>{{ s.label }}</span>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-for>
+            <button type="button" class="hero-arrow hero-arrow-prev" onClick="{{ heroPrev }}"
+              aria-label="Slide anterior">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 18-6-6 6-6"></path>
+              </svg>
+            </button>
+            <button type="button" class="hero-arrow hero-arrow-next" onClick="{{ heroNext }}"
+              aria-label="Próximo slide">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 18 6-6-6-6"></path>
+              </svg>
+            </button>
+            <div class="hero-dots">
+              <sc-for list="{{ heroDots }}" as="d" hint-placeholder-count="5">
+                <button type="button" class="hero-dot" data-active="{{ d.activeAttr }}" onClick="{{ d.pick }}"
+                  aria-label="Ir para o slide"></button>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="width: 100%; margin-top: clamp(48px, 7vw, 80px);">
+            <p
+              style="margin: 0 0 26px; text-align: center; font-size: 11px; letter-spacing: 0.22em; color: var(--color-neutral-400);">
+              A JORNADA DO SEU CLIENTE — DO SINAL À RECEITA</p>
+            <div data-journey="1" style="display: flex; flex-wrap: wrap; align-items: flex-start; row-gap: 28px;">
+              <sc-for list="{{ journey }}" as="j" hint-placeholder-count="5">
+                <div style="flex: 1 1 168px; min-width: 168px; display: flex; align-items: flex-start; gap: 0;">
+                  <div style="display: grid; justify-items: center; gap: 12px; width: 100%;">
+                    <div
+                      style="position: relative; display: flex; align-items: center; justify-content: center; width: 100%; height: 26px;">
+                      <span style="{{ j.trackStyle }}"></span>
+                      <span style="{{ j.dotStyle }}"></span>
+                    </div>
+                    <span style="{{ j.labelStyle }}">{{ j.label }}</span>
+                    <span
+                      style="max-width: 20ch; text-align: center; font-size: 12.5px; line-height: 1.5; color: var(--color-neutral-400);">{{
+                      j.caption }}</span>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+            <div
+              style="margin-top: 26px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, #c63fd6, #743ee4 24%, #2ea8f0 50%, #743ee4 76%, #c63fd6 100%); background-size: 200% 100%; animation: pxtravel 6s linear infinite;">
+            </div>
+          </div>
+
+          <div style="text-align: center; display: grid; justify-items: center; max-width: 1180px; width: 100%; margin: clamp(48px, 7vw, 80px) auto 0;">
+            <h1 data-h1="1"
+              style="margin: 0; font-family: var(--font-heading); line-height: 1.04; letter-spacing: -0.035em;">VENDER É
+              CIÊNCIA, NÃO SORTE!</h1>
+            <p
+              style="margin: 32px 0 0; max-width: 74ch; font-size: 18.5px; line-height: 1.55; color: var(--color-neutral-300); text-wrap: pretty;">
+              Conectamos tráfego pago, tecnologia proprietária, CRM sob medida e automações com inteligência artificial
+              para otimizar seu tempo, gerar mais oportunidades e transformar conversas em contratos fechados e dinheiro
+              no caixa.</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 40px;">
+              <a class="btn btn-primary" data-cta-mobile="1" href="#diagnostico"
+                style="padding: 18px 30px; font-size: 13.5px; letter-spacing: 0.1em;">CONTRATE A PLUPPEX</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="solucoes">
+
+        <div style="max-width: 1280px; margin: 0px auto; padding: clamp(18px, 8vw, 0px) clamp(20px, 4vw, 20px);">
+          <h2
+            style="margin: 0; font-family: var(--font-heading); font-size: clamp(18px, 2.4vw, 30px); line-height: 1.18; letter-spacing: -0.02em">
+            A SUA MÁQUINA DE GERAÇÃO DE OPORTUNIDADE E RECEITA EM APENAS 3 PASSOS...</h2>
+
+          <div style="margin-top: 20px;"></div>
+        </div>
+
+        <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 20px) clamp(20px, 4vw, 48px);">
+          <p style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent-300);">01 |
+            SOLUÇÕES</p>
+
+          <h2
+            style="margin: 0; max-width: 20ch; font-family: var(--font-heading); font-size: clamp(28px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.03em;">
+            CONHEÇA AS SOLUÇÕES DA PLUPPEX.</h2>
+          <p
+            style="margin: 22px 0 0; max-width: 56ch; font-size: 18px; line-height: 1.6; color: var(--color-neutral-300);">
+            Tudo o que sua empresa precisa para gerar oportunidades, organizar a operação e transformar oportunidades
+            em receita.</p>
+
+          <div role="tablist" data-tabs="1"
+            style="display: flex; flex-wrap: wrap; gap: 10px; margin: 44px 0 0; overflow-x: auto; padding-bottom: 4px;">
+            <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+              <button type="button" class="{{ t.cls }}" onClick="{{ t.pick }}"
+                style="font-size: 12px; letter-spacing: 0.1em; padding: 12px 20px; white-space: nowrap;">{{ t.label
+                }}</button>
+            </sc-for>
+          </div>
+
+          <div style="margin-top: 40px; border-top: 1px solid var(--color-divider); padding-top: 40px;">
+            <sc-if value="{{ isAquisicao }}" hint-placeholder-val="{{ true }}">
+              <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(28px, 4vw, 64px);">
+                <div>
+                  <p style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
+                    AQUISIÇÃO</p>
+                  <h3
+                    style="margin: 0; font-family: var(--font-heading); font-size: clamp(24px, 2.8vw, 36px); line-height: 1.1; letter-spacing: -0.025em;">
+                    COLOCAMOS NOVAS OPORTUNIDADES NA SUA OPERAÇÃO.</h3>
+                  <p
+                    style="margin: 20px 0 0; max-width: 46ch; font-size: 17px; line-height: 1.6; color: var(--color-neutral-300);">
+                    Geramos demanda e colocamos novas oportunidades dentro da sua operação comercial.</p>
+                  <p
+                    style="margin: 28px 0 0; display: inline-block; padding: 10px 16px; border: 1px solid var(--color-accent-700); border-radius: var(--radius-md); font-size: 12px; letter-spacing: 0.12em; color: var(--color-accent-200);">
+                    MAIS OPORTUNIDADES ENTRANDO.</p>
+                </div>
+                <ul style="margin: 0; padding: 0; list-style: none; display: grid; gap: 0; align-content: start;">
+                  <li
+                    style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                    TRÁFEGO PAGO</li>
+                  <li
+                    style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                    CRIATIVOS</li>
+                  <li
+                    style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                    LANDING PAGES</li>
+                  <li
+                    style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                    FUNIS</li>
+                  <li
+                    style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                    GERAÇÃO DE DEMANDA</li>
+                  <li
+                    style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                    ESTRATÉGIA DE AQUISIÇÃO</li>
+                  <li
+                    style="padding: 16px 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                    OTIMIZAÇÃO DE CAMPANHAS</li>
+                </ul>
+              </div>
+            </sc-if>
+            <sc-if value="{{ isSpy }}" hint-placeholder-val="{{ false }}">
+              <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(28px, 4vw, 64px); align-items: start;">
+                <div>
+                  <p style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
+                    ORGANIZAÇÃO</p>
+                  <h3
+                    style="margin: 0; font-family: var(--font-heading); font-size: clamp(24px, 2.8vw, 36px); line-height: 1.1; letter-spacing: -0.025em;">
+                    ORGANIZAMOS SUA OPERAÇÃO COMERCIAL.</h3>
+                  <p
+                    style="margin: 20px 0 0; max-width: 46ch; font-size: 17px; line-height: 1.6; color: var(--color-neutral-300);">
+                    O S. P. Y. é onde sua equipe organiza e opera as oportunidades da empresa.</p>
+                  <p
+                    style="margin: 28px 0 0; max-width: 30ch; font-family: var(--font-heading); font-size: 20px; line-height: 1.25; letter-spacing: -0.01em; color: var(--color-accent-200);">
+                    NENHUMA OPORTUNIDADE DEVERIA DESAPARECER DENTRO DA OPERAÇÃO.</p>
+                  <ul style="margin: 28px 0 0; padding: 0; list-style: none; display: grid; align-content: start;">
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      CRM</li>
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      PIPELINE</li>
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      GESTÃO DE LEADS</li>
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      GESTÃO DE OPORTUNIDADES</li>
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      WHATSAPP</li>
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      FOLLOW-UP</li>
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      PROCESSOS COMERCIAIS</li>
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      AUTOMAÇÃO COMERCIAL</li>
+                  </ul>
+                </div>
+                <div class="crm-3d-wrapper" style="align-self: start;">
+                  <div class="crm-3d-card">
+                    <img src="uploads/spy-crm-dashboard.png" alt="S. P. Y. | CRM Dashboard"
+                      style="width: 100%; height: auto; display: block;" />
+                  </div>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ isInteligencia }}" hint-placeholder-val="{{ false }}">
+              <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(28px, 4vw, 64px);">
+                <div>
+                  <p style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
+                    INTELIGÊNCIA</p>
+                  <h3
+                    style="margin: 0; font-family: var(--font-heading); font-size: clamp(24px, 2.8vw, 36px); line-height: 1.1; letter-spacing: -0.025em;">
+                    SUA OPERAÇÃO TAMBÉM PRECISA PENSAR.</h3>
+                  <p
+                    style="margin: 20px 0 0; max-width: 46ch; font-size: 17px; line-height: 1.6; color: var(--color-neutral-300);">
+                    A Aurora é a inteligência da Máquina de Receita. Ela entende as informações disponíveis na
+                    operação e permite consultar, perguntar e solicitar ações em linguagem natural.</p>
+                  <a class="btn btn-primary" href="#solucoes" onClick="{{ pickOps }}"
+                    style="margin-top: 28px; padding: 14px 22px; font-size: 12.5px; letter-spacing: 0.1em;">VER A
+                    OPERAÇÃO</a>
+                </div>
+                <div
+                  style="align-self: start; border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 28px; background: linear-gradient(160deg, rgba(116,62,228,0.2), rgba(46,168,240,0.08) 55%, transparent 78%);">
+                  <p style="margin: 0; font-family: var(--font-heading); font-size: 28px; letter-spacing: 0.1em;">
+                    AURORA</p>
+                  <p style="margin: 12px 0 0; font-size: 12px; letter-spacing: 0.16em; color: var(--color-accent-200);">
+                    A INTELIGÊNCIA DA MÁQUINA DE RECEITA.</p>
+                  <p style="margin: 24px 0 0; font-size: 15px; line-height: 1.6; color: var(--color-neutral-300);">A
+                    inteligência que entende e movimenta sua operação. Não é um produto separado: é parte da Máquina
+                    de Receita.</p>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ isOperacao }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <div
+                  style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(28px, 4vw, 64px); align-items: start;">
+                  <div>
+                    <p
+                      style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
+                      OPERAÇÃO</p>
+                    <h3
+                      style="margin: 0; font-family: var(--font-heading); font-size: clamp(24px, 2.8vw, 36px); line-height: 1.1; letter-spacing: -0.025em;">
+                      FAZEMOS A MÁQUINA DE RECEITA FUNCIONAR.</h3>
+                    <p
+                      style="margin: 20px 0 0; max-width: 46ch; font-size: 17px; line-height: 1.6; color: var(--color-neutral-300);">
+                      Da estratégia à operação.</p>
+                  </div>
+                  <ul style="margin: 0; padding: 0; list-style: none; display: grid; align-content: start;">
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      REVOPS</li>
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      PROCESSOS COMERCIAIS</li>
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      TECNOLOGIA</li>
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      INTEGRAÇÕES</li>
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      AUTOMAÇÃO</li>
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      BUSINESS INTELLIGENCE</li>
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      INDICADORES</li>
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      GESTÃO DE PERFORMANCE</li>
+                    <li
+                      style="padding: 16px 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      GESTÃO FINANCEIRA COMERCIAL</li>
+                  </ul>
+                </div>
+
+                <!-- VEJA A MÁQUINA FUNCIONANDO INSIDE OPERAÇÃO -->
+                <div style="margin-top: 48px; border-top: 1px solid var(--color-divider); padding-top: 36px;">
+                  <p style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
+                    VEJA A MÁQUINA FUNCIONANDO</p>
+                  <div data-tabs="1"
+                    style="display: flex; flex-wrap: wrap; gap: 10px; overflow-x: auto; padding-bottom: 4px;">
+                    <sc-for list="{{ foldTabs }}" as="t" hint-placeholder-count="4">
+                      <button type="button" class="{{ t.cls }}" onClick="{{ t.pick }}"
+                        style="font-size: 12px; letter-spacing: 0.1em; padding: 12px 20px; white-space: nowrap;">{{
+                        t.label }}</button>
+                    </sc-for>
+                  </div>
+                  <div style="margin-top: 36px;">
+                    <sc-if value="{{ isFoldAurora }}" hint-placeholder-val="{{ true }}">
+                      <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(32px, 5vw, 64px); align-items: start;">
+                        <div>
+                          <p
+                            style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent-300);">
+                            AURORA</p>
+                          <h2
+                            style="margin: 0; font-family: var(--font-heading); font-size: clamp(24px, 3.2vw, 42px); line-height: 1.08; letter-spacing: -0.03em;">
+                            SUA OPERAÇÃO RESPONDE A VOCÊ.</h2>
+                          <p
+                            style="margin: 20px 0 0; font-family: var(--font-heading); font-size: 14px; letter-spacing: 0.18em; color: var(--color-neutral-300);">
+                            PERGUNTE. CONSULTE. SOLICITE.</p>
+                          <p
+                            style="margin: 20px 0 0; max-width: 44ch; font-size: 16px; line-height: 1.6; color: var(--color-neutral-300);">
+                            Você não precisa abrir várias telas para descobrir o que está acontecendo na sua operação.
+                            Você pode perguntar para a Aurora.</p>
+                          <p
+                            style="margin: 28px 0 0; max-width: 30ch; font-family: var(--font-heading); font-size: clamp(18px, 2vw, 24px); line-height: 1.25; letter-spacing: -0.02em;">
+                            VOCÊ PERGUNTA. A AURORA ENTENDE. A OPERAÇÃO ACONTECE.</p>
+                          <p
+                            style="margin: 24px 0 0; font-family: ui-monospace, monospace; font-size: 11px; line-height: 1.6; color: var(--color-neutral-500);">
+                            Os diálogos ao lado são exemplos visuais. Os números não representam dados reais.</p>
+                        </div>
+                        <div
+                          style="border: 1px solid var(--color-divider); border-radius: var(--radius-lg); background: var(--color-surface); box-shadow: var(--shadow-md); overflow: hidden;">
+                          <div style="display: flex; border-bottom: 1px solid var(--color-divider);">
+                            <sc-for list="{{ auroraTabs }}" as="a" hint-placeholder-count="2">
+                              <button type="button" onClick="{{ a.pick }}" style="{{ a.style }}">{{ a.label
+                                }}</button>
+                            </sc-for>
+                          </div>
+                          <div
+                            style="padding: 24px; display: grid; gap: 14px; min-height: 320px; align-content: start;">
+                            <sc-for list="{{ auroraMsgs }}" as="m" hint-placeholder-count="4">
+                              <div style="{{ m.rowStyle }}">
+                                <div style="{{ m.bubbleStyle }}">
+                                  <span
+                                    style="display: block; font-size: 9.5px; letter-spacing: 0.18em; margin-bottom: 6px; opacity: 0.6;">{{
+                                    m.who }}</span>
+                                  {{ m.text }}
+                                </div>
+                              </div>
+                            </sc-for>
+                          </div>
+                        </div>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{ isFoldZap }}" hint-placeholder-val="{{ false }}">
+                      <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(32px, 5vw, 64px); align-items: start;">
+                        <div>
+                          <h2
+                            style="margin: 0; max-width: 22ch; font-family: var(--font-heading); font-size: clamp(24px, 3.2vw, 42px); line-height: 1.08; letter-spacing: -0.03em;">
+                            A OPERAÇÃO PODE COMEÇAR COM UMA MENSAGEM.</h2>
+                          <p
+                            style="margin: 20px 0 0; max-width: 46ch; font-size: 16px; line-height: 1.6; color: var(--color-neutral-300);">
+                            Você conversa com a Aurora pelo WhatsApp e solicita informações ou ações da operação. Ela
+                            consulta, responde e movimenta o S. P. Y. | CRM conforme as capacidades implementadas.</p>
+                          <div style="margin-top: 24px; display: grid; gap: 10px; max-width: 46ch;">
+                            <p
+                              style="margin: 0; padding: 14px 18px; border: 1px solid var(--color-divider); border-radius: var(--radius-md); font-size: 15px; color: var(--color-neutral-200);">
+                              “Me mostra as oportunidades quentes de hoje.”</p>
+                            <p
+                              style="margin: 0; padding: 14px 18px; border: 1px solid var(--color-divider); border-radius: var(--radius-md); font-size: 15px; color: var(--color-neutral-200);">
+                              “Adiciona esse contato como lead.”</p>
+                          </div>
+                        </div>
+                        <div
+                          style="display: grid; gap: 0; justify-items: stretch; max-width: 400px; margin: 0 auto; width: 100%;">
+                          <div
+                            style="padding: 20px 24px; border: 1px solid var(--color-divider); border-radius: var(--radius-md); font-family: var(--font-heading); font-size: 14px; letter-spacing: 0.16em;">
+                            WHATSAPP</div>
+                          <div
+                            style="height: 32px; width: 2px; margin-left: 28px; background: linear-gradient(180deg, #2ea8f0, #743ee4); background-size: 100% 200%; animation: pxflow 2.4s linear infinite;">
+                          </div>
+                          <div
+                            style="padding: 20px 24px; border: 1px solid var(--color-accent-700); border-radius: var(--radius-md); background: rgba(116,62,228,0.12); font-family: var(--font-heading); font-size: 14px; letter-spacing: 0.16em; color: var(--color-accent-200);">
+                            AURORA</div>
+                          <div
+                            style="height: 32px; width: 2px; margin-left: 28px; background: linear-gradient(180deg, #2ea8f0, #743ee4); background-size: 100% 200%; animation: pxflow 2.4s linear infinite;">
+                          </div>
+                          <div
+                            style="padding: 20px 24px; border: 1px solid var(--color-divider); border-radius: var(--radius-md); font-family: var(--font-heading); font-size: 14px; letter-spacing: 0.16em;">
+                            S. P. Y. | CRM</div>
+                          <div
+                            style="height: 32px; width: 2px; margin-left: 28px; background: linear-gradient(180deg, #2ea8f0, #743ee4); background-size: 100% 200%; animation: pxflow 2.4s linear infinite;">
+                          </div>
+                          <div
+                            style="padding: 20px 24px; border: 1px solid var(--color-divider); border-radius: var(--radius-md); font-family: var(--font-heading); font-size: 14px; letter-spacing: 0.16em;">
+                            OPERAÇÃO</div>
+                        </div>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{ isFoldRadar }}" hint-placeholder-val="{{ false }}">
+                      <div>
+                        <p
+                          style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent-300);">
+                          RADAR DE OPORTUNIDADES</p>
+                        <h2
+                          style="margin: 0; max-width: 26ch; font-family: var(--font-heading); font-size: clamp(24px, 3.2vw, 42px); line-height: 1.08; letter-spacing: -0.03em;">
+                          A AURORA TAMBÉM ENXERGA O QUE PODE PASSAR DESPERCEBIDO.</h2>
+                        <p
+                          style="margin: 20px 0 0; max-width: 52ch; font-size: 16px; line-height: 1.6; color: var(--color-neutral-300);">
+                          A inteligência identifica sinais relevantes dentro da operação e ajuda a encontrar
+                          oportunidades. Ela transforma esses sinais em informação e ação.</p>
+                        <div
+                          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; margin-top: 36px;">
+                          <p
+                            style="margin: 0; padding: 20px; border-top: 2px solid var(--color-accent); background: var(--color-surface); border-radius: 0 0 var(--radius-md) var(--radius-md); font-size: 14px; line-height: 1.45; letter-spacing: 0.04em;">
+                            LEAD DEMONSTROU INTENÇÃO DE COMPRA.</p>
+                          <p
+                            style="margin: 0; padding: 20px; border-top: 2px solid var(--color-accent-700); background: var(--color-surface); border-radius: 0 0 var(--radius-md) var(--radius-md); font-size: 14px; line-height: 1.45; letter-spacing: 0.04em;">
+                            OPORTUNIDADE ESTÁ SEM CONTATO.</p>
+                          <p
+                            style="margin: 0; padding: 20px; border-top: 2px solid var(--color-accent-700); background: var(--color-surface); border-radius: 0 0 var(--radius-md) var(--radius-md); font-size: 14px; line-height: 1.45; letter-spacing: 0.04em;">
+                            CLIENTE VOLTOU A INTERAGIR.</p>
+                          <p
+                            style="margin: 0; padding: 20px; border-top: 2px solid var(--color-accent-700); background: var(--color-surface); border-radius: 0 0 var(--radius-md) var(--radius-md); font-size: 14px; line-height: 1.45; letter-spacing: 0.04em;">
+                            NOVA NECESSIDADE IDENTIFICADA.</p>
+                          <p
+                            style="margin: 0; padding: 20px; border-top: 2px solid var(--color-accent-700); background: var(--color-surface); border-radius: 0 0 var(--radius-md) var(--radius-md); font-size: 14.5px; line-height: 1.45; letter-spacing: 0.04em;">
+                            FOLLOW-UP PODE SER NECESSÁRIO.</p>
+                        </div>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{ isFoldAtend }}" hint-placeholder-val="{{ false }}">
+                      <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(28px, 4vw, 64px); align-items: start;">
+                        <div>
+                          <p
+                            style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
+                            ATENDIMENTO AO CLIENTE</p>
+                          <h3
+                            style="margin: 0; font-family: var(--font-heading); font-size: clamp(24px, 2.8vw, 36px); line-height: 1.1; letter-spacing: -0.025em;">
+                            FALE COM QUEM OPERA A SUA CONTA.</h3>
+                          <p
+                            style="margin: 20px 0 0; max-width: 46ch; font-size: 16px; line-height: 1.6; color: var(--color-neutral-300);">
+                            Preencha o formulário e continue a conversa no WhatsApp. Suporte do S. P. Y. | CRM,
+                            campanhas, financeiro ou nova contratação.</p>
+                          <a class="btn btn-primary" href="Pluppex%20Atendimento.dc.html"
+                            style="margin-top: 28px; padding: 15px 24px; font-size: 12.5px; letter-spacing: 0.1em;">IR
+                            PARA O ATENDIMENTO</a>
+                        </div>
+                        <div style="display: grid; gap: 12px;">
+                          <p
+                            style="margin: 0; display: flex; gap: 16px; padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15.5px; line-height: 1.5;">
+                            <span
+                              style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">01</span>Preencha
+                            nome, telefone e e-mail.
+                          </p>
+                          <p
+                            style="margin: 0; display: flex; gap: 16px; padding: 16px 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); font-size: 15.5px; line-height: 1.5;">
+                            <span
+                              style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">02</span>Clique
+                            em “Falar no WhatsApp” e siga por lá.
+                          </p>
+                          <p
+                            style="margin: 8px 0 0; font-family: ui-monospace, monospace; font-size: 12.5px; letter-spacing: 0.06em; color: var(--color-neutral-400);">
+                            +55 63 98478-7555</p>
+                        </div>
+                      </div>
+                    </sc-if>
+                  </div>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+      </section>
+
+
+
+
+      <section>
+        <div
+          style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(32px, 5vw, 72px);">
+          <div>
+            <p style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
+              CONVERSAS COMERCIAIS</p>
+            <h2
+              style="margin: 0; max-width: 22ch; font-family: var(--font-heading); font-size: clamp(26px, 3.2vw, 40px); line-height: 1.08; letter-spacing: -0.03em;">
+              A INTELIGÊNCIA USA O QUE JÁ ACONTECE NA SUA OPERAÇÃO.</h2>
+            <p
+              style="margin: 22px 0 0; max-width: 44ch; font-size: 17px; line-height: 1.6; color: var(--color-neutral-300);">
+              A Aurora utiliza as informações disponíveis das interações comerciais, conforme as capacidades
+              implementadas.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px;">
+              <span class="tag tag-outline"
+                style="color: var(--color-accent-300); border-color: var(--color-accent-700);">WHATSAPP</span>
+              <span class="tag tag-outline"
+                style="color: var(--color-accent-300); border-color: var(--color-accent-700);">LIGAÇÕES</span>
+              <span class="tag tag-outline"
+                style="color: var(--color-accent-300); border-color: var(--color-accent-700);">VIDEOCONFERÊNCIAS</span>
+              <span class="tag tag-outline"
+                style="color: var(--color-accent-300); border-color: var(--color-accent-700);">CONVERSAS
+                COMERCIAIS</span>
+              <span class="tag tag-outline"
+                style="color: var(--color-accent-300); border-color: var(--color-accent-700);">ATIVIDADES</span>
+              <span class="tag tag-outline"
+                style="color: var(--color-accent-300); border-color: var(--color-accent-700);">S. P. Y. | CRM</span>
+            </div>
+          </div>
+          <ul style="margin: 0; padding: 0; list-style: none; display: grid; align-content: start;">
+            <li
+              style="padding: 15px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+              ATUALIZAR NOTAS</li>
+            <li
+              style="padding: 15px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+              REGISTRAR INFORMAÇÕES</li>
+            <li
+              style="padding: 15px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+              IDENTIFICAR INTENÇÃO</li>
+            <li
+              style="padding: 15px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+              RECOMENDAR FOLLOW-UP</li>
+            <li
+              style="padding: 15px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+              DETECTAR OPORTUNIDADES</li>
+            <li
+              style="padding: 15px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+              IDENTIFICAR RISCOS</li>
+            <li
+              style="padding: 15px 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+              GERAR ALERTAS</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="modelos">
+        <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
+          <p style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent-300);">02 |
+            MODELOS DE ENTREGA</p>
+          <h2
+            style="margin: 0; max-width: 22ch; font-family: var(--font-heading); font-size: clamp(28px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.03em;">
+            ESCOLHA COMO A PLUPPEX PODE OPERAR COM SUA EMPRESA.</h2>
+          <p
+            style="margin: 22px 0 0; max-width: 48ch; font-size: 18px; line-height: 1.6; color: var(--color-neutral-300);">
+            Cada empresa está em um momento diferente. Escolha o modelo que melhor se adapta à sua operação.</p>
+          <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px; margin-top: 48px;">
+            <sc-for list="{{ models }}" as="m" hint-placeholder-count="4">
+              <button type="button" onClick="{{ m.pick }}" style="{{ m.style }}">
+                <span
+                  style="display: block; font-family: var(--font-heading); font-size: 19px; letter-spacing: 0.06em;">{{
+                  m.label }}</span>
+                <span
+                  style="display: block; margin-top: 14px; font-size: 14.5px; line-height: 1.55; color: var(--color-neutral-300);">{{
+                  m.body }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <section id="combinacao"
+        style="background: linear-gradient(180deg, rgba(116,62,228,0.12), rgba(46,168,240,0.05) 45%, transparent);">
+        <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
+          <p style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent-300);">03 |
+            COMBINAÇÃO</p>
+          <h2
+            style="margin: 0; max-width: 22ch; font-family: var(--font-heading); font-size: clamp(28px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.03em;">
+            ESCOLHA OS COMPONENTES E O MODELO IDEAL PARA SUA EMPRESA.</h2>
+          <p
+            style="margin: 22px 0 0; max-width: 48ch; font-size: 18px; line-height: 1.6; color: var(--color-neutral-300);">
+            Você não precisa contratar tudo. Precisa começar pelo que sua operação mais precisa.</p>
+
+          <div style="margin-top: 48px; display: grid; gap: 36px;">
+            <div>
+              <p style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.18em; color: var(--color-neutral-500);">
+                COMPONENTES</p>
+              <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                <sc-for list="{{ components }}" as="c" hint-placeholder-count="4">
+                  <button type="button" class="{{ c.cls }}" onClick="{{ c.pick }}"
+                    style="font-size: 12.5px; letter-spacing: 0.1em; padding: 13px 20px;">{{ c.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+            <div>
+              <p style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.18em; color: var(--color-neutral-500);">
+                MODELO</p>
+              <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                <sc-for list="{{ modelChips }}" as="c" hint-placeholder-count="4">
+                  <button type="button" class="{{ c.cls }}" onClick="{{ c.pick }}"
+                    style="font-size: 12.5px; letter-spacing: 0.1em; padding: 13px 20px;">{{ c.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+            <div
+              style="border: 1px solid var(--color-divider); border-radius: var(--radius-lg); padding: clamp(24px, 3vw, 40px); background: var(--color-surface);">
+              <p style="margin: 0; font-size: 11px; letter-spacing: 0.18em; color: var(--color-neutral-500);">SUA
+                COMBINAÇÃO</p>
+              <p
+                style="margin: 18px 0 0; font-family: var(--font-heading); font-size: clamp(20px, 2.6vw, 32px); line-height: 1.25; letter-spacing: -0.01em; color: var(--color-accent-200);">
+                {{ comboLabel }}</p>
+              <p
+                style="margin: 20px 0 0; max-width: 44ch; font-size: 16px; line-height: 1.6; color: var(--color-neutral-300);">
+                {{ comboHint }}</p>
+              <a class="btn btn-primary" href="#diagnostico"
+                style="margin-top: 28px; padding: 15px 24px; font-size: 12.5px; letter-spacing: 0.1em;">DIAGNOSTICAR
+                MINHA OPERAÇÃO</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="maquina" style="border-bottom: 1px solid var(--color-divider);">
+        <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
+          <h2
+            style="margin: 0; max-width: 20ch; font-family: var(--font-heading); font-size: clamp(28px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -0.035em;">
+            COMO A MÁQUINA DE RECEITA FUNCIONA.</h2>
+          <div style="margin-top: 56px; display: grid; gap: 1px; background: var(--color-divider);">
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px 40px; padding: 28px 4px; background: rgba(14,14,17,0.55); align-items: baseline;">
+              <p
+                style="margin: 0; display: flex; align-items: baseline; gap: 18px; font-family: var(--font-heading); font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -0.015em;">
+                <span
+                  style="font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">01</span>AQUISIÇÃO
+              </p>
+              <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--color-neutral-300);">Gera
+                oportunidades.</p>
+            </div>
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px 40px; padding: 28px 4px; background: rgba(14,14,17,0.55); align-items: baseline;">
+              <p
+                style="margin: 0; display: flex; align-items: baseline; gap: 18px; font-family: var(--font-heading); font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -0.015em;">
+                <span style="font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">02</span>S. P. Y.
+                | CRM
+              </p>
+              <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--color-neutral-300);">Organiza a
+                operação.</p>
+            </div>
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px 40px; padding: 28px 4px; background: rgba(14,14,17,0.55); align-items: baseline;">
+              <p
+                style="margin: 0; display: flex; align-items: baseline; gap: 18px; font-family: var(--font-heading); font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -0.015em;">
+                <span style="font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">03</span>AURORA
+              </p>
+              <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--color-neutral-300);">Entende os
+                dados, responde perguntas, identifica sinais e movimenta a operação.</p>
+            </div>
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px 40px; padding: 28px 4px; background: rgba(14,14,17,0.55); align-items: baseline;">
+              <p
+                style="margin: 0; display: flex; align-items: baseline; gap: 18px; font-family: var(--font-heading); font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -0.015em;">
+                <span style="font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">04</span>AÇÃO
+              </p>
+              <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--color-neutral-300);">A equipe
+                executa.</p>
+            </div>
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px 40px; padding: 28px 4px; background: rgba(14,14,17,0.55); align-items: baseline;">
+              <p
+                style="margin: 0; display: flex; align-items: baseline; gap: 18px; font-family: var(--font-heading); font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -0.015em;">
+                <span style="font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">05</span>RECEITA
+              </p>
+              <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--color-neutral-300);">Oportunidades
+                viram negócios.</p>
+            </div>
+          </div>
+          <p
+            style="margin: 48px 0 0; font-family: var(--font-heading); font-size: clamp(22px, 3vw, 38px); letter-spacing: 0.04em; color: var(--color-accent-200);">
+            DO SINAL À RECEITA.</p>
+          <p
+            style="margin: 16px 0 0; font-family: var(--font-heading); font-size: clamp(16px, 1.6vw, 20px); letter-spacing: 0.06em; color: var(--color-neutral-400);">
+            NÃO ENTREGAMOS PEÇAS. CONSTRUÍMOS A OPERAÇÃO.</p>
+        </div>
+      </section>
+
+      <section id="diagnostico" style="border-bottom: 1px solid var(--color-divider);">
+        <div
+          style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: clamp(32px, 5vw, 72px); align-items: start;">
+          <div>
+            <h2
+              style="margin: 0; max-width: 20ch; font-family: var(--font-heading); font-size: clamp(28px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.03em;">
+              DESCUBRA O QUE SUA OPERAÇÃO PRECISA.</h2>
+            <p style="margin: 22px 0 0; font-size: 18px; color: var(--color-neutral-300);">Leva menos de um minuto.</p>
+            <div style="margin-top: 40px; display: grid; gap: 0;">
+              <p
+                style="margin: 0; display: flex; gap: 18px; padding: 20px 0; border-top: 1px solid var(--color-divider); font-size: 16px; letter-spacing: 0.04em;">
+                <span
+                  style="font-family: var(--font-heading); font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">01</span>CONTE
+                COMO SUA EMPRESA VENDE.
+              </p>
+              <p
+                style="margin: 0; display: flex; gap: 18px; padding: 20px 0; border-top: 1px solid var(--color-divider); font-size: 16px; letter-spacing: 0.04em;">
+                <span
+                  style="font-family: var(--font-heading); font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">02</span>IDENTIFICAMOS
+                O PRINCIPAL GARGALO.
+              </p>
+              <p
+                style="margin: 0; display: flex; gap: 18px; padding: 20px 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); font-size: 16px; letter-spacing: 0.04em;">
+                <span
+                  style="font-family: var(--font-heading); font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">03</span>MOSTRAMOS
+                A ESTRUTURA QUE FAZ SENTIDO.
+              </p>
+            </div>
+          </div>
+          <div
+            style="border: 1px solid var(--color-divider); border-radius: var(--radius-lg); padding: clamp(24px, 3vw, 36px); background: var(--color-surface); box-shadow: var(--shadow-md);">
+            <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+              <div style="padding: 40px 0;">
+                <p
+                  style="margin: 0; font-family: var(--font-heading); font-size: 26px; letter-spacing: -0.01em; color: var(--color-accent-200);">
+                  SOLICITAÇÃO RECEBIDA.</p>
+                <p style="margin: 18px 0 0; font-size: 16px; line-height: 1.6; color: var(--color-neutral-300);">Nossa
+                  equipe entra em contato pelo WhatsApp informado para agendar o diagnóstico da sua operação.</p>
+              </div>
+            </sc-if>
+            <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+              <form onSubmit="{{ submit }}" style="display: grid; gap: 14px;">
+                <div
+                  style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 14px;">
+                  <div class="field"><label for="dnome">NOME</label><input class="input" id="dnome" name="nome"
+                      type="text" required="required" placeholder="Seu nome"></div>
+                  <div class="field"><label for="demp">EMPRESA</label><input class="input" id="demp" name="empresa"
+                      type="text" required="required" placeholder="Nome da empresa"></div>
+                </div>
+                <div
+                  style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 14px;">
+                  <div class="field"><label for="dwa">WHATSAPP</label><input class="input" id="dwa" name="whatsapp"
+                      type="tel" required="required" placeholder="(00) 00000-0000"></div>
+                  <div class="field"><label for="dmail">E-MAIL</label><input class="input" id="dmail" name="email"
+                      type="email" required="required" placeholder="voce@empresa.com"></div>
+                </div>
+                <div
+                  style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 14px;">
+                  <div class="field"><label for="dseg">SEGMENTO</label>
+                    <select class="input" id="dseg" name="segmento" required="required">
+                      <option value="">Selecione</option>
+                      <option>Serviços</option>
+                      <option>B2B</option>
+                      <option>Educação</option>
+                      <option>Saúde</option>
+                      <option>Tecnologia</option>
+                      <option>Varejo</option>
+                      <option>Serviços profissionais</option>
+                      <option>Venda consultiva</option>
+                    </select>
+                  </div>
+                  <div class="field"><label for="dfat">FATURAMENTO MENSAL</label>
+                    <select class="input" id="dfat" name="faturamento" required="required">
+                      <option value="">Selecione</option>
+                      <option>Até R$ 100 mil</option>
+                      <option>R$ 100 mil a R$ 500 mil</option>
+                      <option>R$ 500 mil a R$ 2 milhões</option>
+                      <option>Acima de R$ 2 milhões</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field"><label for="ddes">PRINCIPAL DESAFIO</label><textarea class="input" id="ddes"
+                    name="desafio" rows="3" required="required"
+                    placeholder="O que está travando sua operação hoje"></textarea></div>
+                <button class="btn btn-primary btn-block" type="submit"
+                  style="padding: 16px 24px; font-size: 13px; letter-spacing: 0.1em;">DIAGNOSTICAR MINHA
+                  OPERAÇÃO</button>
+              </form>
+            </sc-if>
+          </div>
+        </div>
+      </section>
+
+      <section id="cases" style="border-bottom: 1px solid var(--color-divider);">
+        <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
+          <h2
+            style="margin: 0; max-width: 24ch; font-family: var(--font-heading); font-size: clamp(26px, 3.6vw, 46px); line-height: 1.06; letter-spacing: -0.03em;">
+            EMPRESAS QUE ESTÃO CONSTRUINDO SUA MÁQUINA DE RECEITA.</h2>
+          <p
+            style="margin: 22px 0 0; font-family: ui-monospace, monospace; font-size: 11.5px; line-height: 1.6; color: var(--color-neutral-500);">
+            Estrutura preparada para receber os ativos reais. Nenhum case, resultado ou número foi criado.</p>
+          <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px; margin-top: 40px;">
+            <div
+              style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 28px 22px; background: repeating-linear-gradient(135deg, rgba(245,245,245,0.03) 0 6px, transparent 6px 12px);">
+              <p
+                style="margin: 0; font-family: ui-monospace, monospace; font-size: 11.5px; line-height: 1.7; color: var(--color-neutral-400);">
+                [ logos de clientes ]<br>grid de marcas</p>
+            </div>
+            <div
+              style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 28px 22px; background: repeating-linear-gradient(135deg, rgba(245,245,245,0.03) 0 6px, transparent 6px 12px);">
+              <p
+                style="margin: 0; font-family: ui-monospace, monospace; font-size: 11.5px; line-height: 1.7; color: var(--color-neutral-400);">
+                [ case ]<br>contexto · o que foi construído · resultado</p>
+            </div>
+            <div
+              style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 28px 22px; background: repeating-linear-gradient(135deg, rgba(245,245,245,0.03) 0 6px, transparent 6px 12px);">
+              <p
+                style="margin: 0; font-family: ui-monospace, monospace; font-size: 11.5px; line-height: 1.7; color: var(--color-neutral-400);">
+                [ antes e depois ]<br>operação antes · máquina depois</p>
+            </div>
+            <div
+              style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 28px 22px; background: repeating-linear-gradient(135deg, rgba(245,245,245,0.03) 0 6px, transparent 6px 12px);">
+              <p
+                style="margin: 0; font-family: ui-monospace, monospace; font-size: 11.5px; line-height: 1.7; color: var(--color-neutral-400);">
+                [ depoimento ]<br>nome · cargo · empresa</p>
+            </div>
+            <div
+              style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 28px 22px; background: repeating-linear-gradient(135deg, rgba(245,245,245,0.03) 0 6px, transparent 6px 12px);">
+              <p
+                style="margin: 0; font-family: ui-monospace, monospace; font-size: 11.5px; line-height: 1.7; color: var(--color-neutral-400);">
+                [ screenshots ]<br>S. P. Y. | CRM · Aurora</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="segmentos" style="border-bottom: 1px solid var(--color-divider);">
+        <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
+          <h2
+            style="margin: 0; max-width: 22ch; font-family: var(--font-heading); font-size: clamp(28px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.03em;">
+            UMA MÁQUINA DE RECEITA PARA EMPRESAS QUE PRECISAM VENDER.</h2>
+          <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 1px; margin-top: 48px; background: var(--color-divider);">
+            <p
+              style="margin: 0; padding: 30px 24px; background: rgba(14,14,17,0.68); font-family: var(--font-heading); font-size: 17px; letter-spacing: 0.06em;">
+              SERVIÇOS</p>
+            <p
+              style="margin: 0; padding: 30px 24px; background: rgba(14,14,17,0.68); font-family: var(--font-heading); font-size: 17px; letter-spacing: 0.06em;">
+              B2B</p>
+            <p
+              style="margin: 0; padding: 30px 24px; background: rgba(14,14,17,0.68); font-family: var(--font-heading); font-size: 17px; letter-spacing: 0.06em;">
+              EDUCAÇÃO</p>
+            <p
+              style="margin: 0; padding: 30px 24px; background: rgba(14,14,17,0.68); font-family: var(--font-heading); font-size: 17px; letter-spacing: 0.06em;">
+              SAÚDE</p>
+            <p
+              style="margin: 0; padding: 30px 24px; background: rgba(14,14,17,0.68); font-family: var(--font-heading); font-size: 17px; letter-spacing: 0.06em;">
+              TECNOLOGIA</p>
+            <p
+              style="margin: 0; padding: 30px 24px; background: rgba(14,14,17,0.68); font-family: var(--font-heading); font-size: 17px; letter-spacing: 0.06em;">
+              VAREJO</p>
+            <p
+              style="margin: 0; padding: 30px 24px; background: rgba(14,14,17,0.68); font-family: var(--font-heading); font-size: 17px; letter-spacing: 0.06em;">
+              SERVIÇOS PROFISSIONAIS</p>
+            <p
+              style="margin: 0; padding: 30px 24px; background: rgba(14,14,17,0.68); font-family: var(--font-heading); font-size: 17px; letter-spacing: 0.06em;">
+              VENDA CONSULTIVA</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre" style="border-bottom: 1px solid var(--color-divider);">
+        <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
+          <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: clamp(32px, 5vw, 72px);">
+            <div>
+              <h2
+                style="margin: 0; max-width: 20ch; font-family: var(--font-heading); font-size: clamp(28px, 4vw, 50px); line-height: 1.05; letter-spacing: -0.03em;">
+                A PLUPPEX CONSTRÓI E OPERA MÁQUINAS DE RECEITA.</h2>
+              <p
+                style="margin: 24px 0 0; max-width: 46ch; font-size: 18px; line-height: 1.6; color: var(--color-neutral-300);">
+                Unimos aquisição, tecnologia, inteligência e operação comercial para gerar, converter e escalar receita.
+              </p>
+              <p
+                style="margin: 28px 0 0; font-family: var(--font-heading); font-size: 15px; letter-spacing: 0.16em; color: var(--color-accent-200);">
+                VENDER É CIÊNCIA, NÃO SORTE!</p>
+            </div>
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px; align-content: start;">
+              <div
+                style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 24px 20px;">
+                <p
+                  style="margin: 0; font-family: ui-monospace, monospace; font-size: 11.5px; line-height: 1.7; color: var(--color-neutral-400);">
+                  [ os 3 sócios ]<br>foto · nome · papel</p>
+              </div>
+              <div
+                style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 24px 20px;">
+                <p
+                  style="margin: 0; font-family: ui-monospace, monospace; font-size: 11.5px; line-height: 1.7; color: var(--color-neutral-400);">
+                  [ história ]<br>linha do tempo</p>
+              </div>
+              <div
+                style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 24px 20px;">
+                <p
+                  style="margin: 0; font-family: ui-monospace, monospace; font-size: 11.5px; line-height: 1.7; color: var(--color-neutral-400);">
+                  [ tecnologia ]<br>S. P. Y. · Aurora</p>
+              </div>
+              <div
+                style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 24px 20px;">
+                <p
+                  style="margin: 0; font-family: ui-monospace, monospace; font-size: 11.5px; line-height: 1.7; color: var(--color-neutral-400);">
+                  [ parceiros ]<br>logos</p>
+              </div>
+              <div
+                style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 24px 20px;">
+                <p
+                  style="margin: 0; font-family: ui-monospace, monospace; font-size: 11.5px; line-height: 1.7; color: var(--color-neutral-400);">
+                  [ números ]<br>apenas dados reais</p>
+              </div>
+              <div
+                style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 24px 20px;">
+                <p
+                  style="margin: 0; font-family: ui-monospace, monospace; font-size: 11.5px; line-height: 1.7; color: var(--color-neutral-400);">
+                  [ certificações ]<br>selos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="border-bottom: 1px solid var(--color-divider);">
+        <div style="max-width: 1280px; margin: 0 auto; padding: clamp(48px, 6vw, 80px) clamp(20px, 4vw, 48px);">
+          <p style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">CONTEÚDO
+          </p>
+          <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px;">
+            <div
+              style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 22px 18px;">
+              <p
+                style="margin: 0; font-family: ui-monospace, monospace; font-size: 11px; color: var(--color-neutral-400);">
+                [ insights ]</p>
+            </div>
+            <div
+              style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 22px 18px;">
+              <p
+                style="margin: 0; font-family: ui-monospace, monospace; font-size: 11px; color: var(--color-neutral-400);">
+                [ cases ]</p>
+            </div>
+            <div
+              style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 22px 18px;">
+              <p
+                style="margin: 0; font-family: ui-monospace, monospace; font-size: 11px; color: var(--color-neutral-400);">
+                [ conteúdos ]</p>
+            </div>
+            <div
+              style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 22px 18px;">
+              <p
+                style="margin: 0; font-family: ui-monospace, monospace; font-size: 11px; color: var(--color-neutral-400);">
+                [ eventos ]</p>
+            </div>
+            <div
+              style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 22px 18px;">
+              <p
+                style="margin: 0; font-family: ui-monospace, monospace; font-size: 11px; color: var(--color-neutral-400);">
+                [ podcast ]</p>
+            </div>
+            <div
+              style="border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); padding: 22px 18px;">
+              <p
+                style="margin: 0; font-family: ui-monospace, monospace; font-size: 11px; color: var(--color-neutral-400);">
+                [ materiais ]</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" style="border-bottom: 1px solid var(--color-divider);">
+        <div
+          style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(32px, 5vw, 72px);">
+          <div>
+            <h2
+              style="margin: 0; font-family: var(--font-heading); font-size: clamp(28px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.03em;">
+              PERGUNTAS FREQUENTES.</h2>
+          </div>
+          <div>
+            <sc-for list="{{ faq }}" as="item" hint-placeholder-count="11">
+              <div style="border-top: 1px solid var(--color-divider);">
+                <button type="button" onClick="{{ item.toggle }}"
+                  style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; background: transparent; border: 0; color: var(--color-text); font-family: var(--font-heading); font-size: 16.5px; font-weight: 700; text-align: left; cursor: pointer;"
+                  style-hover="color: #c2adf9;">
+                  <span>{{ item.q }}</span>
+                  <span style="flex: 0 0 auto; font-size: 20px; line-height: 1; color: var(--color-accent-300);">{{
+                    item.sign }}</span>
+                </button>
+                <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+                  <p
+                    style="margin: 0 0 22px; max-width: 62ch; font-size: 16px; line-height: 1.65; color: var(--color-neutral-300);">
+                    {{ item.a }}</p>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <section
+        style="background: radial-gradient(70% 120% at 26% 100%, rgba(116,62,228,0.28), transparent 70%), radial-gradient(60% 110% at 82% 100%, rgba(46,168,240,0.2), transparent 72%); border-bottom: 1px solid var(--color-divider);">
+        <div
+          style="max-width: 1280px; margin: 0 auto; padding: clamp(72px, 10vw, 140px) clamp(20px, 4vw, 48px); text-align: left;">
+          <h2
+            style="margin: 0; max-width: 22ch; font-family: var(--font-heading); font-size: clamp(32px, 5.2vw, 68px); line-height: 1.02; letter-spacing: -0.035em;">
+            DESCUBRA O QUE ESTÁ TRAVANDO SUA OPERAÇÃO.</h2>
+          <p
+            style="margin: 28px 0 0; max-width: 48ch; font-size: 18px; line-height: 1.6; color: var(--color-neutral-300);">
+            Entenda o principal gargalo da sua operação e descubra qual estrutura pode fazer sentido.</p>
+          <a class="btn btn-primary" href="#diagnostico"
+            style="margin-top: 40px; padding: 18px 30px; font-size: 13.5px; letter-spacing: 0.1em;">DIAGNOSTICAR MINHA
+            OPERAÇÃO</a>
+        </div>
+      </section>
+
+      <footer>
+        <div
+          style="max-width: 1280px; margin: 0 auto; padding: clamp(40px, 5vw, 72px) clamp(20px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 36px;">
+          <div>
+            <img src="pluppex-logo.png" alt="Pluppex" style="height: 26px; width: auto; display: block;">
+            <p
+              style="margin: 20px 0 0; font-family: var(--font-heading); font-size: 12px; letter-spacing: 0.16em; color: var(--color-accent-200);">
+              VENDER É CIÊNCIA, NÃO SORTE!</p>
+            <p style="margin: 10px 0 0; font-size: 12px; letter-spacing: 0.14em; color: var(--color-neutral-500);">
+              MÁQUINA DE RECEITA</p>
+          </div>
+          <nav style="display: grid; gap: 10px; font-size: 12.5px; letter-spacing: 0.1em; align-content: start;">
+            <a href="#segmentos" style="color: var(--color-neutral-300);">PARA SUA EMPRESA</a>
+            <a href="#solucoes" style="color: var(--color-neutral-300);">O QUE FAZEMOS</a>
+            <a href="#maquina" style="color: var(--color-neutral-300);">COMO FUNCIONA</a>
+            <a href="#solucoes" onClick="{{ pickSpy }}" style="color: var(--color-neutral-300);">S. P. Y. | CRM</a>
+          </nav>
+          <nav style="display: grid; gap: 10px; font-size: 12.5px; letter-spacing: 0.1em; align-content: start;">
+            <a href="#aurora" style="color: var(--color-neutral-300);">AURORA</a>
+            <a href="Pluppex%20Cases.dc.html" style="color: var(--color-neutral-300);">CASE PLUPPEX</a>
+            <a href="#sobre" style="color: var(--color-neutral-300);">SOBRE</a>
+            <a href="Pluppex%20Blog.dc.html" style="color: var(--color-neutral-300);">BLOG</a>
+            <a href="Pluppex%20Atendimento.dc.html" style="color: var(--color-neutral-300);">ATENDIMENTO AO CLIENTE</a>
+          </nav>
+          <div style="display: grid; gap: 10px; align-content: start;">
+            <p style="margin: 0; font-size: 11px; letter-spacing: 0.18em; color: var(--color-neutral-500);">CONTATO</p>
+            <p
+              style="margin: 0; font-family: ui-monospace, monospace; font-size: 11.5px; line-height: 1.7; color: var(--color-neutral-400);">
+              [ e-mail ]<br>[ whatsapp ]<br>[ instagram · linkedin · youtube ]</p>
+          </div>
+        </div>
+        <div style="border-top: 1px solid var(--color-divider);">
+          <div
+            style="max-width: 1280px; margin: 0 auto; padding: 20px clamp(20px, 4vw, 48px); font-size: 11px; letter-spacing: 0.1em; color: var(--color-neutral-400);">
+            © 2026 PLUPPEX</div>
+        </div>
+      </footer>
+    </div>
+  </x-dc>
+  <script type="text/x-dc" data-dc-script
+    data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280},&quot;defaultTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;AQUISIÇÃO&quot;,&quot;S. P. Y. | CRM&quot;,&quot;INTELIGÊNCIA&quot;,&quot;OPERAÇÃO&quot;],&quot;default&quot;:&quot;AQUISIÇÃO&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Soluções&quot;},&quot;auroraAutoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Aurora&quot;}}">
+class Component extends DCLogic {
+  state = { tab: null, auroraMode: "RESPONDER", reveal: 2, model: "OPERAÇÃO", comps: ["AQUISIÇÃO", "S. P. Y. | CRM"], faq: 0, faqTouched: false, sent: false, menu: false };
+
+  get journeySteps() {
+    return [
+      ["SINAL", "Alguém demonstra interesse na sua empresa."],
+      ["INFORMAÇÃO", "O sinal entra na operação e vira dado."],
+      ["AÇÃO", "A equipe age no momento certo."],
+      ["CONVERSÃO", "A oportunidade avança e fecha."],
+      ["RECEITA", "O contrato entra no caixa."]
+    ];
+  }
+
+  get heroImages() {
+    return [null, null, null, null, null];
+  }
+
+  startHeroTimer() {
+    clearInterval(this.heroTimer);
+    this.heroTimer = setInterval(() => {
+      this.setState(s => ({ hero: ((s.hero ?? 0) + 1) % this.heroImages.length }));
+    }, 5000);
+  }
+
+  componentDidMount() {
+    this.onDocClick = (e) => {
+      if (!this.state.sol) return;
+      if (e.target.closest && e.target.closest('[data-soldrop]')) return;
+      this.setState({ sol: false });
+    };
+    document.addEventListener("click", this.onDocClick, true);
+    this.onEsc = (e) => { if (e.key === "Escape") this.setState({ sol: false }); };
+    document.addEventListener("keydown", this.onEsc);
+    this.jTimer = setInterval(() => this.setState(s => ({ step: ((s.step ?? 0) + 1) % 5 })), 1500);
+    this.startHeroTimer();
+    if (this.props.auroraAutoplay === false) return;
+    this.timer = setInterval(() => {
+      this.setState(s => ({ reveal: s.reveal >= 8 ? 2 : s.reveal + 2 }));
+    }, 1900);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timer); clearInterval(this.jTimer); clearInterval(this.heroTimer);
+    document.removeEventListener("click", this.onDocClick, true);
+    document.removeEventListener("keydown", this.onEsc);
+  }
+
+  get dialogs() {
+    return {
+      "RESPONDER": [
+        ["Quantos leads entraram esta semana?", "Entraram 47 novos leads. 12 ainda não receberam contato."],
+        ["Quais oportunidades estão paradas?", "Encontrei 8 oportunidades sem movimentação há mais de 5 dias."],
+        ["Quanto temos para receber este mês?", "Você tem R$ 84.500 em valores a receber neste mês."],
+        ["Qual foi o último contato com a empresa X?", "O último contato foi registrado há 3 dias, por WhatsApp."]
+      ],
+      "AGIR": [
+        ["Cria esse novo lead.", "Lead criado no S. P. Y. | CRM."],
+        ["Atualiza essa oportunidade para proposta enviada.", "Oportunidade atualizada."],
+        ["Registra a reunião com a empresa X.", "Reunião registrada."],
+        ["Cria um follow-up para amanhã.", "Follow-up criado."]
+      ]
+    };
+  }
+
+  get faqItems() {
+    return [
+      ["O que é uma Máquina de Receita?", "É uma operação conectada para gerar, converter e escalar receita: aquisição, sistema comercial, inteligência e operação funcionando como uma coisa só."],
+      ["A Pluppex é uma agência?", "Não. Agência, tráfego, software e consultoria são capacidades. A Pluppex constrói, opera e escala máquinas de receita."],
+      ["O que é o S. P. Y. | CRM?", "É o sistema onde a operação comercial acontece: pipeline, leads, oportunidades, WhatsApp, follow-up e processos."],
+      ["O que é a Aurora?", "É a inteligência da Máquina de Receita. Ela entende a operação, responde perguntas e movimenta o S. P. Y. | CRM."],
+      ["Preciso contratar todos os componentes?", "Não. Você começa pelo componente que a sua operação mais precisa."],
+      ["Posso contratar apenas o S. P. Y. | CRM?", "Sim. O S. P. Y. | CRM pode ser implantado como módulo."],
+      ["Posso contratar apenas aquisição?", "Sim. Aquisição também pode ser contratada de forma isolada."],
+      ["A Pluppex também opera a máquina?", "Sim. No modelo Operação e no modelo Máquina Completa, a Pluppex opera junto com a sua equipe."],
+      ["Como funciona a Aurora?", "Você pergunta em linguagem natural. Ela consulta as informações da operação, responde e executa ações conforme as capacidades implementadas."],
+      ["A Aurora funciona pelo WhatsApp?", "Sim, conforme as capacidades implementadas. Você pode pedir informações e ações por mensagem."],
+      ["Quanto custa?", "Depende dos componentes e do modelo de entrega. O diagnóstico define o escopo antes de qualquer proposta."]
+    ];
+  }
+
+  cardStyle(active) {
+    return "display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; text-align: left; cursor: pointer; padding: 26px 24px; border-radius: var(--radius-md); background: " +
+      (active ? "rgba(116,62,228,0.12)" : "transparent") + "; border: 1px solid " +
+      (active ? "var(--color-accent)" : "var(--color-divider)") + "; color: var(--color-text); transition: border-color .18s, background .18s;";
+  }
+
+  renderVals() {
+    const tab = this.state.tab ?? (this.props.defaultTab ?? "AQUISIÇÃO");
+    const autoplay = this.props.auroraAutoplay ?? true;
+    const mode = this.state.auroraMode;
+    const pairs = this.dialogs[mode];
+    const flat = [];
+    pairs.forEach(([q, a]) => {
+      flat.push({ who: "VOCÊ", text: q, me: true });
+      flat.push({ who: "AURORA", text: a, me: false });
+    });
+    const shown = autoplay ? flat.slice(0, this.state.reveal) : flat;
+    const faqOpen = this.state.faqTouched ? this.state.faq : 0;
+    const comps = this.state.comps;
+    const combo = comps.length ? comps.join(" + ") + " + " + this.state.model : this.state.model;
+
+    const heroIdx = this.state.hero ?? 0;
+
+    return {
+      heroSlides: this.heroImages.map((img, i) => ({
+        style: "opacity: " + (heroIdx === i ? "1" : "0") + "; z-index: " + (heroIdx === i ? "1" : "0") + ";",
+        hasImage: !!img,
+        noImage: !img,
+        src: img ? img.src : "",
+        alt: img ? img.alt : "",
+        label: "IMAGEM " + (i + 1)
+      })),
+      heroDots: this.heroImages.map((_, i) => ({
+        activeAttr: heroIdx === i ? "1" : "0",
+        pick: () => { this.startHeroTimer(); this.setState({ hero: i }); }
+      })),
+      heroPrev: () => {
+        this.startHeroTimer();
+        this.setState(s => ({ hero: ((s.hero ?? 0) - 1 + this.heroImages.length) % this.heroImages.length }));
+      },
+      heroNext: () => {
+        this.startHeroTimer();
+        this.setState(s => ({ hero: ((s.hero ?? 0) + 1) % this.heroImages.length }));
+      },
+      journey: this.journeySteps.map(([label, caption], i) => {
+        const step = this.state.step ?? 0;
+        const active = step === i;
+        const done = step > i;
+        const color = active ? "#33c5f2" : (done ? "#9c7cf0" : "#3a3a40");
+        const first = i === 0, last = i === this.journeySteps.length - 1;
+        return {
+          label, caption,
+          trackStyle: "position: absolute; top: 12px; height: 1px; left: " + (first ? "50%" : "0") +
+            "; right: " + (last ? "50%" : "0") + "; background: rgba(245,245,245,0.16);",
+          dotStyle: "position: relative; width: " + (active ? "14px" : "10px") + "; height: " + (active ? "14px" : "10px") +
+            "; border-radius: 50%; background: " + color + "; box-shadow: 0 0 0 " + (active ? "6px rgba(51,197,242,0.16)" : "4px rgba(116,62,228,0.10)") +
+            "; transition: all .45s ease;",
+          labelStyle: "font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.14em; color: " +
+            (active ? "#f5f5f5" : "var(--color-neutral-400)") + "; transition: color .45s ease;"
+        };
+      }),
+      menuAttr: this.state.menu ? "1" : "0",
+      foldTabs: ["AURORA", "WHATSAPP", "RADAR DE OPORTUNIDADES", "ATENDIMENTO AO CLIENTE"].map(label => ({
+        label, cls: "btn " + ((this.state.fold ?? "AURORA") === label ? "btn-primary" : "btn-secondary"),
+        pick: () => this.setState({ fold: label })
+      })),
+      isFoldAurora: (this.state.fold ?? "AURORA") === "AURORA",
+      isFoldZap: this.state.fold === "WHATSAPP",
+      isFoldRadar: this.state.fold === "RADAR DE OPORTUNIDADES",
+      isFoldAtend: this.state.fold === "ATENDIMENTO AO CLIENTE",
+      solOpen: !!this.state.sol,
+      solCaret: "display: flex; align-items: center; align-self: center; height: 14px; font-size: 36px; line-height: 1; transition: transform .2s; transform: rotate(" + (this.state.sol ? "0deg" : "-90deg") + ");",
+      toggleSol: () => this.setState(s => ({ sol: !s.sol })),
+      closeSol: () => this.setState({ sol: false, menu: false }),
+      pickAcq: () => this.setState({ tab: "AQUISIÇÃO", sol: false, menu: false }),
+      pickInt: () => this.setState({ tab: "INTELIGÊNCIA", fold: "AURORA", sol: false, menu: false }),
+      pickOps: () => this.setState({ tab: "OPERAÇÃO", sol: false, menu: false }),
+      pickSpy: () => this.setState({ tab: "ORGANIZAÇÃO", sol: false, menu: false }),
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
+      tabs: ["AQUISIÇÃO", "ORGANIZAÇÃO", "INTELIGÊNCIA", "OPERAÇÃO"].map(label => ({
+        label, cls: "btn " + (tab === label ? "btn-primary" : "btn-secondary"),
+        pick: () => this.setState({ tab: label })
+      })),
+      isAquisicao: tab === "AQUISIÇÃO",
+      isSpy: tab === "ORGANIZAÇÃO" || tab === "S. P. Y. | CRM",
+      isInteligencia: tab === "INTELIGÊNCIA",
+      isOperacao: tab === "OPERAÇÃO",
+      auroraTabs: ["RESPONDER", "AGIR"].map(label => ({
+        label,
+        style: "flex: 1; padding: 16px 18px; background: " + (mode === label ? "rgba(116,62,228,0.14)" : "transparent") +
+          "; border: 0; border-bottom: 2px solid " + (mode === label ? "var(--color-accent)" : "transparent") +
+          "; color: " + (mode === label ? "#f5f5f5" : "var(--color-neutral-400)") +
+          "; font-family: var(--font-heading); font-weight: 700; font-size: 12px; letter-spacing: 0.16em; cursor: pointer;",
+        pick: () => this.setState({ auroraMode: label, reveal: 2 })
+      })),
+      auroraMsgs: shown.map(m => ({
+        who: m.who, text: m.text,
+        rowStyle: "display: flex; justify-content: " + (m.me ? "flex-end" : "flex-start") + ";",
+        bubbleStyle: "max-width: 84%; padding: 14px 16px; border-radius: var(--radius-md); font-size: 14.5px; line-height: 1.5; " +
+          (m.me
+            ? "background: rgba(116,62,228,0.18); border: 1px solid var(--color-accent-700); color: #f5f5f5;"
+            : "background: #161619; border: 1px solid var(--color-neutral-800); color: var(--color-neutral-200);")
+      })),
+      models: [
+        ["PROJETO", "Para resolver um problema específico da sua operação."],
+        ["MÓDULO", "Para implementar apenas o componente que sua empresa precisa."],
+        ["OPERAÇÃO", "Para ter a Pluppex operando junto com sua equipe."],
+        ["MÁQUINA COMPLETA", "Para construir e operar uma estrutura completa de receita."]
+      ].map(([label, body]) => ({
+        label, body, style: this.cardStyle(this.state.model === label),
+        pick: () => this.setState({ model: label })
+      })),
+      components: ["AQUISIÇÃO", "S. P. Y. | CRM", "INTELIGÊNCIA", "OPERAÇÃO"].map(label => ({
+        label, cls: "btn " + (comps.includes(label) ? "btn-primary" : "btn-secondary"),
+        pick: () => this.setState(s => ({
+          comps: s.comps.includes(label) ? s.comps.filter(x => x !== label) : s.comps.concat([label])
+        }))
+      })),
+      modelChips: ["PROJETO", "MÓDULO", "OPERAÇÃO", "MÁQUINA COMPLETA"].map(label => ({
+        label, cls: "btn " + (this.state.model === label ? "btn-primary" : "btn-secondary"),
+        pick: () => this.setState({ model: label })
+      })),
+      comboLabel: combo,
+      comboHint: comps.length
+        ? "Essa pode ser a estrutura ideal para sua empresa. O diagnóstico confirma o ponto de partida."
+        : "Selecione ao menos um componente para montar a estrutura.",
+      faq: this.faqItems.map(([q, a], i) => ({
+        q, a, open: faqOpen === i, sign: faqOpen === i ? "\u2212" : "+",
+        toggle: () => this.setState(s => ({ faqTouched: true, faq: s.faqTouched && s.faq === i ? -1 : i }))
+      })),
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); }
+    };
+  }
+}
+</script>
+</body>
+
+</html>

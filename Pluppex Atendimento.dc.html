@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pluppex | Atendimento ao Cliente</title>
+<link rel="stylesheet" href="_ds/nocturne-de15a933-d8ff-47fb-8f32-38188ea293e4/styles.css">
+<script src="_ds/nocturne-de15a933-d8ff-47fb-8f32-38188ea293e4/_ds_bundle.js"></script>
+<style>
+  :root {
+    --color-bg: #050505; --color-surface: #0e0e11; --color-text: #f5f5f5;
+    --color-accent: #743ee4; --color-divider: rgba(245,245,245,0.12);
+    --color-accent-200: #ded2fc; --color-accent-300: #c2adf9; --color-accent-700: #45238c;
+    --color-neutral-300: #c9c9ce; --color-neutral-400: #9a9aa2; --color-neutral-500: #75757d; --color-neutral-700: #3a3a40;
+    --font-heading-weight: 800;
+    --shadow-md: 0 0 0 1px #3a3a40, 0 8px 24px rgba(0,0,0,0.7);
+  }
+  html, body { margin: 0; padding: 0; background: #050505; }
+  * { box-sizing: border-box; }
+  a { color: var(--color-accent-300); text-decoration: none; }
+  a:hover { color: var(--color-accent-200); }
+  h1, h2 { font-weight: 800; }
+  .btn-primary { background: linear-gradient(90deg, #6a34dd, #1d63c9); border-color: transparent; color: #f5f5f5; font-weight: 700; }
+  .btn-primary:hover { background: linear-gradient(90deg, #7b46e8, #2472dc); color: #f5f5f5; }
+  @media (max-width: 600px) { input.input, select.input, textarea.input { font-size: 16px; } }
+</style>
+</helmet>
+
+<div style="min-height: 100vh; background-color: var(--color-bg); background-image: radial-gradient(60% 40% at 8% 2%, rgba(116,62,228,0.26), transparent 70%), radial-gradient(55% 45% at 95% 40%, rgba(46,168,240,0.16), transparent 72%); background-attachment: fixed; background-repeat: no-repeat; color: var(--color-text); font-family: var(--font-body); display: flex; flex-direction: column;">
+  <header style="border-bottom: 1px solid var(--color-divider);">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 16px clamp(20px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; gap: 16px;">
+      <a href="Pluppex%20Home.dc.html" style="display: flex; align-items: center;"><img src="pluppex-logo.png" alt="Pluppex" style="height: 48px; width: auto; display: block;"></a>
+      <a class="btn btn-secondary" href="Pluppex%20Home.dc.html" style="margin-left: auto; font-size: 11.5px; letter-spacing: 0.1em; padding: 11px 18px;">VOLTAR PARA A HOME</a>
+    </div>
+  </header>
+
+  <main style="flex: 1;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(48px, 8vw, 96px) clamp(20px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: clamp(32px, 5vw, 72px); align-items: start;">
+      <div>
+        <p style="margin: 0 0 22px; font-size: 11px; letter-spacing: 0.22em; color: var(--color-accent-300);">ATENDIMENTO AO CLIENTE</p>
+        <h1 style="margin: 0; max-width: 20ch; font-family: var(--font-heading); font-size: clamp(30px, 4.6vw, 56px); line-height: 1.05; letter-spacing: -0.035em;">FALE COM A PLUPPEX.</h1>
+        <p style="margin: 26px 0 0; max-width: 48ch; font-size: 18px; line-height: 1.6; color: var(--color-neutral-300);">São dois passos: preencha o formulário ao lado e clique em “Falar no WhatsApp”. A conversa abre já com os seus dados, e nossa equipe responde por lá.</p>
+
+        <div style="display: grid; gap: 14px; margin-top: 34px; max-width: 480px;">
+          <p style="margin: 0; display: flex; gap: 16px; padding: 16px 0; border-top: 1px solid var(--color-divider); font-size: 15.5px; line-height: 1.5;"><span style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">01</span>Preencha nome, telefone e e-mail — e conte o assunto.</p>
+          <p style="margin: 0; display: flex; gap: 16px; padding: 16px 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); font-size: 15.5px; line-height: 1.5;"><span style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">02</span>Clique em “Falar no WhatsApp” e siga a conversa com a equipe.</p>
+        </div>
+        <p style="margin: 26px 0 0; font-family: ui-monospace, monospace; font-size: 12.5px; letter-spacing: 0.06em; color: var(--color-neutral-400);">+55 63 98478-7555</p>
+      </div>
+
+      <div style="border: 1px solid var(--color-divider); border-radius: var(--radius-lg); padding: clamp(24px, 3vw, 36px); background: var(--color-surface); box-shadow: var(--shadow-md);">
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 40px 0;">
+            <p style="margin: 0; font-family: var(--font-heading); font-size: 24px; letter-spacing: -0.01em; color: var(--color-accent-200);">CONVERSA ABERTA NO WHATSAPP.</p>
+            <p style="margin: 16px 0 0; font-size: 16px; line-height: 1.6; color: var(--color-neutral-300);">Se a janela não abrir, chame direto em +55 63 98478-7555.</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" style="display: grid; gap: 14px;">
+            <p style="margin: 0 0 6px; font-size: 11px; letter-spacing: 0.18em; color: var(--color-neutral-500);">FORMULÁRIO DE ATENDIMENTO</p>
+            <p style="margin: 0 0 6px; font-size: 12px; color: var(--color-neutral-400);"><span style="color: #ff5a5a;">*</span> campos obrigatórios</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 14px;">
+              <div class="field"><label for="anome">NOME <span style="color: #ff5a5a;">*</span></label><input class="input" id="anome" name="nome" type="text" required="required" placeholder="Seu nome"></div>
+              <div class="field"><label for="aemp">EMPRESA</label><input class="input" id="aemp" name="empresa" type="text" placeholder="Nome da empresa"></div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 14px;">
+              <div class="field"><label for="awa">TELEFONE <span style="color: #ff5a5a;">*</span></label><input class="input" id="awa" name="whatsapp" type="tel" required="required" placeholder="(00) 00000-0000"></div>
+              <div class="field"><label for="amail">E-MAIL <span style="color: #ff5a5a;">*</span></label><input class="input" id="amail" name="email" type="email" required="required" placeholder="voce@empresa.com"></div>
+            </div>
+            <div class="field"><label for="atipo">ASSUNTO</label>
+              <select class="input" id="atipo" name="assunto">
+                <option value="">Selecione</option>
+                <option>Suporte — S. P. Y. | CRM</option>
+                <option>Suporte — campanhas e aquisição</option>
+                <option>Financeiro</option>
+                <option>Quero contratar a Pluppex</option>
+                <option>Outro assunto</option>
+              </select>
+            </div>
+            <div class="field"><label for="amsg">MENSAGEM</label><textarea class="input" id="amsg" name="mensagem" rows="4" placeholder="Como podemos ajudar"></textarea></div>
+            <button class="btn btn-primary btn-block" type="submit" style="padding: 17px 24px; font-size: 13.5px; letter-spacing: 0.1em;">FALAR NO WHATSAPP</button>
+          </form>
+        </sc-if>
+      </div>
+    </div>
+  </main>
+
+  <footer style="border-top: 1px solid var(--color-divider);">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 22px clamp(20px, 4vw, 48px); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; font-size: 11px; letter-spacing: 0.12em; color: var(--color-neutral-400);">
+      <span>VENDER É CIÊNCIA, NÃO SORTE!</span><span style="margin-left: auto;">© 2026 PLUPPEX</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    return {
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: (e) => {
+        e.preventDefault();
+        const g = (id) => (e.target.querySelector("#" + id) || {}).value || "";
+        const msg = "Olá, quero falar com a Pluppex.\n\nNome: " + g("anome") +
+          "\nEmpresa: " + (g("aemp") || "-") +
+          "\nTelefone: " + g("awa") +
+          "\nE-mail: " + g("amail") +
+          "\nAssunto: " + (g("atipo") || "-") +
+          (g("amsg") ? "\n\n" + g("amsg") : "");
+        window.open("https://wa.me/5563984787555?text=" + encodeURIComponent(msg), "_blank", "noopener");
+        this.setState({ sent: true });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

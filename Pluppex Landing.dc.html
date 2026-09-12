@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pluppex — Performance &amp; Lucro</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  html, body { margin: 0; padding: 0; background: #161826; }
+  body { -webkit-font-smoothing: antialiased; }
+  a { color: var(--color-accent); text-decoration: none; }
+  a:hover { color: var(--color-accent-400); }
+  * { box-sizing: border-box; }
+  summary::-webkit-details-marker { display: none; }
+</style>
+</helmet>
+
+<div style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); min-height: 100vh; overflow-x: hidden;">
+
+  <header style="position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, #161826 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--color-divider);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: calc(var(--space-4)) clamp(20px, 5vw, 48px); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-6) calc(var(--space-8) * 1.5);">
+      <a href="#topo" style="display: flex; align-items: center; flex: 0 0 auto;">
+        <img src="pluppex-logo.png" alt="Pluppex" style="height: 30px; width: auto; display: block;">
+      </a>
+      <nav style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) calc(var(--space-8) * 1.1); margin-left: auto; font-size: 13px; letter-spacing: 0.02em;">
+        <a href="#vazamentos" style="color: var(--color-neutral-400);" style-hover="color: #e9e9ed;">Diagnóstico</a>
+        <a href="#metodologia" style="color: var(--color-neutral-400);">Metodologia</a>
+        <a href="#servicos" style="color: var(--color-neutral-400);">Serviços</a>
+        <a href="#faq" style="color: var(--color-neutral-400);">FAQ</a>
+        <a class="btn btn-primary" href="#contato" style="font-size: 13px;">{{ ctaLabel }}</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="topo" style="max-width: 1200px; margin: 0 auto; padding: calc(var(--space-8) * 3.5) clamp(20px, 5vw, 48px) calc(var(--space-8) * 3);">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: calc(var(--space-8) * 2.5); align-items: end;">
+      <div>
+        <p style="margin: 0 0 calc(var(--space-8)); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-300);">Operação de receita</p>
+        <h1 style="margin: 0; font-family: var(--font-heading); font-weight: 500; font-size: clamp(38px, 5.6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; text-wrap: balance;">Sua receita não depende de sorte.<br>Depende de operação.</h1>
+        <p style="margin: calc(var(--space-8) * 1.4) 0 0; max-width: 58ch; font-size: clamp(16px, 1.5vw, 20px); line-height: 1.55; color: var(--color-neutral-300); text-wrap: pretty;">A operação que a Pluppex constrói e opera para gerar, capturar, tratar, analisar e converter oportunidades em receita.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-6); margin-top: calc(var(--space-8) * 1.6);">
+          <a class="btn btn-primary" href="#contato" style="padding: 14px 24px; font-size: 15px;">{{ ctaLabel }}</a>
+          <a class="btn btn-secondary" href="#metodologia" style="padding: 14px 24px; font-size: 15px;">Ver a metodologia</a>
+        </div>
+        <p style="margin: calc(var(--space-8) * 1.2) 0 0; font-size: 13px; color: var(--color-neutral-500);">Para C-level de empresas médias e grandes, e-commerces e infoprodutores que já faturam e querem previsibilidade.</p>
+      </div>
+      <div style="border: 1px solid var(--color-divider); border-radius: var(--radius-lg); padding: calc(var(--space-8) * 1.2); background: linear-gradient(180deg, color-mix(in srgb, var(--color-surface) 70%, transparent), transparent);">
+        <p style="margin: 0 0 var(--space-6); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-neutral-500);">O que operamos</p>
+        <ul style="margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-4);">
+          <li style="display: flex; align-items: baseline; gap: var(--space-6); padding-bottom: var(--space-4); border-bottom: 1px solid color-mix(in srgb, #e9e9ed 8%, transparent); font-size: 15px;"><span style="color: var(--color-accent); font-size: 11px;">01</span>Mídia e demanda</li>
+          <li style="display: flex; align-items: baseline; gap: var(--space-6); padding-bottom: var(--space-4); border-bottom: 1px solid color-mix(in srgb, #e9e9ed 8%, transparent); font-size: 15px;"><span style="color: var(--color-accent); font-size: 11px;">02</span>Captura e roteamento</li>
+          <li style="display: flex; align-items: baseline; gap: var(--space-6); padding-bottom: var(--space-4); border-bottom: 1px solid color-mix(in srgb, #e9e9ed 8%, transparent); font-size: 15px;"><span style="color: var(--color-accent); font-size: 11px;">03</span>CRM e cadência comercial</li>
+          <li style="display: flex; align-items: baseline; gap: var(--space-6); font-size: 15px;"><span style="color: var(--color-accent); font-size: 11px;">04</span>Dados, atribuição e decisão</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ statBand }}" hint-placeholder-val="{{ true }}">
+    <div style="background: var(--color-section); background-image: radial-gradient(120% 140% at 12% 0%, var(--color-section-glow), transparent 60%); border-top: 1px solid color-mix(in srgb, #e9e9ed 10%, transparent); border-bottom: 1px solid color-mix(in srgb, #e9e9ed 10%, transparent);">
+      <div style="max-width: 1200px; margin: 0 auto; padding: calc(var(--space-8) * 1.8) clamp(20px, 5vw, 48px); display: flex; flex-wrap: wrap; align-items: baseline; gap: calc(var(--space-8) * 1.2);">
+        <p style="margin: 0; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-200); flex: 0 0 auto;">O ciclo completo</p>
+        <div style="display: flex; flex-wrap: wrap; gap: calc(var(--space-8) * 0.9); font-family: var(--font-heading); font-weight: 500; font-size: clamp(20px, 2.6vw, 34px); letter-spacing: -0.02em; color: var(--color-neutral-100);">
+          <span>Gerar</span><span style="color: var(--color-section-ghost);">/</span>
+          <span>Capturar</span><span style="color: var(--color-section-ghost);">/</span>
+          <span>Tratar</span><span style="color: var(--color-section-ghost);">/</span>
+          <span>Analisar</span><span style="color: var(--color-section-ghost);">/</span>
+          <span>Converter</span>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <section id="vazamentos" style="max-width: 1200px; margin: 0 auto; padding: calc(var(--space-8) * 3) clamp(20px, 5vw, 48px);">
+    <h2 style="margin: 0; max-width: 22ch; font-family: var(--font-heading); font-weight: 500; font-size: clamp(28px, 3.4vw, 46px); line-height: 1.08; letter-spacing: -0.025em;">Onde o seu dinheiro está vazando agora</h2>
+    <p style="margin: var(--space-8) 0 0; max-width: 54ch; font-size: 16px; line-height: 1.6; color: var(--color-neutral-400);">Quase nunca o problema é falta de lead. É o que acontece com ele depois do clique.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: calc(var(--space-8) * 1.2); margin-top: calc(var(--space-8) * 2);">
+      <div style="border-top: 1px solid var(--color-accent-700); padding-top: var(--space-8);">
+        <h3 style="margin: 0 0 var(--space-4); font-size: 17px; font-weight: 500;">Lead sem tratamento</h3>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--color-neutral-400);">O formulário enche, ninguém responde em tempo e o lead compra do concorrente que ligou primeiro.</p>
+      </div>
+      <div style="border-top: 1px solid var(--color-accent-700); padding-top: var(--space-8);">
+        <h3 style="margin: 0 0 var(--space-4); font-size: 17px; font-weight: 500;">Mídia sem atribuição</h3>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--color-neutral-400);">Você sabe quanto gastou. Não sabe qual campanha virou contrato assinado.</p>
+      </div>
+      <div style="border-top: 1px solid var(--color-accent-700); padding-top: var(--space-8);">
+        <h3 style="margin: 0 0 var(--space-4); font-size: 17px; font-weight: 500;">CRM abandonado</h3>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--color-neutral-400);">Pipeline desatualizado, etapa que não reflete a realidade e previsão de receita feita por palpite.</p>
+      </div>
+      <div style="border-top: 1px solid var(--color-accent-700); padding-top: var(--space-8);">
+        <h3 style="margin: 0 0 var(--space-4); font-size: 17px; font-weight: 500;">Time sem cadência</h3>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--color-neutral-400);">Cada vendedor com um script próprio, nenhuma meta de atividade e nenhum dado para cobrar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="metodologia" style="border-top: 1px solid var(--color-divider);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: calc(var(--space-8) * 3) clamp(20px, 5vw, 48px);">
+      <p style="margin: 0 0 var(--space-8); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-300);">Metodologia</p>
+      <h2 style="margin: 0; max-width: 26ch; font-family: var(--font-heading); font-weight: 500; font-size: clamp(28px, 3.4vw, 46px); line-height: 1.08; letter-spacing: -0.025em;">Quatro etapas. Nenhuma delas opcional.</h2>
+      <div style="display: grid; gap: 0; margin-top: calc(var(--space-8) * 2);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: var(--space-8) calc(var(--space-8) * 1.2); align-items: start; padding: calc(var(--space-8) * 1.3) 0; border-top: 1px solid var(--color-divider);">
+          <h3 style="margin: 0; display: flex; align-items: baseline; gap: var(--space-8); font-family: var(--font-heading); font-weight: 500; font-size: clamp(20px, 2vw, 27px); letter-spacing: -0.02em;"><span style="font-size: 13px; letter-spacing: 0.1em; color: var(--color-accent);">01</span>Diagnóstico</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--color-neutral-400);">Abrimos números, funil, CRM e histórico de mídia. Saímos com o mapa dos gargalos e o tamanho real da oportunidade — antes de qualquer proposta.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: var(--space-8) calc(var(--space-8) * 1.2); align-items: start; padding: calc(var(--space-8) * 1.3) 0; border-top: 1px solid var(--color-divider);">
+          <h3 style="margin: 0; display: flex; align-items: baseline; gap: var(--space-8); font-family: var(--font-heading); font-weight: 500; font-size: clamp(20px, 2vw, 27px); letter-spacing: -0.02em;"><span style="font-size: 13px; letter-spacing: 0.1em; color: var(--color-accent);">02</span>Arquitetura</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--color-neutral-400);">Desenhamos a operação: canais, ofertas, páginas, roteamento de lead, etapas de CRM, cadência de contato e o painel que vai medir tudo isso.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: var(--space-8) calc(var(--space-8) * 1.2); align-items: start; padding: calc(var(--space-8) * 1.3) 0; border-top: 1px solid var(--color-divider);">
+          <h3 style="margin: 0; display: flex; align-items: baseline; gap: var(--space-8); font-family: var(--font-heading); font-weight: 500; font-size: clamp(20px, 2vw, 27px); letter-spacing: -0.02em;"><span style="font-size: 13px; letter-spacing: 0.1em; color: var(--color-accent);">03</span>Operação</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--color-neutral-400);">A Pluppex roda a máquina com o seu time: mídia no ar, leads tratados, pipeline atualizado e reunião semanal olhando o mesmo número.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: var(--space-8) calc(var(--space-8) * 1.2); align-items: start; padding: calc(var(--space-8) * 1.3) 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider);">
+          <h3 style="margin: 0; display: flex; align-items: baseline; gap: var(--space-8); font-family: var(--font-heading); font-weight: 500; font-size: clamp(20px, 2vw, 27px); letter-spacing: -0.02em;"><span style="font-size: 13px; letter-spacing: 0.1em; color: var(--color-accent);">04</span>Escala</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--color-neutral-400);">Com o custo de aquisição sob controle, aumentamos investimento onde a conta fecha e cortamos o que não se paga.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos" style="background: linear-gradient(180deg, color-mix(in srgb, var(--color-surface) 55%, transparent), transparent);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: calc(var(--space-8) * 3) clamp(20px, 5vw, 48px);">
+      <p style="margin: 0 0 var(--space-8); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-300);">Serviços</p>
+      <h2 style="margin: 0; max-width: 24ch; font-family: var(--font-heading); font-weight: 500; font-size: clamp(28px, 3.4vw, 46px); line-height: 1.08; letter-spacing: -0.025em;">Tudo que a máquina precisa, sob um só contrato</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: calc(var(--space-8) * 1.1); margin-top: calc(var(--space-8) * 2);">
+        <div class="card">
+          <p class="card-kicker">Aquisição</p>
+          <h3 class="card-title">Mídia de performance</h3>
+          <p class="card-body">Google, Meta, LinkedIn e YouTube operados por objetivo de receita, não por métrica de vaidade.</p>
+        </div>
+        <div class="card">
+          <p class="card-kicker">Conversão</p>
+          <h3 class="card-title">Páginas e ofertas</h3>
+          <p class="card-body">Landing pages, formulários e ofertas construídas para capturar e qualificar antes do vendedor entrar.</p>
+        </div>
+        <div class="card">
+          <p class="card-kicker">Tratamento</p>
+          <h3 class="card-title">CRM e pré-venda</h3>
+          <p class="card-body">Implantação de CRM, roteamento automático, cadência de contato e SDR com script e meta de atividade.</p>
+        </div>
+        <div class="card">
+          <p class="card-kicker">Inteligência</p>
+          <h3 class="card-title">Dados e atribuição</h3>
+          <p class="card-body">Rastreamento ponta a ponta e painel único: do investimento no anúncio ao contrato fechado.</p>
+        </div>
+        <div class="card">
+          <p class="card-kicker">Demanda</p>
+          <h3 class="card-title">Conteúdo e autoridade</h3>
+          <p class="card-body">Produção que alimenta o topo do funil e sustenta a conversa comercial no meio dele.</p>
+        </div>
+        <div class="card">
+          <p class="card-kicker">Gestão</p>
+          <h3 class="card-title">Rotina comercial</h3>
+          <p class="card-body">Ritual de gestão semanal com o seu time: previsão, cobrança e decisão em cima do mesmo dado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="border-top: 1px solid var(--color-divider);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: calc(var(--space-8) * 3) clamp(20px, 5vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: calc(var(--space-8) * 2);">
+      <div>
+        <h2 style="margin: 0; font-family: var(--font-heading); font-weight: 500; font-size: clamp(28px, 3.4vw, 46px); line-height: 1.08; letter-spacing: -0.025em;">Perguntas diretas</h2>
+        <p style="margin: var(--space-8) 0 0; max-width: 32ch; font-size: 15px; line-height: 1.6; color: var(--color-neutral-500);">Se a sua pergunta não estiver aqui, mande no formulário abaixo.</p>
+      </div>
+      <div>
+        <sc-for list="{{ faq }}" as="item" hint-placeholder-count="5">
+          <div style="border-top: 1px solid var(--color-divider);">
+            <button type="button" onClick="{{ item.toggle }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: var(--space-8); background: transparent; border: 0; padding: calc(var(--space-8) * 0.9) 0; color: var(--color-text); font-family: var(--font-heading); font-size: 17px; font-weight: 500; text-align: left; cursor: pointer;" style-hover="{&quot;color&quot;:&quot;#b5abfc&quot;}">
+              <span>{{ item.q }}</span>
+              <span style="flex: 0 0 auto; font-size: 20px; line-height: 1; color: var(--color-accent);">{{ item.sign }}</span>
+            </button>
+            <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+              <p style="margin: 0 0 calc(var(--space-8) * 0.9); max-width: 62ch; font-size: 15px; line-height: 1.65; color: var(--color-neutral-400);">{{ item.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" style="border-top: 1px solid var(--color-divider); background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--color-accent-900) 60%, transparent));">
+    <div style="max-width: 1200px; margin: 0 auto; padding: calc(var(--space-8) * 3) clamp(20px, 5vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: calc(var(--space-8) * 2.5); align-items: start;">
+      <div>
+        <h2 style="margin: 0; font-family: var(--font-heading); font-weight: 500; font-size: clamp(28px, 3.4vw, 46px); line-height: 1.08; letter-spacing: -0.025em;">Peça o diagnóstico</h2>
+        <p style="margin: var(--space-8) 0 0; max-width: 40ch; font-size: 16px; line-height: 1.6; color: var(--color-neutral-300);">Uma conversa de 45 minutos com quem vai operar a sua conta. Saímos dela com os gargalos mapeados e o próximo passo claro — com ou sem contrato.</p>
+        <p style="margin: calc(var(--space-8) * 1.4) 0 0; font-size: 13px; line-height: 1.7; color: var(--color-neutral-500);">Atendemos um número limitado de contas por trimestre. Se não fizer sentido para o seu momento, dizemos na primeira reunião.</p>
+      </div>
+      <div style="border: 1px solid var(--color-divider); border-radius: var(--radius-lg); padding: calc(var(--space-8) * 1.4); background: color-mix(in srgb, var(--color-surface) 75%, transparent); box-shadow: var(--shadow-md);">
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="padding: calc(var(--space-8) * 1.5) 0; text-align: left;">
+            <p style="margin: 0 0 var(--space-6); font-family: var(--font-heading); font-size: 22px; font-weight: 500; color: var(--color-accent-200);">Recebido.</p>
+            <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--color-neutral-400);">Retornamos em até um dia útil no contato informado.</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" style="display: grid; gap: var(--space-6);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-6);">
+              <div class="field">
+                <label for="pxn">Nome</label>
+                <input class="input" id="pxn" name="nome" type="text" required="required" placeholder="Seu nome">
+              </div>
+              <div class="field">
+                <label for="pxe">Empresa</label>
+                <input class="input" id="pxe" name="empresa" type="text" required="required" placeholder="Razão social ou marca">
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-6);">
+              <div class="field">
+                <label for="pxw">WhatsApp</label>
+                <input class="input" id="pxw" name="whatsapp" type="tel" required="required" placeholder="(00) 00000-0000">
+              </div>
+              <div class="field">
+                <label for="pxm">E-mail</label>
+                <input class="input" id="pxm" name="email" type="email" required="required" placeholder="voce@empresa.com">
+              </div>
+            </div>
+            <div class="field">
+              <label for="pxf">Faturamento mensal</label>
+              <select class="input" id="pxf" name="faturamento" required="required">
+                <option value="">Selecione</option>
+                <option value="a">Até R$ 100 mil</option>
+                <option value="b">R$ 100 mil a R$ 500 mil</option>
+                <option value="c">R$ 500 mil a R$ 2 milhões</option>
+                <option value="d">Acima de R$ 2 milhões</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pxo">Qual o gargalo hoje?</label>
+              <textarea class="input" id="pxo" name="contexto" rows="3" placeholder="Em duas linhas, o que está travando a receita."></textarea>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit" style="padding: 14px 24px; font-size: 15px;">{{ ctaLabel }}</button>
+            <p style="margin: 0; font-size: 12px; color: var(--color-neutral-600);">Seus dados ficam com a Pluppex. Sem lista, sem disparo em massa.</p>
+          </form>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top: 1px solid var(--color-divider);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: calc(var(--space-8) * 1.6) clamp(20px, 5vw, 48px); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8);">
+      <img src="pluppex-logo.png" alt="Pluppex" style="height: 24px; width: auto; display: block; opacity: 0.85;">
+      <p style="margin: 0; font-size: 12px; color: var(--color-neutral-600);">Performance &amp; lucro com crescimento exponencial</p>
+      <p style="margin: 0 0 0 auto; font-size: 12px; color: var(--color-neutral-600);">© 2026 Pluppex</p>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;ctaLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Solicitar diagnóstico&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;statBand&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;faqOpenFirst&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
+class Component extends DCLogic {
+  state = { open: null, sent: false, init: false };
+
+  get items() {
+    return [
+      { q: "Vocês são agência ou consultoria?", a: "Nenhum dos dois no sentido tradicional. Construímos a operação de receita e rodamos ela junto com o seu time — mídia, captura, CRM e dado no mesmo contrato e com a mesma meta." },
+      { q: "Em quanto tempo aparece resultado?", a: "Os primeiros ganhos vêm do tratamento do lead que você já gera, em semanas. Estrutura de mídia, atribuição e previsibilidade de pipeline maturam entre o segundo e o quarto mês." },
+      { q: "Precisamos ter time comercial interno?", a: "Ajuda, mas não é obrigatório. Se não houver, montamos a camada de pré-venda e a rotina de gestão antes de escalar investimento." },
+      { q: "Como é a cobrança?", a: "Fee mensal de operação definido pelo escopo do diagnóstico, com verba de mídia à parte e paga direto às plataformas. Sem comissão sobre mídia." },
+      { q: "Vocês atendem concorrentes do mesmo setor?", a: "Não na mesma praça. Exclusividade por segmento e região é parte do contrato." }
+    ];
+  }
+
+  toggle(i) {
+    this.setState(s => ({ init: true, open: s.open === i ? null : i }));
+  }
+
+  renderVals() {
+    const openFirst = this.props.faqOpenFirst ?? true;
+    const open = this.state.init ? this.state.open : (openFirst ? 0 : null);
+    const cols = String(this.props.servicesColumns ?? "3");
+    return {
+      ctaLabel: this.props.ctaLabel ?? "Solicitar diagnóstico",
+      statBand: this.props.statBand ?? true,
+      servicesGrid: cols === "2" ? "repeat(auto-fit, minmax(300px, 1fr))" : "repeat(auto-fit, minmax(240px, 1fr))",
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      faq: this.items.map((it, i) => ({
+        q: it.q, a: it.a, open: open === i, sign: open === i ? "\u2212" : "+",
+        toggle: () => this.toggle(i)
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>
