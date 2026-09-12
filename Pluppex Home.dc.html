@@ -491,7 +491,7 @@
         <div
           style="max-width: 1280px; margin: 0 auto; padding: clamp(28px, 6vh, 56px) clamp(20px, 4vw, 48px) 0;">
           <div class="hero-carousel">
-            <sc-for list="{{ heroSlides }}" as="s" hint-placeholder-count="5">
+            <sc-for list="{{ heroSlides }}" as="s" hint-placeholder-count="9">
               <div class="hero-slide" style="{{ s.style }}">
                 <sc-if value="{{ s.hasImage }}" hint-placeholder-val="{{ false }}">
                   <img src="{{ s.src }}" alt="{{ s.alt }}">
@@ -518,7 +518,7 @@
               </svg>
             </button>
             <div class="hero-dots">
-              <sc-for list="{{ heroDots }}" as="d" hint-placeholder-count="5">
+              <sc-for list="{{ heroDots }}" as="d" hint-placeholder-count="9">
                 <button type="button" class="hero-dot" data-active="{{ d.activeAttr }}" onClick="{{ d.pick }}"
                   aria-label="Ir para o slide"></button>
               </sc-for>
@@ -1526,7 +1526,10 @@ class Component extends DCLogic {
   }
 
   get heroImages() {
-    return [null, null, null, null, null];
+    return Array.from({ length: 9 }, (_, i) => ({
+      src: "Imagens%20para%20o%20carrossel/" + (i + 1) + ".png",
+      alt: "Pluppex — imagem " + (i + 1)
+    }));
   }
 
   startHeroTimer() {
