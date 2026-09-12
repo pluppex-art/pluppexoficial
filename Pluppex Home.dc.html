@@ -689,24 +689,79 @@
               </div>
             </sc-if>
             <sc-if value="{{ isInteligencia }}" hint-placeholder-val="{{ false }}">
-              <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(28px, 4vw, 64px); align-items: center;">
-                <div>
-                  <p style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
-                    INTELIGÊNCIA</p>
-                  <h3
-                    style="margin: 0; font-family: var(--font-heading); font-size: clamp(24px, 2.8vw, 36px); line-height: 1.1; letter-spacing: -0.025em;">
-                    SUA OPERAÇÃO TAMBÉM PRECISA PENSAR.</h3>
-                  <p
-                    style="margin: 20px 0 0; max-width: 46ch; font-size: 17px; line-height: 1.6; color: var(--color-neutral-300);">
-                    A Aurora é a inteligência da Máquina de Receita. Ela entende as informações disponíveis na
-                    operação e permite consultar, perguntar e solicitar ações em linguagem natural.</p>
-                  <a class="btn btn-primary" href="#solucoes" onClick="{{ pickOps }}"
-                    style="margin-top: 28px; padding: 14px 22px; font-size: 12.5px; letter-spacing: 0.1em;">VER A
-                    OPERAÇÃO</a>
+              <div>
+                <div
+                  style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(28px, 4vw, 64px); align-items: center;">
+                  <div>
+                    <p
+                      style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
+                      INTELIGÊNCIA</p>
+                    <h3
+                      style="margin: 0; font-family: var(--font-heading); font-size: clamp(24px, 2.8vw, 36px); line-height: 1.1; letter-spacing: -0.025em;">
+                      SUA OPERAÇÃO TAMBÉM PRECISA PENSAR.</h3>
+                    <p
+                      style="margin: 20px 0 0; max-width: 46ch; font-size: 17px; line-height: 1.6; color: var(--color-neutral-300);">
+                      A Aurora é a inteligência da Máquina de Receita. Ela entende as informações disponíveis na
+                      operação e permite consultar, perguntar e solicitar ações em linguagem natural.</p>
+                    <a class="btn btn-primary" href="#solucoes" onClick="{{ pickOps }}"
+                      style="margin-top: 28px; padding: 14px 22px; font-size: 12.5px; letter-spacing: 0.1em;">VER A
+                      OPERAÇÃO</a>
+                  </div>
+                  <img src="Aurora/aurora-fluxo.png" alt="Aurora — do sinal à receita"
+                    style="width: 100%; height: auto; display: block; border-radius: var(--radius-lg); border: 1px solid var(--color-divider);">
                 </div>
-                <img src="Aurora/aurora-fluxo.png" alt="Aurora — do sinal à receita"
-                  style="width: 100%; height: auto; display: block; border-radius: var(--radius-lg); border: 1px solid var(--color-divider);">
+
+                <div
+                  style="margin-top: clamp(56px, 8vw, 88px); padding-top: clamp(48px, 7vw, 72px); border-top: 1px solid var(--color-divider);">
+                  <p style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
+                    CONVERSAS COMERCIAIS</p>
+                  <h2
+                    style="margin: 0; max-width: 22ch; font-family: var(--font-heading); font-size: clamp(26px, 3.2vw, 40px); line-height: 1.08; letter-spacing: -0.03em;">
+                    A INTELIGÊNCIA USA O QUE JÁ ACONTECE NA SUA OPERAÇÃO.</h2>
+                  <p
+                    style="margin: 22px 0 0; max-width: 44ch; font-size: 17px; line-height: 1.6; color: var(--color-neutral-300);">
+                    A Aurora utiliza as informações disponíveis das interações comerciais, conforme as capacidades
+                    implementadas.</p>
+                  <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px;">
+                    <span class="tag tag-outline"
+                      style="color: var(--color-accent-300); border-color: var(--color-accent-700);">WHATSAPP</span>
+                    <span class="tag tag-outline"
+                      style="color: var(--color-accent-300); border-color: var(--color-accent-700);">LIGAÇÕES</span>
+                    <span class="tag tag-outline"
+                      style="color: var(--color-accent-300); border-color: var(--color-accent-700);">VIDEOCONFERÊNCIAS</span>
+                    <span class="tag tag-outline"
+                      style="color: var(--color-accent-300); border-color: var(--color-accent-700);">CONVERSAS
+                      COMERCIAIS</span>
+                    <span class="tag tag-outline"
+                      style="color: var(--color-accent-300); border-color: var(--color-accent-700);">ATIVIDADES</span>
+                    <span class="tag tag-outline"
+                      style="color: var(--color-accent-300); border-color: var(--color-accent-700);">S. P. Y. |
+                      CRM</span>
+                  </div>
+                  <ul
+                    style="margin: clamp(28px, 4vw, 40px) 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 14px 0;">
+                    <li class="aq-tag" style="padding: 0 24px 0 0; font-size: 15px; letter-spacing: 0.04em;">ATUALIZAR
+                      NOTAS</li>
+                    <li class="aq-tag"
+                      style="padding: 0 24px; border-left: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      REGISTRAR INFORMAÇÕES</li>
+                    <li class="aq-tag"
+                      style="padding: 0 24px; border-left: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      IDENTIFICAR INTENÇÃO</li>
+                    <li class="aq-tag"
+                      style="padding: 0 24px; border-left: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      RECOMENDAR FOLLOW-UP</li>
+                    <li class="aq-tag"
+                      style="padding: 0 24px; border-left: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      DETECTAR OPORTUNIDADES</li>
+                    <li class="aq-tag"
+                      style="padding: 0 24px; border-left: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      IDENTIFICAR RISCOS</li>
+                    <li class="aq-tag"
+                      style="padding: 0 0 0 24px; border-left: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
+                      GERAR ALERTAS</li>
+                  </ul>
+                </div>
               </div>
             </sc-if>
             <sc-if value="{{ isOperacao }}" hint-placeholder-val="{{ false }}">
@@ -936,64 +991,6 @@
               </div>
             </sc-if>
           </div>
-        </div>
-      </section>
-
-
-
-
-      <section>
-        <div
-          style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(32px, 5vw, 72px);">
-          <div>
-            <p style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
-              CONVERSAS COMERCIAIS</p>
-            <h2
-              style="margin: 0; max-width: 22ch; font-family: var(--font-heading); font-size: clamp(26px, 3.2vw, 40px); line-height: 1.08; letter-spacing: -0.03em;">
-              A INTELIGÊNCIA USA O QUE JÁ ACONTECE NA SUA OPERAÇÃO.</h2>
-            <p
-              style="margin: 22px 0 0; max-width: 44ch; font-size: 17px; line-height: 1.6; color: var(--color-neutral-300);">
-              A Aurora utiliza as informações disponíveis das interações comerciais, conforme as capacidades
-              implementadas.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px;">
-              <span class="tag tag-outline"
-                style="color: var(--color-accent-300); border-color: var(--color-accent-700);">WHATSAPP</span>
-              <span class="tag tag-outline"
-                style="color: var(--color-accent-300); border-color: var(--color-accent-700);">LIGAÇÕES</span>
-              <span class="tag tag-outline"
-                style="color: var(--color-accent-300); border-color: var(--color-accent-700);">VIDEOCONFERÊNCIAS</span>
-              <span class="tag tag-outline"
-                style="color: var(--color-accent-300); border-color: var(--color-accent-700);">CONVERSAS
-                COMERCIAIS</span>
-              <span class="tag tag-outline"
-                style="color: var(--color-accent-300); border-color: var(--color-accent-700);">ATIVIDADES</span>
-              <span class="tag tag-outline"
-                style="color: var(--color-accent-300); border-color: var(--color-accent-700);">S. P. Y. | CRM</span>
-            </div>
-          </div>
-          <ul style="margin: 0; padding: 0; list-style: none; display: grid; align-content: start;">
-            <li
-              style="padding: 15px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
-              ATUALIZAR NOTAS</li>
-            <li
-              style="padding: 15px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
-              REGISTRAR INFORMAÇÕES</li>
-            <li
-              style="padding: 15px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
-              IDENTIFICAR INTENÇÃO</li>
-            <li
-              style="padding: 15px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
-              RECOMENDAR FOLLOW-UP</li>
-            <li
-              style="padding: 15px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
-              DETECTAR OPORTUNIDADES</li>
-            <li
-              style="padding: 15px 0; border-top: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
-              IDENTIFICAR RISCOS</li>
-            <li
-              style="padding: 15px 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); font-size: 15px; letter-spacing: 0.04em;">
-              GERAR ALERTAS</li>
-          </ul>
         </div>
       </section>
 
