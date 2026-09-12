@@ -281,95 +281,11 @@
             radial-gradient(60% 60% at 50% 8%, rgba(5, 5, 5, 0.15), transparent 70%);
         }
 
-        .hero-slide {
-          position: absolute;
-          inset: 0;
-        }
-
-        .hero-slide img {
+        .hero-bg-image {
           display: block;
           width: 100%;
           height: 100%;
           object-fit: cover;
-        }
-
-        .hero-slide-placeholder {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-family: var(--font-heading);
-          font-size: 13px;
-          letter-spacing: 0.14em;
-          color: var(--color-neutral-600);
-          background: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0 18px, rgba(255, 255, 255, 0.045) 18px 36px);
-        }
-
-        .hero-arrow {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 38px;
-          height: 38px;
-          display: grid;
-          place-items: center;
-          border-radius: 50%;
-          border: 1px solid rgba(245, 245, 245, 0.18);
-          background: rgba(5, 5, 5, 0.35);
-          backdrop-filter: blur(6px);
-          color: var(--color-neutral-200);
-          opacity: 0.55;
-          cursor: pointer;
-          transition: opacity .2s ease, background .2s ease;
-          z-index: 2;
-        }
-
-        .hero-arrow:hover {
-          opacity: 1;
-          background: rgba(5, 5, 5, 0.55);
-        }
-
-        .hero-arrow-prev {
-          left: 14px;
-        }
-
-        .hero-arrow-next {
-          right: 14px;
-        }
-
-        .hero-dots {
-          position: absolute;
-          left: 0;
-          right: 0;
-          bottom: 14px;
-          z-index: 2;
-          display: flex;
-          justify-content: center;
-          gap: 8px;
-        }
-
-        .hero-dot {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: rgba(245, 245, 245, 0.35);
-          cursor: pointer;
-          padding: 0;
-          border: 0;
-          transition: background .2s ease, transform .2s ease;
-        }
-
-        .hero-dot[data-active="1"] {
-          background: #f5f5f5;
-          transform: scale(1.3);
-        }
-
-        @media (max-width: 600px) {
-          .hero-arrow {
-            width: 32px;
-            height: 32px;
-          }
         }
 
         @media (max-width: 1150px) {
@@ -499,38 +415,7 @@
 
       <section id="topo" style="position: relative; min-height: clamp(620px, 92vh, 940px); display: flex; flex-direction: column;">
         <div class="hero-carousel">
-          <sc-for list="{{ heroSlides }}" as="s" hint-placeholder-count="9">
-            <div class="hero-slide" style="{{ s.style }}">
-              <sc-if value="{{ s.hasImage }}" hint-placeholder-val="{{ false }}">
-                <img src="{{ s.src }}" alt="{{ s.alt }}">
-              </sc-if>
-              <sc-if value="{{ s.noImage }}" hint-placeholder-val="{{ true }}">
-                <div class="hero-slide-placeholder">
-                  <span>{{ s.label }}</span>
-                </div>
-              </sc-if>
-            </div>
-          </sc-for>
-          <button type="button" class="hero-arrow hero-arrow-prev" onClick="{{ heroPrev }}"
-            aria-label="Slide anterior">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="m15 18-6-6 6-6"></path>
-            </svg>
-          </button>
-          <button type="button" class="hero-arrow hero-arrow-next" onClick="{{ heroNext }}"
-            aria-label="Próximo slide">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="m9 18 6-6-6-6"></path>
-            </svg>
-          </button>
-          <div class="hero-dots">
-            <sc-for list="{{ heroDots }}" as="d" hint-placeholder-count="9">
-              <button type="button" class="hero-dot" data-active="{{ d.activeAttr }}" onClick="{{ d.pick }}"
-                aria-label="Ir para o slide"></button>
-            </sc-for>
-          </div>
+          <img src="BackgroundHero/BackgroundHero.png" alt="Pluppex" class="hero-bg-image">
         </div>
 
         <div
@@ -1535,20 +1420,6 @@ class Component extends DCLogic {
     ];
   }
 
-  get heroImages() {
-    return Array.from({ length: 9 }, (_, i) => ({
-      src: "Imagens%20para%20o%20carrossel/" + (i + 1) + ".png",
-      alt: "Pluppex — imagem " + (i + 1)
-    }));
-  }
-
-  startHeroTimer() {
-    clearInterval(this.heroTimer);
-    this.heroTimer = setInterval(() => {
-      this.setState(s => ({ hero: ((s.hero ?? 0) + 1) % this.heroImages.length }));
-    }, 5000);
-  }
-
   componentDidMount() {
     this.onDocClick = (e) => {
       if (!this.state.sol) return;
@@ -1559,14 +1430,13 @@ class Component extends DCLogic {
     this.onEsc = (e) => { if (e.key === "Escape") this.setState({ sol: false }); };
     document.addEventListener("keydown", this.onEsc);
     this.jTimer = setInterval(() => this.setState(s => ({ step: ((s.step ?? 0) + 1) % 5 })), 1500);
-    this.startHeroTimer();
     if (this.props.auroraAutoplay === false) return;
     this.timer = setInterval(() => {
       this.setState(s => ({ reveal: s.reveal >= 8 ? 2 : s.reveal + 2 }));
     }, 1900);
   }
   componentWillUnmount() {
-    clearInterval(this.timer); clearInterval(this.jTimer); clearInterval(this.heroTimer);
+    clearInterval(this.timer); clearInterval(this.jTimer);
     document.removeEventListener("click", this.onDocClick, true);
     document.removeEventListener("keydown", this.onEsc);
   }
@@ -1625,29 +1495,7 @@ class Component extends DCLogic {
     const comps = this.state.comps;
     const combo = comps.length ? comps.join(" + ") + " + " + this.state.model : this.state.model;
 
-    const heroIdx = this.state.hero ?? 0;
-
     return {
-      heroSlides: this.heroImages.map((img, i) => ({
-        style: "opacity: " + (heroIdx === i ? "1" : "0") + "; z-index: " + (heroIdx === i ? "1" : "0") + ";",
-        hasImage: !!img,
-        noImage: !img,
-        src: img ? img.src : "",
-        alt: img ? img.alt : "",
-        label: "IMAGEM " + (i + 1)
-      })),
-      heroDots: this.heroImages.map((_, i) => ({
-        activeAttr: heroIdx === i ? "1" : "0",
-        pick: () => { this.startHeroTimer(); this.setState({ hero: i }); }
-      })),
-      heroPrev: () => {
-        this.startHeroTimer();
-        this.setState(s => ({ hero: ((s.hero ?? 0) - 1 + this.heroImages.length) % this.heroImages.length }));
-      },
-      heroNext: () => {
-        this.startHeroTimer();
-        this.setState(s => ({ hero: ((s.hero ?? 0) + 1) % this.heroImages.length }));
-      },
       journey: this.journeySteps.map(([label, caption], i) => {
         const step = this.state.step ?? 0;
         const active = step === i;
