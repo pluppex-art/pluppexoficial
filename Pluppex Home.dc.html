@@ -689,8 +689,9 @@
               </div>
             </sc-if>
             <sc-if value="{{ isInteligencia }}" hint-placeholder-val="{{ false }}">
-              <div>
-                <div style="max-width: 62ch;">
+              <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(28px, 4vw, 64px); align-items: center;">
+                <div>
                   <p style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
                     INTELIGÊNCIA</p>
                   <h3
@@ -705,7 +706,7 @@
                     OPERAÇÃO</a>
                 </div>
                 <img src="Aurora/aurora-fluxo.png" alt="Aurora — do sinal à receita"
-                  style="width: 100%; height: auto; display: block; margin-top: clamp(36px, 5vw, 56px); border-radius: var(--radius-lg); border: 1px solid var(--color-divider);">
+                  style="width: 100%; height: auto; display: block; border-radius: var(--radius-lg); border: 1px solid var(--color-divider);">
               </div>
             </sc-if>
             <sc-if value="{{ isOperacao }}" hint-placeholder-val="{{ false }}">
