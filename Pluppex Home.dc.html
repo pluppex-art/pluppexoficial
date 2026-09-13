@@ -1087,6 +1087,243 @@
         #combinacao.dg-in-view .dg-anim-9 {
           animation-delay: 2.5s;
         }
+
+        /* ===== Sócios ===== */
+        .socio-card {
+          position: relative;
+          border: 1px solid var(--color-divider);
+          border-radius: var(--radius-lg);
+          padding: 24px;
+          background: rgba(255, 255, 255, 0.015);
+          transition: border-color 300ms ease, box-shadow 300ms ease;
+        }
+
+        .socio-card:hover {
+          border-color: rgba(116, 62, 228, 0.5);
+          box-shadow: 0 0 32px -12px rgba(116, 62, 228, 0.5);
+        }
+
+        .socio-photo-wrap {
+          position: relative;
+          aspect-ratio: 5 / 6;
+          border-radius: var(--radius-md);
+          overflow: hidden;
+          background: var(--color-surface);
+        }
+
+        .socio-photo-wrap::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, transparent 55%, rgba(5, 5, 5, 0.85) 100%);
+          pointer-events: none;
+        }
+
+        .socio-photo {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: grayscale(0.08) contrast(1.05);
+          transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .socio-card:hover .socio-photo {
+          transform: scale(1.04);
+        }
+
+        .socio-tag {
+          display: inline-block;
+          margin-top: 20px;
+          padding: 6px 12px;
+          border: 1px solid var(--color-accent-700);
+          border-radius: var(--radius-sm);
+          font-family: var(--font-heading);
+          font-size: 10.5px;
+          letter-spacing: 0.16em;
+          color: var(--color-accent-200);
+          transition: border-color 300ms ease, color 300ms ease;
+        }
+
+        .socio-card:hover .socio-tag {
+          border-color: var(--color-accent);
+          color: #ffffff;
+        }
+
+        .socio-name {
+          margin: 16px 0 0;
+          font-family: var(--font-heading);
+          font-size: clamp(22px, 2.4vw, 28px);
+          letter-spacing: -0.01em;
+          color: #ffffff;
+        }
+
+        .socio-role {
+          margin: 8px 0 0;
+          font-size: 12px;
+          letter-spacing: 0.08em;
+          color: var(--color-neutral-400);
+        }
+
+        .socio-lead {
+          margin: 16px 0 0;
+          font-size: 15.5px;
+          line-height: 1.5;
+          color: var(--color-neutral-200);
+        }
+
+        .socio-toggle {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          margin-top: 20px;
+          padding: 0;
+          background: none;
+          border: 0;
+          font-family: var(--font-body);
+          font-size: 11.5px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          color: var(--color-neutral-400);
+          cursor: pointer;
+          transition: color 300ms ease;
+        }
+
+        .socio-card:hover .socio-toggle,
+        .socio-toggle:hover {
+          color: var(--color-accent-200);
+        }
+
+        .socio-toggle-arrow {
+          display: inline-block;
+          transition: transform 300ms ease;
+        }
+
+        .socio-card.is-open .socio-toggle-arrow {
+          transform: rotate(180deg);
+        }
+
+        .socio-panel {
+          display: grid;
+          grid-template-rows: 0fr;
+          opacity: 0;
+          transition: grid-template-rows 500ms cubic-bezier(0.22, 1, 0.36, 1), opacity 400ms ease;
+        }
+
+        .socio-card.is-open .socio-panel {
+          grid-template-rows: 1fr;
+          opacity: 1;
+        }
+
+        .socio-panel-inner {
+          overflow: hidden;
+          min-height: 0;
+        }
+
+        .socio-panel-body {
+          padding-top: 20px;
+          margin-top: 20px;
+          border-top: 1px solid var(--color-divider);
+        }
+
+        .socio-desc {
+          margin: 0;
+          font-size: 14.5px;
+          line-height: 1.6;
+          color: var(--color-neutral-300);
+        }
+
+        .socio-areas-label {
+          margin: 20px 0 10px;
+          font-size: 10.5px;
+          letter-spacing: 0.18em;
+          color: var(--color-neutral-500);
+        }
+
+        .socio-areas {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          display: grid;
+          gap: 8px;
+        }
+
+        .socio-areas li {
+          position: relative;
+          padding-left: 14px;
+          font-size: 13.5px;
+          letter-spacing: 0.02em;
+          color: var(--color-neutral-200);
+        }
+
+        .socio-areas li::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 8px;
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background: var(--color-accent);
+        }
+
+        .socio-quote {
+          margin: 20px 0 0;
+          padding: 14px 16px;
+          border-left: 2px solid var(--color-accent-700);
+          font-size: 13.5px;
+          font-style: italic;
+          line-height: 1.55;
+          color: var(--color-neutral-400);
+        }
+
+        .socios-connect {
+          text-align: center;
+          margin-top: clamp(56px, 8vw, 88px);
+        }
+
+        .socios-connect-row {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          gap: 16px;
+        }
+
+        .socios-connect-item {
+          padding: 10px 18px;
+          border: 1px solid var(--color-divider);
+          border-radius: var(--radius-md);
+          font-family: var(--font-heading);
+          font-size: 12px;
+          letter-spacing: 0.12em;
+          color: var(--color-neutral-200);
+        }
+
+        .socios-connect-plus {
+          color: var(--color-neutral-600);
+          font-size: 14px;
+        }
+
+        .socios-connect-arrow {
+          margin-top: 16px;
+          color: var(--color-neutral-600);
+          font-size: 16px;
+        }
+
+        .socios-connect-result {
+          margin-top: 12px;
+          display: inline-block;
+          padding: 14px 28px;
+          border: 1px solid rgba(116, 62, 228, 0.55);
+          border-radius: var(--radius-md);
+          background: rgba(116, 62, 228, 0.08);
+          font-family: var(--font-heading);
+          font-size: clamp(16px, 2vw, 22px);
+          letter-spacing: 0.08em;
+          color: #ffffff;
+          box-shadow: 0 0 32px -10px rgba(116, 62, 228, 0.5);
+        }
       </style>
     </helmet>
 
@@ -1138,7 +1375,7 @@
                         style="padding: 11px 12px; border-radius: var(--radius-sm); color: var(--color-neutral-200); font-size: 12.5px; letter-spacing: 0.08em;"
                         style-hover="background: rgba(116,62,228,0.16); color: #f5f5f5;">OPERAÇÃO</a>
                       <span style="height: 1px; margin: 8px 12px; background: var(--color-divider);"></span>
-                      <a href="#maquina" onClick="{{ closeSol }}"
+                      <a href="#solucoes" onClick="{{ closeSol }}"
                         style="padding: 11px 12px; border-radius: var(--radius-sm); color: var(--color-neutral-200); font-size: 12.5px; letter-spacing: 0.08em;"
                         style-hover="background: rgba(116,62,228,0.16); color: #f5f5f5;">COMO A MÁQUINA FUNCIONA</a>
                       <a href="#modelos" onClick="{{ closeSol }}"
@@ -1716,7 +1953,8 @@
               PRECISA DE MAIS UMA FERRAMENTA.</p>
             <p
               style="margin: 14px 0 0; font-family: var(--font-heading); font-size: clamp(22px, 3.2vw, 38px); line-height: 1.2; letter-spacing: -0.01em;">
-              <span class="h1-gradient">PRECISA SABER ONDE ESTÁ O SEU PRÓXIMO GARGALO.</span></p>
+              <span class="h1-gradient">PRECISA SABER ONDE ESTÁ O SEU PRÓXIMO NIVEL.</span>
+            </p>
           </div>
 
           <div class="dg-anim dg-anim-9" style="text-align: center; margin-top: 40px;">
@@ -1724,72 +1962,136 @@
               style="padding: 18px 30px; font-size: 13.5px; letter-spacing: 0.1em;">QUERO MEU DIAGNÓSTICO GRATUITO
               →</a>
             <p style="margin: 16px 0 0; font-size: 12px; letter-spacing: 0.08em; color: var(--color-neutral-500);">
-              Gratuito • Sem compromisso • Análise personalizada</p>
+              Análise personalizada & Gratuito</p>
           </div>
         </div>
       </section>
 
 
-      <section id="maquina" style="border-bottom: 1px solid var(--color-divider);">
+      <section id="socios" style="border-bottom: 1px solid var(--color-divider);">
         <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
+          <p style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent-300);">OS TRÊS
+            PILARES DA PLUPPEX</p>
           <h2
-            style="margin: 0; max-width: 20ch; font-family: var(--font-heading); font-size: clamp(28px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -0.035em;">
-            COMO A MÁQUINA DE RECEITA FUNCIONA.</h2>
-          <div style="margin-top: 56px; display: grid; gap: 1px; background: var(--color-divider);">
-            <div
-              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px 40px; padding: 28px 4px; background: rgba(14,14,17,0.55); align-items: baseline;">
-              <p
-                style="margin: 0; display: flex; align-items: baseline; gap: 18px; font-family: var(--font-heading); font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -0.015em;">
-                <span
-                  style="font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">01</span>AQUISIÇÃO
-              </p>
-              <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--color-neutral-300);">Gera
-                oportunidades.</p>
+            style="margin: 0; max-width: 20ch; font-family: var(--font-heading); font-size: clamp(26px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -0.03em;">
+            VISÃO PARA DIRECIONAR.<br>VENDAS PARA CONVERTER.<br>TECNOLOGIA PARA ESCALAR.</h2>
+          <p
+            style="margin: 22px 0 0; max-width: 58ch; font-size: 18px; line-height: 1.6; color: var(--color-neutral-300);">
+            A Pluppex une estratégia, operação comercial e tecnologia para construir máquinas de receita capazes de
+            crescer com mais previsibilidade.</p>
+
+          <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px; margin-top: clamp(48px, 6vw, 64px); align-items: start;">
+            <div class="{{ socio1Cls }}">
+              <div class="socio-photo-wrap">
+                <img src="socios/gustavoOliveira.png" alt="Gustavo Oliveira" class="socio-photo">
+              </div>
+              <span class="socio-tag">PILAR VISÃO</span>
+              <p class="socio-name">GUSTAVO OLIVEIRA</p>
+              <p class="socio-role">GESTÃO &amp; VISÃO ESTRATÉGICA</p>
+              <p class="socio-lead">Transforma estratégia em direção.</p>
+              <button type="button" class="socio-toggle" onClick="{{ toggleSocio1 }}">VER ATUAÇÃO <span
+                  class="socio-toggle-arrow">↓</span></button>
+              <div class="socio-panel">
+                <div class="socio-panel-inner">
+                  <div class="socio-panel-body">
+                    <p class="socio-desc">Responsável pela visão estratégica, posicionamento e direcionamento da
+                      Pluppex. Conecta negócio, marketing, vendas e tecnologia para transformar estratégia em
+                      crescimento e receita.</p>
+                    <p class="socio-areas-label">ATUAÇÃO</p>
+                    <ul class="socio-areas">
+                      <li>Estratégia de Negócios</li>
+                      <li>Posicionamento</li>
+                      <li>Marketing &amp; Vendas</li>
+                      <li>Gestão &amp; Direcionamento</li>
+                    </ul>
+                    <p class="socio-quote">"A tecnologia e a operação devem sempre servir ao objetivo principal:
+                      gerar crescimento sustentável e receita previsível."</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div
-              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px 40px; padding: 28px 4px; background: rgba(14,14,17,0.55); align-items: baseline;">
-              <p
-                style="margin: 0; display: flex; align-items: baseline; gap: 18px; font-family: var(--font-heading); font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -0.015em;">
-                <span style="font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">02</span>S. P. Y.
-                | CRM
-              </p>
-              <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--color-neutral-300);">Organiza a
-                operação.</p>
+
+            <div class="{{ socio2Cls }}">
+              <div class="socio-photo-wrap">
+                <img src="socios/fredericoSilva.png" alt="Frederico" class="socio-photo">
+              </div>
+              <span class="socio-tag">PILAR VENDAS</span>
+              <p class="socio-name">FREDERICO</p>
+              <p class="socio-role">COMERCIAL &amp; VENDAS</p>
+              <p class="socio-lead">Transforma oportunidade em negócio.</p>
+              <button type="button" class="socio-toggle" onClick="{{ toggleSocio2 }}">VER ATUAÇÃO <span
+                  class="socio-toggle-arrow">↓</span></button>
+              <div class="socio-panel">
+                <div class="socio-panel-inner">
+                  <div class="socio-panel-body">
+                    <p class="socio-desc">Responsável pela área comercial e pela transformação da máquina em receita.
+                      Atua na prospecção, vendas, negociação e gestão do processo comercial, tornando a geração de
+                      clientes cada vez mais previsível.</p>
+                    <p class="socio-areas-label">ATUAÇÃO</p>
+                    <ul class="socio-areas">
+                      <li>Prospecção &amp; Cadência</li>
+                      <li>Gestão de Pipeline</li>
+                      <li>Negociação de Alto Ticket</li>
+                      <li>Follow-up &amp; Conversão</li>
+                    </ul>
+                    <p class="socio-quote">"Gerar oportunidades sem saber convertê-las não é crescimento. Vender é
+                      método e disciplina."</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div
-              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px 40px; padding: 28px 4px; background: rgba(14,14,17,0.55); align-items: baseline;">
-              <p
-                style="margin: 0; display: flex; align-items: baseline; gap: 18px; font-family: var(--font-heading); font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -0.015em;">
-                <span style="font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">03</span>AURORA
-              </p>
-              <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--color-neutral-300);">Entende os
-                dados, responde perguntas, identifica sinais e movimenta a operação.</p>
-            </div>
-            <div
-              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px 40px; padding: 28px 4px; background: rgba(14,14,17,0.55); align-items: baseline;">
-              <p
-                style="margin: 0; display: flex; align-items: baseline; gap: 18px; font-family: var(--font-heading); font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -0.015em;">
-                <span style="font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">04</span>AÇÃO
-              </p>
-              <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--color-neutral-300);">A equipe
-                executa.</p>
-            </div>
-            <div
-              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px 40px; padding: 28px 4px; background: rgba(14,14,17,0.55); align-items: baseline;">
-              <p
-                style="margin: 0; display: flex; align-items: baseline; gap: 18px; font-family: var(--font-heading); font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -0.015em;">
-                <span style="font-size: 12px; letter-spacing: 0.14em; color: var(--color-accent-300);">05</span>RECEITA
-              </p>
-              <p style="margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--color-neutral-300);">Oportunidades
-                viram negócios.</p>
+
+            <div class="{{ socio3Cls }}">
+              <div class="socio-photo-wrap">
+                <img src="socios/gustavoHenrique.png" alt="Gustavo Henrique" class="socio-photo">
+              </div>
+              <span class="socio-tag">PILAR TECNOLOGIA</span>
+              <p class="socio-name">GUSTAVO HENRIQUE</p>
+              <p class="socio-role">TECNOLOGIA &amp; INTELIGÊNCIA ARTIFICIAL</p>
+              <p class="socio-lead">Transforma operação em sistema.</p>
+              <button type="button" class="socio-toggle" onClick="{{ toggleSocio3 }}">VER ATUAÇÃO <span
+                  class="socio-toggle-arrow">↓</span></button>
+              <div class="socio-panel">
+                <div class="socio-panel-inner">
+                  <div class="socio-panel-body">
+                    <p class="socio-desc">Responsável pela tecnologia, desenvolvimento e inteligência artificial da
+                      Pluppex. Arquitetura o S. P. Y. e a Aurora para transformar dados, automações e inteligência em
+                      uma operação capaz de escalar.</p>
+                    <p class="socio-areas-label">ATUAÇÃO</p>
+                    <ul class="socio-areas">
+                      <li>Arquitetura do S. P. Y.</li>
+                      <li>Inteligência Artificial &amp; Aurora</li>
+                      <li>Automações &amp; APIs</li>
+                      <li>Infraestrutura da Máquina</li>
+                    </ul>
+                    <p class="socio-quote">"Tecnologia não é o produto final. É o motor que permite à máquina rodar
+                      sem atrito e crescer exponencialmente."</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <p
-            style="margin: 48px 0 0; font-family: var(--font-heading); font-size: clamp(22px, 3vw, 38px); letter-spacing: 0.04em; color: var(--color-accent-200);">
-            DO SINAL À RECEITA.</p>
-          <p
-            style="margin: 16px 0 0; font-family: var(--font-heading); font-size: clamp(16px, 1.6vw, 20px); letter-spacing: 0.06em; color: var(--color-neutral-400);">
-            NÃO ENTREGAMOS PEÇAS. CONSTRUÍMOS A OPERAÇÃO.</p>
+
+          <div class="socios-connect">
+            <div class="socios-connect-row">
+              <span class="socios-connect-item">VISÃO</span>
+              <span class="socios-connect-plus">+</span>
+              <span class="socios-connect-item">VENDAS</span>
+              <span class="socios-connect-plus">+</span>
+              <span class="socios-connect-item">TECNOLOGIA</span>
+            </div>
+            <div class="socios-connect-arrow">↓</div>
+            <p class="socios-connect-result">MÁQUINA DE RECEITA</p>
+          </div>
+
+          <div style="text-align: center; margin-top: clamp(48px, 7vw, 72px);">
+            <p
+              style="margin: 0; font-family: var(--font-heading); font-size: clamp(22px, 3vw, 36px); line-height: 1.25; letter-spacing: -0.01em;">
+              TRÊS ESPECIALIDADES.<br>UMA ÚNICA MÁQUINA.</p>
+            <p style="margin: 16px 0 0; font-size: 13px; letter-spacing: 0.06em; color: var(--color-neutral-400);">
+              Estratégia para direcionar. Vendas para converter. Tecnologia para escalar.</p>
+          </div>
         </div>
       </section>
 
@@ -2129,7 +2431,7 @@
           <nav style="display: grid; gap: 10px; font-size: 12.5px; letter-spacing: 0.1em; align-content: start;">
             <a href="#segmentos" style="color: var(--color-neutral-300);">PARA SUA EMPRESA</a>
             <a href="#solucoes" style="color: var(--color-neutral-300);">O QUE FAZEMOS</a>
-            <a href="#maquina" style="color: var(--color-neutral-300);">COMO FUNCIONA</a>
+            <a href="#solucoes" style="color: var(--color-neutral-300);">COMO FUNCIONA</a>
             <a href="#solucoes" onClick="{{ pickSpy }}" style="color: var(--color-neutral-300);">S. P. Y. | CRM</a>
           </nav>
           <nav style="display: grid; gap: 10px; font-size: 12.5px; letter-spacing: 0.1em; align-content: start;">
@@ -2157,7 +2459,7 @@
   <script type="text/x-dc" data-dc-script
     data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280},&quot;defaultTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;AQUISIÇÃO&quot;,&quot;S. P. Y. | CRM&quot;,&quot;INTELIGÊNCIA&quot;,&quot;OPERAÇÃO&quot;],&quot;default&quot;:&quot;AQUISIÇÃO&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Soluções&quot;}}">
 class Component extends DCLogic {
-  state = { tab: null, level1Open: true, level2Open: true, level3Open: true, level4Open: true, faq: 0, faqTouched: false, sent: false, menu: false };
+  state = { tab: null, level1Open: true, level2Open: true, level3Open: true, level4Open: true, socio1Open: false, socio2Open: false, socio3Open: false, faq: 0, faqTouched: false, sent: false, menu: false };
 
   get journeySteps() {
     return [
@@ -2309,6 +2611,12 @@ class Component extends DCLogic {
       toggleLevel2: () => this.setState(s => ({ level2Open: !s.level2Open })),
       toggleLevel3: () => this.setState(s => ({ level3Open: !s.level3Open })),
       toggleLevel4: () => this.setState(s => ({ level4Open: !s.level4Open })),
+      socio1Cls: "socio-card" + (this.state.socio1Open ? " is-open" : ""),
+      socio2Cls: "socio-card" + (this.state.socio2Open ? " is-open" : ""),
+      socio3Cls: "socio-card" + (this.state.socio3Open ? " is-open" : ""),
+      toggleSocio1: () => this.setState(s => ({ socio1Open: !s.socio1Open })),
+      toggleSocio2: () => this.setState(s => ({ socio2Open: !s.socio2Open })),
+      toggleSocio3: () => this.setState(s => ({ socio3Open: !s.socio3Open })),
       faq: this.faqItems.map(([q, a], i) => ({
         q, a, open: faqOpen === i, sign: faqOpen === i ? "\u2212" : "+",
         toggle: () => this.setState(s => ({ faqTouched: true, faq: s.faqTouched && s.faq === i ? -1 : i }))
