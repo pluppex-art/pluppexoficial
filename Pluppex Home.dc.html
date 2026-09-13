@@ -522,11 +522,6 @@
           z-index: 0;
         }
 
-        .hero-seq-b {
-          z-index: 1;
-          opacity: 0;
-        }
-
         @media (max-width: 1150px) {
           [data-solpanel] {
             position: static !important;
@@ -1383,8 +1378,6 @@
         <div class="hero-carousel">
           <img src="backgroundHeroVideo/Rocket_launching_from_platform_20260912233149_000.jpg" alt=""
             class="hero-seq-layer hero-seq-a" aria-hidden="true">
-          <img src="backgroundHeroVideo/Rocket_launching_from_platform_20260912233149_000.jpg" alt=""
-            class="hero-seq-layer hero-seq-b" aria-hidden="true">
         </div>
 
         <header
@@ -1489,8 +1482,8 @@
 
               <div class="hero-tagline" style="display: flex; align-items: center; gap: 16px; margin-top: 48px;">
                 <span style="width: 32px; height: 1px; background: var(--color-accent);"></span>
-                <span style="font-size: 11px; letter-spacing: 0.18em; color: var(--color-neutral-500);">EMPRESAS QUE
-                  CRESCEM SEM PERDER O CONTROLE</span>
+                <span style="font-size: 11px; letter-spacing: 0.18em; color: var(--color-neutral-500);">PERFORMANCE &
+                  LUCRO COM CRESCIMENTO EXPONENCIAL</span>
               </div>
             </div>
           </div>
@@ -2421,12 +2414,10 @@ class Component extends DCLogic {
     const PREFIX = "Rocket_launching_from_platform_20260912233149_";
     const COUNT = 80;
     const FPS = 24;
-    const LOOP_FADE_MS = 380;
     const frameSrc = (i) => DIR + PREFIX + String(i).padStart(3, "0") + ".jpg";
 
     const layerA = document.querySelector(".hero-seq-a");
-    const layerB = document.querySelector(".hero-seq-b");
-    if (!layerA || !layerB) return;
+    if (!layerA) return;
 
     const isSmallScreen = window.matchMedia("(max-width: 767px)").matches;
     if (isSmallScreen) return;
@@ -2448,44 +2439,21 @@ class Component extends DCLogic {
     preloadNext(1);
 
     let current = 0;
-    let transitioning = false;
     let lastTime = null;
     let acc = 0;
     const frameDuration = 1000 / FPS;
 
-    const loopCrossfade = () => {
-      transitioning = true;
-      layerB.style.transition = "none";
-      layerB.src = frameSrc(0);
-      layerB.style.opacity = "0";
-      requestAnimationFrame(() => {
-        layerB.style.transition = "opacity " + LOOP_FADE_MS + "ms ease";
-        layerB.style.opacity = "1";
-      });
-      setTimeout(() => {
-        if (this.heroSeqStopped) return;
-        layerA.src = frameSrc(0);
-        layerB.style.transition = "none";
-        layerB.style.opacity = "0";
-        current = 0;
-        transitioning = false;
-      }, LOOP_FADE_MS + 20);
-    };
-
     const step = (time) => {
-      if (this.heroSeqStopped) return;
+      if (this.heroSeqStopped || current >= COUNT - 1) return;
       if (lastTime == null) lastTime = time;
       const dt = time - lastTime;
       lastTime = time;
-      if (!transitioning && !document.hidden) {
+      if (!document.hidden) {
         acc += dt;
-        while (acc >= frameDuration) {
+        while (acc >= frameDuration && current < COUNT - 1) {
           acc -= frameDuration;
           const next = current + 1;
-          if (next >= COUNT) {
-            loopCrossfade();
-            break;
-          } else if (loaded[next]) {
+          if (loaded[next]) {
             current = next;
             layerA.src = frameSrc(current);
           } else {
