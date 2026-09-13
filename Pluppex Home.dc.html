@@ -564,6 +564,374 @@
             gap: 14px;
           }
         }
+
+        /* ===== Seção "Como a Pluppex pode entrar na sua empresa" ===== */
+        .pj-journey {
+          position: relative;
+          display: grid;
+          grid-template-columns: 1fr 40px 1fr;
+          row-gap: clamp(56px, 8vw, 104px);
+          margin-top: clamp(56px, 8vw, 96px);
+        }
+
+        .pj-line-track {
+          grid-column: 2;
+          grid-row: 1 / -1;
+          position: relative;
+        }
+
+        .pj-line-fill {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 50%;
+          width: 1px;
+          transform: translateX(-50%) scaleY(0);
+          transform-origin: top;
+          background: linear-gradient(180deg, transparent, var(--color-divider) 6%, var(--color-divider) 94%, transparent);
+        }
+
+        .pj-pulse {
+          position: absolute;
+          left: 50%;
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: var(--color-accent-300);
+          transform: translateX(-50%);
+          box-shadow: 0 0 8px 2px rgba(116, 62, 228, 0.65);
+          opacity: 0;
+          animation: pjTravel 6s linear infinite;
+        }
+
+        .pj-pulse:nth-child(2) {
+          animation-delay: 2s;
+        }
+
+        .pj-pulse:nth-child(3) {
+          animation-delay: 4s;
+        }
+
+        @keyframes pjTravel {
+
+          0%,
+          100% {
+            top: -2%;
+            opacity: 0;
+          }
+
+          8% {
+            opacity: 0.9;
+          }
+
+          92% {
+            opacity: 0.9;
+          }
+
+          99% {
+            top: 102%;
+            opacity: 0;
+          }
+        }
+
+        .pj-dot-slot {
+          grid-column: 2;
+          display: flex;
+          justify-content: center;
+          padding-top: 8px;
+        }
+
+        .pj-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: var(--color-surface);
+          border: 1px solid var(--color-accent-700);
+          box-shadow: 0 0 0 4px var(--color-bg);
+        }
+
+        .pj-step-slot-left {
+          grid-column: 1;
+        }
+
+        .pj-step-slot-right {
+          grid-column: 3;
+        }
+
+        .pj-empty {
+          display: block;
+        }
+
+        .pj-step {
+          position: relative;
+          text-align: left;
+          width: 100%;
+          background: transparent;
+          border: 0;
+          padding: 0;
+          font-family: var(--font-body);
+          color: inherit;
+          cursor: pointer;
+        }
+
+        .pj-step-head {
+          display: block;
+          width: 100%;
+          text-align: left;
+          background: rgba(255, 255, 255, 0.015);
+          border: 1px solid var(--color-divider);
+          border-radius: var(--radius-lg);
+          padding: clamp(20px, 2.6vw, 30px);
+          cursor: pointer;
+          transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease, background 300ms ease;
+        }
+
+        .pj-side-left .pj-step-head {
+          margin-left: auto;
+        }
+
+        .pj-side-right .pj-step-head {
+          margin-right: auto;
+        }
+
+        .pj-step-head:hover {
+          border-color: rgba(116, 62, 228, 0.5);
+          box-shadow: 0 0 28px -10px rgba(116, 62, 228, 0.5);
+        }
+
+        .pj-side-left .pj-step-head:hover {
+          transform: translateX(8px);
+        }
+
+        .pj-side-right .pj-step-head:hover {
+          transform: translateX(-8px);
+        }
+
+        .pj-step.is-open .pj-step-head {
+          border-color: rgba(116, 62, 228, 0.6);
+          background: rgba(116, 62, 228, 0.06);
+          box-shadow: 0 0 32px -10px rgba(116, 62, 228, 0.55);
+        }
+
+        .pj-step-num {
+          display: block;
+          font-family: var(--font-heading);
+          font-size: 12px;
+          letter-spacing: 0.2em;
+          color: var(--color-accent-300);
+        }
+
+        .pj-step-title {
+          display: block;
+          margin-top: 10px;
+          font-family: var(--font-heading);
+          font-size: clamp(20px, 2.4vw, 28px);
+          line-height: 1.15;
+          letter-spacing: -0.02em;
+          color: var(--color-text);
+        }
+
+        .pj-step-desc {
+          display: block;
+          margin-top: 12px;
+          max-width: 42ch;
+          font-size: 15px;
+          line-height: 1.55;
+          color: var(--color-neutral-300);
+        }
+
+        .pj-side-right .pj-step-desc {
+          margin-left: auto;
+        }
+
+        .pj-step-panel {
+          display: grid;
+          grid-template-rows: 0fr;
+          opacity: 0;
+          transform: translateY(-8px);
+          transition: grid-template-rows 500ms cubic-bezier(0.22, 1, 0.36, 1), opacity 400ms ease, transform 400ms ease;
+        }
+
+        .pj-step.is-open .pj-step-panel {
+          grid-template-rows: 1fr;
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .pj-step-panel-inner {
+          overflow: hidden;
+          min-height: 0;
+        }
+
+        .pj-step-panel-body {
+          padding-top: 20px;
+          margin-top: 20px;
+          border-top: 1px solid var(--color-divider);
+        }
+
+        .pj-flow-v {
+          display: grid;
+          gap: 0;
+          max-width: 320px;
+        }
+
+        .pj-flow-v-item {
+          padding: 12px 0;
+          font-family: var(--font-heading);
+          font-size: 12.5px;
+          letter-spacing: 0.12em;
+          color: var(--color-neutral-200);
+        }
+
+        .pj-flow-v-arrow {
+          font-size: 11px;
+          color: var(--color-neutral-600);
+          padding-left: 2px;
+        }
+
+        .pj-flow-h {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .pj-flow-h-item {
+          padding: 10px 16px;
+          border: 1px solid var(--color-accent-700);
+          border-radius: var(--radius-md);
+          background: rgba(116, 62, 228, 0.08);
+          font-family: var(--font-heading);
+          font-size: 12px;
+          letter-spacing: 0.1em;
+          color: var(--color-accent-100);
+        }
+
+        .pj-flow-h-arrow {
+          color: var(--color-neutral-600);
+          font-size: 13px;
+        }
+
+        .pj-status {
+          margin-top: 20px;
+          font-size: 10.5px;
+          letter-spacing: 0.18em;
+          color: var(--color-accent-300);
+          opacity: 0.85;
+        }
+
+        .pj-closing {
+          margin-top: 10px;
+          font-size: 14px;
+          line-height: 1.5;
+          color: var(--color-neutral-400);
+        }
+
+        .pj-step-hero .pj-step-head {
+          border-color: rgba(116, 62, 228, 0.45);
+          box-shadow: 0 0 40px -12px rgba(116, 62, 228, 0.55), 0 0 70px -20px rgba(46, 168, 240, 0.3);
+        }
+
+        .pj-step-hero.is-open .pj-step-head {
+          box-shadow: 0 0 52px -10px rgba(116, 62, 228, 0.7), 0 0 90px -18px rgba(46, 168, 240, 0.4);
+        }
+
+        .pj-closer {
+          text-align: center;
+          margin-top: clamp(56px, 8vw, 96px);
+        }
+
+        .pj-anim {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+
+        #modelos.pj-in-view .pj-anim {
+          animation: pjFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        #modelos.pj-in-view .pj-anim-1 {
+          animation-delay: 0s;
+        }
+
+        #modelos.pj-in-view .pj-anim-2 {
+          animation-delay: 0.15s;
+        }
+
+        #modelos.pj-in-view .pj-anim-3 {
+          animation-delay: 0.3s;
+        }
+
+        #modelos.pj-in-view .pj-anim-4 {
+          animation-delay: 0.9s;
+        }
+
+        #modelos.pj-in-view .pj-anim-5 {
+          animation-delay: 1.3s;
+        }
+
+        #modelos.pj-in-view .pj-anim-6 {
+          animation-delay: 1.7s;
+        }
+
+        #modelos.pj-in-view .pj-anim-7 {
+          animation-delay: 2.1s;
+        }
+
+        #modelos.pj-in-view .pj-line-fill {
+          animation: pjLineDraw 0.9s ease forwards;
+          animation-delay: 0.5s;
+        }
+
+        @keyframes pjFadeUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes pjLineDraw {
+          to {
+            transform: translateX(-50%) scaleY(1);
+          }
+        }
+
+        @media (max-width: 860px) {
+          .pj-journey {
+            grid-template-columns: 26px 1fr;
+          }
+
+          .pj-line-track {
+            grid-column: 1;
+          }
+
+          .pj-dot-slot {
+            grid-column: 1;
+          }
+
+          .pj-step-slot-left,
+          .pj-step-slot-right {
+            grid-column: 2;
+          }
+
+          .pj-empty {
+            display: none;
+          }
+
+          .pj-side-left .pj-step-head,
+          .pj-side-right .pj-step-head {
+            margin: 0;
+          }
+
+          .pj-side-left .pj-step-head:hover,
+          .pj-side-right .pj-step-head:hover {
+            transform: translateX(4px);
+          }
+
+          .pj-side-right .pj-step-desc {
+            margin-left: 0;
+          }
+        }
       </style>
     </helmet>
 
@@ -620,7 +988,7 @@
                         style-hover="background: rgba(116,62,228,0.16); color: #f5f5f5;">COMO A MÁQUINA FUNCIONA</a>
                       <a href="#modelos" onClick="{{ closeSol }}"
                         style="padding: 11px 12px; border-radius: var(--radius-sm); color: var(--color-neutral-200); font-size: 12.5px; letter-spacing: 0.08em;"
-                        style-hover="background: rgba(116,62,228,0.16); color: #f5f5f5;">MODELOS DE ENTREGA</a>
+                        style-hover="background: rgba(116,62,228,0.16); color: #f5f5f5;">NÍVEIS DE OPERAÇÃO</a>
                       <a href="#segmentos" onClick="{{ closeSol }}"
                         style="padding: 11px 12px; border-radius: var(--radius-sm); color: var(--color-neutral-200); font-size: 12.5px; letter-spacing: 0.08em;"
                         style-hover="background: rgba(116,62,228,0.16); color: #f5f5f5;">SEGMENTOS</a>
@@ -952,26 +1320,171 @@
 
       <section id="modelos">
         <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
-          <p style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent-300);">02 |
-            MODELOS DE ENTREGA</p>
-          <h2
-            style="margin: 0; max-width: 22ch; font-family: var(--font-heading); font-size: clamp(28px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.03em;">
-            ESCOLHA COMO A PLUPPEX PODE OPERAR COM SUA EMPRESA.</h2>
-          <p
-            style="margin: 22px 0 0; max-width: 48ch; font-size: 18px; line-height: 1.6; color: var(--color-neutral-300);">
-            Cada empresa está em um momento diferente. Escolha o modelo que melhor se adapta à sua operação.</p>
-          <div
-            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px; margin-top: 48px;">
-            <sc-for list="{{ models }}" as="m" hint-placeholder-count="4">
-              <button type="button" onClick="{{ m.pick }}" style="{{ m.style }}">
-                <span
-                  style="display: block; font-family: var(--font-heading); font-size: 19px; letter-spacing: 0.06em;">{{
-                  m.label }}</span>
-                <span
-                  style="display: block; margin-top: 14px; font-size: 14.5px; line-height: 1.55; color: var(--color-neutral-300);">{{
-                  m.body }}</span>
-              </button>
-            </sc-for>
+          <p class="pj-anim pj-anim-1"
+            style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent-300);">02 |
+            COMO A PLUPPEX PODE ENTRAR NA SUA EMPRESA</p>
+          <h2 class="pj-anim pj-anim-2"
+            style="margin: 0; max-width: 24ch; font-family: var(--font-heading); font-size: clamp(28px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.03em;">
+            VOCÊ ESCOLHE O NÍVEL DE OPERAÇÃO QUE PRECISA.</h2>
+          <p class="pj-anim pj-anim-3"
+            style="margin: 22px 0 0; max-width: 52ch; font-size: 18px; line-height: 1.6; color: var(--color-neutral-300);">
+            Sua empresa não precisa começar com tudo. A Pluppex entra onde existe um gargalo e evolui com a sua
+            operação.</p>
+
+          <div class="pj-journey">
+            <div class="pj-line-track">
+              <div class="pj-line-fill"></div>
+              <span class="pj-pulse"></span>
+              <span class="pj-pulse"></span>
+              <span class="pj-pulse"></span>
+            </div>
+
+            <div class="pj-step-slot-left pj-anim pj-anim-4">
+              <div class="{{ level1Cls }}">
+                <button type="button" class="pj-step-head" onClick="{{ toggleLevel1 }}">
+                  <span class="pj-step-num">01</span>
+                  <span class="pj-step-title">RESOLVER UM PROBLEMA</span>
+                  <span class="pj-step-desc">Para quando você precisa de uma solução específica.</span>
+                  <span class="tag tag-outline"
+                    style="margin-top: 16px; color: var(--color-accent-300); border-color: var(--color-accent-700);">PROJETO</span>
+                  <div class="pj-step-panel">
+                    <div class="pj-step-panel-inner">
+                      <div class="pj-step-panel-body">
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                          <span class="tag tag-neutral">Landing Page</span>
+                          <span class="tag tag-neutral">Automação</span>
+                          <span class="tag tag-neutral">CRM</span>
+                          <span class="tag tag-neutral">Tráfego</span>
+                          <span class="tag tag-neutral">Integração</span>
+                          <span class="tag tag-neutral">IA</span>
+                        </div>
+                        <p class="pj-status">PROBLEMA IDENTIFICADO</p>
+                        <p class="pj-closing">Uma solução específica para uma necessidade específica.</p>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+            <div class="pj-dot-slot">
+              <span class="pj-dot"></span>
+            </div>
+            <div class="pj-step-slot-right pj-empty"></div>
+
+            <div class="pj-step-slot-left pj-empty"></div>
+            <div class="pj-dot-slot">
+              <span class="pj-dot"></span>
+            </div>
+            <div class="pj-step-slot-right pj-anim pj-anim-5">
+              <div class="{{ level2Cls }}">
+                <button type="button" class="pj-step-head" onClick="{{ toggleLevel2 }}">
+                  <span class="pj-step-num">02</span>
+                  <span class="pj-step-title">ADICIONAR UMA SOLUÇÃO</span>
+                  <span class="pj-step-desc">Para quando sua empresa já funciona, mas precisa de uma nova
+                    capacidade.</span>
+                  <span class="tag tag-outline"
+                    style="margin-top: 16px; color: var(--color-accent-300); border-color: var(--color-accent-700);">MÓDULO</span>
+                  <div class="pj-step-panel">
+                    <div class="pj-step-panel-inner">
+                      <div class="pj-step-panel-body">
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                          <span class="tag tag-neutral">Aquisição</span>
+                          <span class="tag tag-neutral">S. P. Y. | CRM</span>
+                          <span class="tag tag-neutral">Aurora</span>
+                          <span class="tag tag-neutral">Automações</span>
+                          <span class="tag tag-neutral">Inteligência Comercial</span>
+                        </div>
+                        <p class="pj-status">CAPACIDADE ADICIONADA</p>
+                        <p class="pj-closing">Uma nova capacidade conectada à sua operação.</p>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <div class="pj-step-slot-left pj-anim pj-anim-6">
+              <div class="{{ level3Cls }}">
+                <button type="button" class="pj-step-head" onClick="{{ toggleLevel3 }}">
+                  <span class="pj-step-num">03</span>
+                  <span class="pj-step-title">OPERAR JUNTO COM VOCÊ</span>
+                  <span class="pj-step-desc">Para quando você quer a Pluppex trabalhando continuamente ao lado da sua
+                    equipe.</span>
+                  <span class="tag tag-outline"
+                    style="margin-top: 16px; color: var(--color-accent-300); border-color: var(--color-accent-700);">OPERAÇÃO</span>
+                  <div class="pj-step-panel">
+                    <div class="pj-step-panel-inner">
+                      <div class="pj-step-panel-body">
+                        <div class="pj-flow-v">
+                          <div class="pj-flow-v-item">ESTRATÉGIA</div>
+                          <div class="pj-flow-v-arrow">↓</div>
+                          <div class="pj-flow-v-item">EXECUÇÃO</div>
+                          <div class="pj-flow-v-arrow">↓</div>
+                          <div class="pj-flow-v-item">ACOMPANHAMENTO</div>
+                          <div class="pj-flow-v-arrow">↓</div>
+                          <div class="pj-flow-v-item">OTIMIZAÇÃO</div>
+                        </div>
+                        <p class="pj-status">OPERAÇÃO ATIVA</p>
+                        <p class="pj-closing">A Pluppex passa a atuar junto com sua equipe.</p>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+            <div class="pj-dot-slot">
+              <span class="pj-dot"></span>
+            </div>
+            <div class="pj-step-slot-right pj-empty"></div>
+
+            <div class="pj-step-slot-left pj-empty"></div>
+            <div class="pj-dot-slot">
+              <span class="pj-dot"></span>
+            </div>
+            <div class="pj-step-slot-right pj-anim pj-anim-7">
+              <div class="{{ level4Cls }}">
+                <button type="button" class="pj-step-head" onClick="{{ toggleLevel4 }}">
+                  <span class="pj-step-num">04</span>
+                  <span class="pj-step-title">CONSTRUIR SUA MÁQUINA</span>
+                  <span class="pj-step-desc">Para quando você quer estruturar a operação de receita de ponta a
+                    ponta.</span>
+                  <span class="tag tag-outline"
+                    style="margin-top: 16px; color: var(--color-accent-300); border-color: var(--color-accent-700);">MÁQUINA
+                    COMPLETA</span>
+                  <div class="pj-step-panel">
+                    <div class="pj-step-panel-inner">
+                      <div class="pj-step-panel-body">
+                        <div class="pj-flow-h">
+                          <span class="pj-flow-h-item">AQUISIÇÃO</span>
+                          <span class="pj-flow-h-arrow">→</span>
+                          <span class="pj-flow-h-item">S. P. Y.</span>
+                          <span class="pj-flow-h-arrow">→</span>
+                          <span class="pj-flow-h-item">AURORA</span>
+                          <span class="pj-flow-h-arrow">→</span>
+                          <span class="pj-flow-h-item">OPERAÇÃO</span>
+                          <span class="pj-flow-h-arrow">→</span>
+                          <span class="pj-flow-h-item">RECEITA</span>
+                        </div>
+                        <p class="pj-status">MÁQUINA EM FUNCIONAMENTO</p>
+                        <p class="pj-closing">Uma operação de receita construída e conectada de ponta a ponta.</p>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="pj-closer">
+            <p
+              style="margin: 0; font-family: var(--font-heading); font-size: clamp(20px, 2.6vw, 28px); letter-spacing: -0.01em;">
+              VOCÊ NÃO PRECISA COMEÇAR COM TUDO.</p>
+            <p
+              style="margin: 14px 0 0; font-size: 12.5px; letter-spacing: 0.14em; color: var(--color-neutral-400);">
+              COMECE PELO GARGALO. EVOLUA COM A OPERAÇÃO.</p>
+            <a class="btn btn-secondary" href="#diagnostico"
+              style="margin-top: 28px; display: inline-block; padding: 14px 22px; font-size: 12px; letter-spacing: 0.1em;">DESCOBRIR
+              O QUE MINHA EMPRESA PRECISA</a>
           </div>
         </div>
       </section>
@@ -1455,7 +1968,7 @@
   <script type="text/x-dc" data-dc-script
     data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280},&quot;defaultTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;AQUISIÇÃO&quot;,&quot;S. P. Y. | CRM&quot;,&quot;INTELIGÊNCIA&quot;,&quot;OPERAÇÃO&quot;],&quot;default&quot;:&quot;AQUISIÇÃO&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Soluções&quot;}}">
 class Component extends DCLogic {
-  state = { tab: null, model: "OPERAÇÃO", comps: ["AQUISIÇÃO", "S. P. Y. | CRM"], faq: 0, faqTouched: false, sent: false, menu: false };
+  state = { tab: null, levelOpen: null, model: "OPERAÇÃO", comps: ["AQUISIÇÃO", "S. P. Y. | CRM"], faq: 0, faqTouched: false, sent: false, menu: false };
 
   get journeySteps() {
     return [
@@ -1488,12 +2001,24 @@ class Component extends DCLogic {
       }, { threshold: 0.4 });
       this.tabsIntroObserver.observe(tabsEl);
     }
+
+    const journeyEl = document.getElementById("modelos");
+    if (journeyEl && "IntersectionObserver" in window) {
+      this.journeyObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          journeyEl.classList.add("pj-in-view");
+          this.journeyObserver.disconnect();
+        }
+      }, { threshold: 0.25 });
+      this.journeyObserver.observe(journeyEl);
+    }
   }
   componentWillUnmount() {
     clearInterval(this.jTimer);
     document.removeEventListener("click", this.onDocClick, true);
     document.removeEventListener("keydown", this.onEsc);
     if (this.tabsIntroObserver) this.tabsIntroObserver.disconnect();
+    if (this.journeyObserver) this.journeyObserver.disconnect();
   }
 
   switchTab(label) {
@@ -1533,12 +2058,6 @@ class Component extends DCLogic {
       ["A Aurora funciona pelo WhatsApp?", "Sim, conforme as capacidades implementadas. Você pode pedir informações e ações por mensagem."],
       ["Quanto custa?", "Depende dos componentes e do modelo de entrega. O diagnóstico define o escopo antes de qualquer proposta."]
     ];
-  }
-
-  cardStyle(active) {
-    return "display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; text-align: left; cursor: pointer; padding: 26px 24px; border-radius: var(--radius-md); background: " +
-      (active ? "rgba(116,62,228,0.12)" : "transparent") + "; border: 1px solid " +
-      (active ? "var(--color-accent)" : "var(--color-divider)") + "; color: var(--color-text); transition: border-color .18s, background .18s;";
   }
 
   renderVals() {
@@ -1583,15 +2102,14 @@ class Component extends DCLogic {
       isSpy: tab === "ORGANIZAÇÃO" || tab === "S. P. Y. | CRM",
       isInteligencia: tab === "INTELIGÊNCIA",
       isOperacao: tab === "OPERAÇÃO",
-      models: [
-        ["PROJETO", "Para resolver um problema específico da sua operação."],
-        ["MÓDULO", "Para implementar apenas o componente que sua empresa precisa."],
-        ["OPERAÇÃO", "Para ter a Pluppex operando junto com sua equipe."],
-        ["MÁQUINA COMPLETA", "Para construir e operar uma estrutura completa de receita."]
-      ].map(([label, body]) => ({
-        label, body, style: this.cardStyle(this.state.model === label),
-        pick: () => this.setState({ model: label })
-      })),
+      level1Cls: "pj-step pj-side-left" + (this.state.levelOpen === "01" ? " is-open" : ""),
+      level2Cls: "pj-step pj-side-right" + (this.state.levelOpen === "02" ? " is-open" : ""),
+      level3Cls: "pj-step pj-side-left" + (this.state.levelOpen === "03" ? " is-open" : ""),
+      level4Cls: "pj-step pj-side-right pj-step-hero" + (this.state.levelOpen === "04" ? " is-open" : ""),
+      toggleLevel1: () => this.setState(s => ({ levelOpen: s.levelOpen === "01" ? null : "01" })),
+      toggleLevel2: () => this.setState(s => ({ levelOpen: s.levelOpen === "02" ? null : "02" })),
+      toggleLevel3: () => this.setState(s => ({ levelOpen: s.levelOpen === "03" ? null : "03" })),
+      toggleLevel4: () => this.setState(s => ({ levelOpen: s.levelOpen === "04" ? null : "04" })),
       components: ["AQUISIÇÃO", "S. P. Y. | CRM", "INTELIGÊNCIA", "OPERAÇÃO"].map(label => ({
         label, cls: "btn " + (comps.includes(label) ? "btn-primary" : "btn-secondary"),
         pick: () => this.setState(s => ({
