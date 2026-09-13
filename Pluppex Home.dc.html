@@ -1968,7 +1968,7 @@
   <script type="text/x-dc" data-dc-script
     data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280},&quot;defaultTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;AQUISIÇÃO&quot;,&quot;S. P. Y. | CRM&quot;,&quot;INTELIGÊNCIA&quot;,&quot;OPERAÇÃO&quot;],&quot;default&quot;:&quot;AQUISIÇÃO&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Soluções&quot;}}">
 class Component extends DCLogic {
-  state = { tab: null, levelOpen: null, model: "OPERAÇÃO", comps: ["AQUISIÇÃO", "S. P. Y. | CRM"], faq: 0, faqTouched: false, sent: false, menu: false };
+  state = { tab: null, level1Open: true, level2Open: true, level3Open: true, level4Open: true, model: "OPERAÇÃO", comps: ["AQUISIÇÃO", "S. P. Y. | CRM"], faq: 0, faqTouched: false, sent: false, menu: false };
 
   get journeySteps() {
     return [
@@ -2102,14 +2102,14 @@ class Component extends DCLogic {
       isSpy: tab === "ORGANIZAÇÃO" || tab === "S. P. Y. | CRM",
       isInteligencia: tab === "INTELIGÊNCIA",
       isOperacao: tab === "OPERAÇÃO",
-      level1Cls: "pj-step pj-side-left" + (this.state.levelOpen === "01" ? " is-open" : ""),
-      level2Cls: "pj-step pj-side-right" + (this.state.levelOpen === "02" ? " is-open" : ""),
-      level3Cls: "pj-step pj-side-left" + (this.state.levelOpen === "03" ? " is-open" : ""),
-      level4Cls: "pj-step pj-side-right pj-step-hero" + (this.state.levelOpen === "04" ? " is-open" : ""),
-      toggleLevel1: () => this.setState(s => ({ levelOpen: s.levelOpen === "01" ? null : "01" })),
-      toggleLevel2: () => this.setState(s => ({ levelOpen: s.levelOpen === "02" ? null : "02" })),
-      toggleLevel3: () => this.setState(s => ({ levelOpen: s.levelOpen === "03" ? null : "03" })),
-      toggleLevel4: () => this.setState(s => ({ levelOpen: s.levelOpen === "04" ? null : "04" })),
+      level1Cls: "pj-step pj-side-left" + (this.state.level1Open ? " is-open" : ""),
+      level2Cls: "pj-step pj-side-right" + (this.state.level2Open ? " is-open" : ""),
+      level3Cls: "pj-step pj-side-left" + (this.state.level3Open ? " is-open" : ""),
+      level4Cls: "pj-step pj-side-right pj-step-hero" + (this.state.level4Open ? " is-open" : ""),
+      toggleLevel1: () => this.setState(s => ({ level1Open: !s.level1Open })),
+      toggleLevel2: () => this.setState(s => ({ level2Open: !s.level2Open })),
+      toggleLevel3: () => this.setState(s => ({ level3Open: !s.level3Open })),
+      toggleLevel4: () => this.setState(s => ({ level4Open: !s.level4Open })),
       components: ["AQUISIÇÃO", "S. P. Y. | CRM", "INTELIGÊNCIA", "OPERAÇÃO"].map(label => ({
         label, cls: "btn " + (comps.includes(label) ? "btn-primary" : "btn-secondary"),
         pick: () => this.setState(s => ({
