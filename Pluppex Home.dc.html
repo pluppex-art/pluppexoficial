@@ -267,38 +267,164 @@
           }
         }
 
+        [data-tabs] {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 10px;
+          margin: 44px 0 0;
+          padding-bottom: 4px;
+          overflow-x: auto;
+          scrollbar-width: none;
+        }
+
         [data-tabs]::-webkit-scrollbar {
           height: 0;
         }
 
-        [data-tabs] {
-          flex-wrap: nowrap !important;
-          scrollbar-width: none;
-        }
-
-        [data-tabs] .btn {
+        .sol-tab {
+          position: relative;
           flex: 0 0 auto;
-          transition: transform 0.2s ease;
+          padding: 12px 20px;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          font-family: var(--font-body);
+          white-space: nowrap;
+          color: var(--color-neutral-300);
+          background: rgba(255, 255, 255, 0.025);
+          border: 1px solid var(--color-divider);
+          border-radius: var(--radius-md);
+          cursor: pointer;
+          transition: border-color 300ms ease, box-shadow 300ms ease, color 300ms ease, transform 300ms ease, background 300ms ease;
         }
 
-        [data-tabs] .btn:hover {
+        .sol-tab:hover {
+          border-color: rgba(157, 123, 237, 0.55);
+          color: #f5f5f5;
           transform: translateY(-2px);
+        }
+
+        .sol-tab.is-active {
+          color: #ffffff;
+          background: linear-gradient(90deg, #6a34dd, #1d63c9);
+          border-color: rgba(157, 123, 237, 0.7);
+          box-shadow:
+            0 0 0 1px rgba(157, 123, 237, 0.35),
+            0 6px 24px -8px rgba(116, 62, 228, 0.55),
+            0 0 32px -12px rgba(46, 168, 240, 0.4);
+        }
+
+        .sol-tab.is-active::before {
+          content: "";
+          position: absolute;
+          inset: -1px;
+          border-radius: inherit;
+          padding: 1px;
+          background: conic-gradient(from 0deg, transparent 0 78%, rgba(255, 255, 255, 0.85) 88%, transparent 98%);
+          -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+          animation: solBorderPulse 3.6s linear infinite;
+          pointer-events: none;
+        }
+
+        .sol-tab.is-active::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: 5px;
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background: #ffffff;
+          transform: translateX(-50%);
+          box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.75);
+          animation: solDotPulse 2.4s ease-in-out infinite;
+        }
+
+        .sol-tab-intro {
+          box-shadow:
+            0 0 0 1px rgba(157, 123, 237, 0.5),
+            0 0 22px -4px rgba(116, 62, 228, 0.65);
+          transition: box-shadow 400ms ease;
+        }
+
+        @keyframes solBorderPulse {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes solDotPulse {
+
+          0%,
+          100% {
+            opacity: 0.45;
+            transform: translateX(-50%) scale(1);
+          }
+
+          50% {
+            opacity: 1;
+            transform: translateX(-50%) scale(1.5);
+          }
+        }
+
+        .sol-content {
+          view-transition-name: sol-content;
+        }
+
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+          animation: none;
+        }
+
+        ::view-transition-old(sol-content),
+        ::view-transition-new(sol-content) {
+          animation-duration: 0.5s;
+          animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        ::view-transition-old(sol-content) {
+          animation-name: solContentOut;
+        }
+
+        ::view-transition-new(sol-content) {
+          animation-name: solContentIn;
+        }
+
+        @keyframes solContentOut {
+          from {
+            opacity: 1;
+            transform: translateX(0);
+          }
+
+          to {
+            opacity: 0;
+            transform: translateX(-16px);
+          }
+        }
+
+        @keyframes solContentIn {
+          from {
+            opacity: 0;
+            transform: translateX(16px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
 
         @media (max-width: 600px) {
 
           [data-tabs] {
-            overflow-x: hidden;
+            scroll-snap-type: x proximity;
           }
 
-          [data-tabs] .btn {
-            flex: 1 1 0;
-            min-width: 0;
-            padding: 10px 6px !important;
-            font-size: 10px !important;
-            letter-spacing: 0.02em !important;
-            white-space: normal !important;
-            text-align: center;
+          .sol-tab {
+            scroll-snap-align: start;
           }
 
           section>div,
@@ -609,16 +735,13 @@
             Tudo o que sua empresa precisa para gerar oportunidades, organizar a operação e transformar oportunidades
             em receita.</p>
 
-          <div role="tablist" data-tabs="1"
-            style="display: flex; flex-wrap: wrap; gap: 10px; margin: 44px 0 0; overflow-x: auto; padding-bottom: 4px;">
+          <div role="tablist" data-tabs="1">
             <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
-              <button type="button" class="{{ t.cls }}" onClick="{{ t.pick }}"
-                style="font-size: 12px; letter-spacing: 0.1em; padding: 12px 20px; white-space: nowrap;">{{ t.label
-                }}</button>
+              <button type="button" class="{{ t.cls }}" onClick="{{ t.pick }}">{{ t.label }}</button>
             </sc-for>
           </div>
 
-          <div style="margin-top: 40px; border-top: 1px solid var(--color-divider); padding-top: 40px;">
+          <div class="sol-content" style="margin-top: 40px; border-top: 1px solid var(--color-divider); padding-top: 40px;">
             <sc-if value="{{ isAquisicao }}" hint-placeholder-val="{{ true }}">
               <div>
                 <div
@@ -786,8 +909,7 @@
             <sc-if value="{{ isOperacao }}" hint-placeholder-val="{{ false }}">
               <div>
                 <div>
-                  <p
-                    style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
+                  <p style="margin: 0 0 16px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-neutral-500);">
                     OPERAÇÃO</p>
                   <h3
                     style="margin: 0; font-family: var(--font-heading); font-size: clamp(24px, 2.8vw, 36px); line-height: 1.1; letter-spacing: -0.025em;">
@@ -1355,11 +1477,46 @@ class Component extends DCLogic {
     this.onEsc = (e) => { if (e.key === "Escape") this.setState({ sol: false }); };
     document.addEventListener("keydown", this.onEsc);
     this.jTimer = setInterval(() => this.setState(s => ({ step: ((s.step ?? 0) + 1) % 5 })), 1500);
+
+    const tabsEl = document.querySelector("[data-tabs]");
+    if (tabsEl && "IntersectionObserver" in window) {
+      this.tabsIntroObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          this.runTabsIntro();
+          this.tabsIntroObserver.disconnect();
+        }
+      }, { threshold: 0.4 });
+      this.tabsIntroObserver.observe(tabsEl);
+    }
   }
   componentWillUnmount() {
     clearInterval(this.jTimer);
     document.removeEventListener("click", this.onDocClick, true);
     document.removeEventListener("keydown", this.onEsc);
+    if (this.tabsIntroObserver) this.tabsIntroObserver.disconnect();
+  }
+
+  switchTab(label) {
+    const apply = () => this.setState({ tab: label });
+    if (document.startViewTransition) {
+      document.startViewTransition(apply);
+    } else {
+      apply();
+    }
+  }
+
+  runTabsIntro() {
+    try {
+      if (localStorage.getItem("pluppexSolTabsIntroPlayed")) return;
+      localStorage.setItem("pluppexSolTabsIntroPlayed", "1");
+    } catch (e) { /* localStorage unavailable, still show it once for this pageview */ }
+    const els = document.querySelectorAll("[data-tabs] .sol-tab");
+    els.forEach((el, i) => {
+      setTimeout(() => {
+        el.classList.add("sol-tab-intro");
+        setTimeout(() => el.classList.remove("sol-tab-intro"), 400);
+      }, i * 500);
+    });
   }
 
   get faqItems() {
@@ -1419,8 +1576,8 @@ class Component extends DCLogic {
       pickSpy: () => this.setState({ tab: "ORGANIZAÇÃO", sol: false, menu: false }),
       toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
       tabs: ["AQUISIÇÃO", "ORGANIZAÇÃO", "INTELIGÊNCIA", "OPERAÇÃO"].map(label => ({
-        label, cls: "btn " + (tab === label ? "btn-primary" : "btn-secondary"),
-        pick: () => this.setState({ tab: label })
+        label, cls: "sol-tab" + (tab === label ? " is-active" : ""),
+        pick: () => this.switchTab(label)
       })),
       isAquisicao: tab === "AQUISIÇÃO",
       isSpy: tab === "ORGANIZAÇÃO" || tab === "S. P. Y. | CRM",
