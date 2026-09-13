@@ -441,9 +441,21 @@
             height: 40px !important;
           }
 
-          h2 {
+          h2:not(.h2-fit) {
             font-size: clamp(24px, 7.4vw, 34px) !important;
             line-height: 1.1 !important;
+          }
+
+          .h2-fit-1 {
+            font-size: clamp(20px, 5.4vw, 52px) !important;
+          }
+
+          .h2-fit-2 {
+            font-size: clamp(16px, 3.7vw, 52px) !important;
+          }
+
+          .h2-fit-3 {
+            font-size: clamp(14px, 3vw, 52px) !important;
           }
 
           h3 {
@@ -1087,8 +1099,8 @@
           <p style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent-300);">01 |
             SOLUÇÕES</p>
 
-          <h2
-            style="margin: 0; max-width: 20ch; font-family: var(--font-heading); font-size: clamp(28px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.03em;">
+          <h2 class="h2-fit h2-fit-1"
+            style="margin: 0; font-family: var(--font-heading); font-size: clamp(20px, 5.4vw, 52px); line-height: 1.05; letter-spacing: -0.03em; white-space: nowrap;">
             CONHEÇA AS SOLUÇÕES DA PLUPPEX.</h2>
           <p
             style="margin: 22px 0 0; max-width: 56ch; font-size: 18px; line-height: 1.6; color: var(--color-neutral-300);">
@@ -1101,7 +1113,8 @@
             </sc-for>
           </div>
 
-          <div class="sol-content" style="margin-top: 40px; border-top: 1px solid var(--color-divider); padding-top: 40px;">
+          <div class="sol-content"
+            style="margin-top: 40px; border-top: 1px solid var(--color-divider); padding-top: 40px;">
             <sc-if value="{{ isAquisicao }}" hint-placeholder-val="{{ true }}">
               <div>
                 <div
@@ -1315,8 +1328,8 @@
           <p class="pj-anim pj-anim-1"
             style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent-300);">02 |
             COMO A PLUPPEX PODE ENTRAR NA SUA EMPRESA</p>
-          <h2 class="pj-anim pj-anim-2"
-            style="margin: 0; max-width: 24ch; font-family: var(--font-heading); font-size: clamp(28px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.03em;">
+          <h2 class="pj-anim pj-anim-2 h2-fit h2-fit-2"
+            style="margin: 0; font-family: var(--font-heading); font-size: clamp(16px, 3.7vw, 52px); line-height: 1.05; letter-spacing: -0.03em; white-space: nowrap;">
             VOCÊ ESCOLHE O NÍVEL DE OPERAÇÃO QUE PRECISA.</h2>
           <p class="pj-anim pj-anim-3"
             style="margin: 22px 0 0; max-width: 52ch; font-size: 18px; line-height: 1.6; color: var(--color-neutral-300);">
@@ -1382,7 +1395,7 @@
                         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                           <span class="tag tag-neutral">Aquisição</span>
                           <span class="tag tag-neutral">S. P. Y. | CRM</span>
-                          <span class="tag tag-neutral">Aurora</span>
+                          <span class="tag tag-neutral">Aurora | IA</span>
                           <span class="tag tag-neutral">Automações</span>
                           <span class="tag tag-neutral">Inteligência Comercial</span>
                         </div>
@@ -1471,8 +1484,7 @@
             <p
               style="margin: 0; font-family: var(--font-heading); font-size: clamp(20px, 2.6vw, 28px); letter-spacing: -0.01em;">
               VOCÊ NÃO PRECISA COMEÇAR COM TUDO.</p>
-            <p
-              style="margin: 14px 0 0; font-size: 12.5px; letter-spacing: 0.14em; color: var(--color-neutral-400);">
+            <p style="margin: 14px 0 0; font-size: 12.5px; letter-spacing: 0.14em; color: var(--color-neutral-400);">
               COMECE PELO GARGALO. EVOLUA COM A OPERAÇÃO.</p>
             <a class="btn btn-secondary" href="#diagnostico"
               style="margin-top: 28px; display: inline-block; padding: 14px 22px; font-size: 12px; letter-spacing: 0.1em;">DESCOBRIR
@@ -1486,8 +1498,8 @@
         <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
           <p style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent-300);">03 |
             COMBINAÇÃO</p>
-          <h2
-            style="margin: 0; max-width: 22ch; font-family: var(--font-heading); font-size: clamp(28px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.03em;">
+          <h2 class="h2-fit h2-fit-3"
+            style="margin: 0; font-family: var(--font-heading); font-size: clamp(14px, 3vw, 52px); line-height: 1.05; letter-spacing: -0.03em; white-space: nowrap;">
             ESCOLHA OS COMPONENTES E O MODELO IDEAL PARA SUA EMPRESA.</h2>
           <p
             style="margin: 22px 0 0; max-width: 48ch; font-size: 18px; line-height: 1.6; color: var(--color-neutral-300);">
