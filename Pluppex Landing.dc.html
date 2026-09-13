@@ -35,7 +35,7 @@
         <a href="#metodologia" style="color: var(--color-neutral-400);">Metodologia</a>
         <a href="#servicos" style="color: var(--color-neutral-400);">Serviços</a>
         <a href="#faq" style="color: var(--color-neutral-400);">FAQ</a>
-        <a class="btn btn-primary" href="#contato" style="font-size: 13px;">{{ ctaLabel }}</a>
+        <a class="btn btn-primary" href="https://wa.me/5563984787555?text=Ol%C3%A1%2C%20quero%20solicitar%20um%20diagn%C3%B3stico%20com%20a%20Pluppex." target="_blank" rel="noopener" style="font-size: 13px;">{{ ctaLabel }}</a>
       </nav>
     </div>
   </header>
@@ -47,7 +47,7 @@
         <h1 style="margin: 0; font-family: var(--font-heading); font-weight: 500; font-size: clamp(38px, 5.6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; text-wrap: balance;">Sua receita não depende de sorte.<br>Depende de operação.</h1>
         <p style="margin: calc(var(--space-8) * 1.4) 0 0; max-width: 58ch; font-size: clamp(16px, 1.5vw, 20px); line-height: 1.55; color: var(--color-neutral-300); text-wrap: pretty;">A operação que a Pluppex constrói e opera para gerar, capturar, tratar, analisar e converter oportunidades em receita.</p>
         <div style="display: flex; flex-wrap: wrap; gap: var(--space-6); margin-top: calc(var(--space-8) * 1.6);">
-          <a class="btn btn-primary" href="#contato" style="padding: 14px 24px; font-size: 15px;">{{ ctaLabel }}</a>
+          <a class="btn btn-primary" href="https://wa.me/5563984787555?text=Ol%C3%A1%2C%20quero%20solicitar%20um%20diagn%C3%B3stico%20com%20a%20Pluppex." target="_blank" rel="noopener" style="padding: 14px 24px; font-size: 15px;">{{ ctaLabel }}</a>
           <a class="btn btn-secondary" href="#metodologia" style="padding: 14px 24px; font-size: 15px;">Ver a metodologia</a>
         </div>
         <p style="margin: calc(var(--space-8) * 1.2) 0 0; font-size: 13px; color: var(--color-neutral-500);">Para C-level de empresas médias e grandes, e-commerces e infoprodutores que já faturam e querem previsibilidade.</p>
@@ -283,7 +283,18 @@ class Component extends DCLogic {
       servicesGrid: cols === "2" ? "repeat(auto-fit, minmax(300px, 1fr))" : "repeat(auto-fit, minmax(240px, 1fr))",
       sent: this.state.sent,
       notSent: !this.state.sent,
-      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      submit: (e) => {
+        e.preventDefault();
+        const g = (id) => (e.target.querySelector("#" + id) || {}).value || "";
+        const msg = "Olá, quero solicitar um diagnóstico com a Pluppex.\n\nNome: " + g("pxn") +
+          "\nEmpresa: " + g("pxe") +
+          "\nWhatsApp: " + g("pxw") +
+          "\nE-mail: " + g("pxm") +
+          "\nFaturamento mensal: " + (g("pxf") || "-") +
+          "\nGargalo: " + (g("pxo") || "-");
+        window.open("https://wa.me/5563984787555?text=" + encodeURIComponent(msg), "_blank", "noopener");
+        this.setState({ sent: true });
+      },
       faq: this.items.map((it, i) => ({
         q: it.q, a: it.a, open: open === i, sign: open === i ? "\u2212" : "+",
         toggle: () => this.toggle(i)
