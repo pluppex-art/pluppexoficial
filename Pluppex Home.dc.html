@@ -502,17 +502,29 @@
           content: "";
           position: absolute;
           inset: 0;
-          z-index: 1;
+          z-index: 2;
           background:
             linear-gradient(90deg, rgba(5, 5, 5, 0.97) 0%, rgba(5, 5, 5, 0.92) 32%, rgba(5, 5, 5, 0.6) 52%, rgba(5, 5, 5, 0.18) 70%, rgba(5, 5, 5, 0) 86%),
             linear-gradient(180deg, rgba(5, 5, 5, 0.25) 0%, transparent 22%, transparent 78%, rgba(5, 5, 5, 0.55) 100%);
         }
 
-        .hero-bg-image {
+        .hero-seq-layer {
+          position: absolute;
+          inset: 0;
           display: block;
           width: 100%;
           height: 100%;
           object-fit: cover;
+          object-position: 68% center;
+        }
+
+        .hero-seq-a {
+          z-index: 0;
+        }
+
+        .hero-seq-b {
+          z-index: 1;
+          opacity: 0;
         }
 
         @media (max-width: 1150px) {
@@ -1369,7 +1381,10 @@
 
       <div style="position: relative;">
         <div class="hero-carousel">
-          <img src="BackgroundHero/BackgroundHero.png" alt="Pluppex" class="hero-bg-image">
+          <img src="backgroundHeroVideo/Rocket_launching_from_platform_20260912233149_000.jpg" alt=""
+            class="hero-seq-layer hero-seq-a" aria-hidden="true">
+          <img src="backgroundHeroVideo/Rocket_launching_from_platform_20260912233149_000.jpg" alt=""
+            class="hero-seq-layer hero-seq-b" aria-hidden="true">
         </div>
 
         <header
@@ -2378,6 +2393,8 @@ class Component extends DCLogic {
       }, { threshold: 0.25 });
       this.diagObserver.observe(diagEl);
     }
+
+    this.initHeroSequence();
   }
   componentWillUnmount() {
     clearInterval(this.jTimer);
@@ -2385,6 +2402,8 @@ class Component extends DCLogic {
     document.removeEventListener("keydown", this.onEsc);
     if (this.tabsIntroObserver) this.tabsIntroObserver.disconnect();
     if (this.journeyObserver) this.journeyObserver.disconnect();
+    this.heroSeqStopped = true;
+    if (this.heroSeqRAF) cancelAnimationFrame(this.heroSeqRAF);
     if (this.diagObserver) this.diagObserver.disconnect();
   }
 
@@ -2395,6 +2414,89 @@ class Component extends DCLogic {
     } else {
       apply();
     }
+  }
+
+  initHeroSequence() {
+    const DIR = "backgroundHeroVideo/";
+    const PREFIX = "Rocket_launching_from_platform_20260912233149_";
+    const COUNT = 80;
+    const FPS = 24;
+    const LOOP_FADE_MS = 380;
+    const frameSrc = (i) => DIR + PREFIX + String(i).padStart(3, "0") + ".jpg";
+
+    const layerA = document.querySelector(".hero-seq-a");
+    const layerB = document.querySelector(".hero-seq-b");
+    if (!layerA || !layerB) return;
+
+    const isSmallScreen = window.matchMedia("(max-width: 767px)").matches;
+    if (isSmallScreen) return;
+
+    const loaded = new Array(COUNT).fill(false);
+    loaded[0] = true;
+    let readyThrough = 0;
+
+    const preloadNext = (i) => {
+      if (i >= COUNT || this.heroSeqStopped) return;
+      const img = new Image();
+      img.onload = img.onerror = () => {
+        loaded[i] = true;
+        while (readyThrough + 1 < COUNT && loaded[readyThrough + 1]) readyThrough++;
+        preloadNext(i + 1);
+      };
+      img.src = frameSrc(i);
+    };
+    preloadNext(1);
+
+    let current = 0;
+    let transitioning = false;
+    let lastTime = null;
+    let acc = 0;
+    const frameDuration = 1000 / FPS;
+
+    const loopCrossfade = () => {
+      transitioning = true;
+      layerB.style.transition = "none";
+      layerB.src = frameSrc(0);
+      layerB.style.opacity = "0";
+      requestAnimationFrame(() => {
+        layerB.style.transition = "opacity " + LOOP_FADE_MS + "ms ease";
+        layerB.style.opacity = "1";
+      });
+      setTimeout(() => {
+        if (this.heroSeqStopped) return;
+        layerA.src = frameSrc(0);
+        layerB.style.transition = "none";
+        layerB.style.opacity = "0";
+        current = 0;
+        transitioning = false;
+      }, LOOP_FADE_MS + 20);
+    };
+
+    const step = (time) => {
+      if (this.heroSeqStopped) return;
+      if (lastTime == null) lastTime = time;
+      const dt = time - lastTime;
+      lastTime = time;
+      if (!transitioning && !document.hidden) {
+        acc += dt;
+        while (acc >= frameDuration) {
+          acc -= frameDuration;
+          const next = current + 1;
+          if (next >= COUNT) {
+            loopCrossfade();
+            break;
+          } else if (loaded[next]) {
+            current = next;
+            layerA.src = frameSrc(current);
+          } else {
+            acc = 0;
+            break;
+          }
+        }
+      }
+      this.heroSeqRAF = requestAnimationFrame(step);
+    };
+    this.heroSeqRAF = requestAnimationFrame(step);
   }
 
   runTabsIntro() {
