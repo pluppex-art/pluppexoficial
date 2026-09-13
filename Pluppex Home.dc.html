@@ -1089,6 +1089,43 @@
         }
 
         /* ===== Sócios ===== */
+        .pillars-headline {
+          margin-top: 10px;
+          display: grid;
+          gap: 8px;
+        }
+
+        .pillars-headline-row {
+          display: flex;
+          align-items: baseline;
+          gap: 20px;
+          padding-left: 20px;
+          border-left: 2px solid var(--color-divider);
+          transition: border-color 300ms ease;
+        }
+
+        .pillars-headline-row:hover {
+          border-color: var(--color-accent);
+        }
+
+        .pillars-headline-num {
+          flex: none;
+          font-family: var(--font-heading);
+          font-size: 13px;
+          letter-spacing: 0.14em;
+          color: var(--color-accent-300);
+        }
+
+        .pillars-headline-text {
+          margin: 0;
+          max-width: 20ch;
+          font-family: var(--font-heading);
+          font-size: clamp(26px, 3.6vw, 48px);
+          line-height: 1.15;
+          letter-spacing: -0.03em;
+          color: var(--color-text);
+        }
+
         .socio-card {
           position: relative;
           border: 1px solid var(--color-divider);
@@ -1972,9 +2009,20 @@
         <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
           <p style="margin: 0 0 20px; font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent-300);">OS TRÊS
             PILARES DA PLUPPEX</p>
-          <h2
-            style="margin: 0; max-width: 20ch; font-family: var(--font-heading); font-size: clamp(26px, 3.6vw, 48px); line-height: 1.15; letter-spacing: -0.03em;">
-            VISÃO PARA DIRECIONAR.<br>VENDAS PARA CONVERTER.<br>TECNOLOGIA PARA ESCALAR.</h2>
+          <div class="pillars-headline">
+            <div class="pillars-headline-row">
+              <span class="pillars-headline-num">01</span>
+              <h2 class="pillars-headline-text"><span class="h1-gradient">VISÃO</span> PARA DIRECIONAR.</h2>
+            </div>
+            <div class="pillars-headline-row">
+              <span class="pillars-headline-num">02</span>
+              <h2 class="pillars-headline-text"><span class="h1-gradient">VENDAS</span> PARA CONVERTER.</h2>
+            </div>
+            <div class="pillars-headline-row">
+              <span class="pillars-headline-num">03</span>
+              <h2 class="pillars-headline-text"><span class="h1-gradient">TECNOLOGIA</span> PARA ESCALAR.</h2>
+            </div>
+          </div>
           <p
             style="margin: 22px 0 0; max-width: 58ch; font-size: 18px; line-height: 1.6; color: var(--color-neutral-300);">
             A Pluppex une estratégia, operação comercial e tecnologia para construir máquinas de receita capazes de
