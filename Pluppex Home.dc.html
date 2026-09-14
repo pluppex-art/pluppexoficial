@@ -1238,32 +1238,71 @@
         }
 
         .socio-card:hover .socio-photo {
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          width: min(60vw, 420px, calc(72vh * 5 / 6));
-          height: auto;
-          aspect-ratio: 5 / 6;
-          transform: translate(-50%, -50%);
-          z-index: 100;
-          border-radius: var(--radius-lg);
-          box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.7);
+          transform: scale(1.04);
         }
 
-        .socio-card::before {
-          content: "";
+        .socio-lightbox {
           position: fixed;
           inset: 0;
-          background: rgba(5, 5, 8, 0.78);
-          backdrop-filter: blur(3px);
-          z-index: 90;
+          z-index: 200;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: clamp(24px, 4vw, 56px);
+          padding: 24px;
           opacity: 0;
           pointer-events: none;
           transition: opacity 300ms ease;
         }
 
-        .socio-card:hover::before {
+        .socio-lightbox::before {
+          content: "";
+          position: fixed;
+          inset: 0;
+          z-index: -1;
+          background: rgba(5, 5, 8, 0.78);
+          backdrop-filter: blur(3px);
+        }
+
+        .socio-card:hover .socio-lightbox {
           opacity: 1;
+        }
+
+        .socio-lightbox-photo {
+          flex: none;
+          width: min(34vw, 320px);
+          aspect-ratio: 5 / 6;
+          object-fit: cover;
+          border-radius: var(--radius-lg);
+          filter: grayscale(0.08) contrast(1.05);
+          box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.7);
+        }
+
+        .socio-lightbox-info {
+          max-width: min(80vw, 380px);
+          text-align: left;
+        }
+
+        .socio-lightbox-info .socio-tag {
+          margin-top: 0;
+        }
+
+        .socio-lightbox-info .socio-name {
+          font-size: clamp(24px, 3vw, 32px);
+        }
+
+        .socio-lightbox-info .socio-role {
+          font-size: 13px;
+        }
+
+        .socio-lightbox-info .socio-lead {
+          font-size: 17px;
+        }
+
+        @media (max-width: 900px) {
+          .socio-card:hover .socio-lightbox {
+            opacity: 0;
+          }
         }
 
         .socio-tag {
@@ -2134,6 +2173,15 @@
               <div class="socio-photo-wrap">
                 <img src="socios/gustavoOliveira.png" alt="Gustavo Oliveira" class="socio-photo">
               </div>
+              <div class="socio-lightbox" aria-hidden="true">
+                <img src="socios/gustavoOliveira.png" alt="" class="socio-lightbox-photo">
+                <div class="socio-lightbox-info">
+                  <span class="socio-tag">PILAR VISÃO</span>
+                  <p class="socio-name">GUSTAVO OLIVEIRA</p>
+                  <p class="socio-role">GESTÃO &amp; VISÃO ESTRATÉGICA</p>
+                  <p class="socio-lead">Transforma estratégia em direção.</p>
+                </div>
+              </div>
               <span class="socio-tag">PILAR VISÃO</span>
               <p class="socio-name">GUSTAVO OLIVEIRA</p>
               <p class="socio-role">GESTÃO &amp; VISÃO ESTRATÉGICA</p>
@@ -2164,6 +2212,15 @@
               <div class="socio-photo-wrap">
                 <img src="socios/fredericoSilva.png" alt="Frederico" class="socio-photo">
               </div>
+              <div class="socio-lightbox" aria-hidden="true">
+                <img src="socios/fredericoSilva.png" alt="" class="socio-lightbox-photo">
+                <div class="socio-lightbox-info">
+                  <span class="socio-tag">PILAR VENDAS</span>
+                  <p class="socio-name">FREDERICO</p>
+                  <p class="socio-role">COMERCIAL &amp; VENDAS</p>
+                  <p class="socio-lead">Transforma oportunidade em negócio.</p>
+                </div>
+              </div>
               <span class="socio-tag">PILAR VENDAS</span>
               <p class="socio-name">FREDERICO</p>
               <p class="socio-role">COMERCIAL &amp; VENDAS</p>
@@ -2193,6 +2250,15 @@
             <div class="{{ socio3Cls }}">
               <div class="socio-photo-wrap">
                 <img src="socios/gustavoHenrique.png" alt="Gustavo Henrique" class="socio-photo">
+              </div>
+              <div class="socio-lightbox" aria-hidden="true">
+                <img src="socios/gustavoHenrique.png" alt="" class="socio-lightbox-photo">
+                <div class="socio-lightbox-info">
+                  <span class="socio-tag">PILAR TECNOLOGIA</span>
+                  <p class="socio-name">GUSTAVO HENRIQUE</p>
+                  <p class="socio-role">TECNOLOGIA &amp; INTELIGÊNCIA ARTIFICIAL</p>
+                  <p class="socio-lead">Transforma operação em sistema.</p>
+                </div>
               </div>
               <span class="socio-tag">PILAR TECNOLOGIA</span>
               <p class="socio-name">GUSTAVO HENRIQUE</p>
