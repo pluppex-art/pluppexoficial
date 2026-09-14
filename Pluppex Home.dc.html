@@ -1248,11 +1248,10 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: clamp(24px, 4vw, 56px);
           padding: 24px;
           opacity: 0;
           pointer-events: none;
-          transition: opacity 300ms ease;
+          transition: opacity 320ms ease;
         }
 
         .socio-lightbox::before {
@@ -1260,30 +1259,79 @@
           position: fixed;
           inset: 0;
           z-index: -1;
-          background: rgba(5, 5, 8, 0.78);
-          backdrop-filter: blur(3px);
+          background: rgba(5, 5, 8, 0.82);
+          backdrop-filter: blur(6px);
         }
 
         .socio-card:hover .socio-lightbox {
           opacity: 1;
         }
 
+        .socio-lightbox-card {
+          display: flex;
+          width: min(90vw, 760px);
+          max-height: 84vh;
+          background: linear-gradient(160deg, rgba(24, 22, 32, 0.97), rgba(9, 8, 13, 0.99));
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: var(--radius-lg);
+          overflow: hidden;
+          box-shadow:
+            0 50px 120px -20px rgba(0, 0, 0, 0.8),
+            0 0 100px -10px rgba(116, 62, 228, 0.3);
+          transform: scale(0.95) translateY(8px);
+          transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .socio-card:hover .socio-lightbox-card {
+          transform: scale(1) translateY(0);
+        }
+
         .socio-lightbox-photo {
           flex: none;
-          width: min(30vw, 300px);
-          aspect-ratio: 5 / 6;
+          width: min(34%, 280px);
+          height: auto;
+          align-self: stretch;
           object-fit: cover;
-          border-radius: var(--radius-lg);
           filter: grayscale(0.08) contrast(1.05);
-          box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.7);
         }
 
         .socio-lightbox-info {
-          max-width: min(80vw, 460px);
-          max-height: 86vh;
+          flex: 1;
+          min-width: 0;
+          padding: clamp(28px, 3.4vw, 40px);
           overflow-y: auto;
           text-align: left;
+          pointer-events: none;
+          scrollbar-width: thin;
+          scrollbar-color: rgba(116, 62, 228, 0.45) transparent;
+        }
+
+        .socio-card:hover .socio-lightbox-info {
           pointer-events: auto;
+        }
+
+        .socio-lightbox-info::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        .socio-lightbox-info::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        .socio-lightbox-info::-webkit-scrollbar-thumb {
+          background: rgba(116, 62, 228, 0.45);
+          border-radius: 999px;
+        }
+
+        .socio-lightbox-info > * {
+          opacity: 0;
+          transform: translateY(8px);
+          transition: opacity 420ms ease 80ms, transform 420ms ease 80ms;
+        }
+
+        .socio-card:hover .socio-lightbox-info > * {
+          opacity: 1;
+          transform: translateY(0);
         }
 
         .socio-lightbox-info .socio-tag {
@@ -1302,6 +1350,10 @@
           font-size: 17px;
         }
 
+        .socio-lightbox-info .socio-panel-body {
+          border-top-color: rgba(255, 255, 255, 0.08);
+        }
+
         .socio-lightbox-info .socio-desc {
           font-size: 15.5px;
         }
@@ -1313,6 +1365,18 @@
         @media (max-width: 900px) {
           .socio-card:hover .socio-lightbox {
             opacity: 0;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .socio-lightbox-card {
+            flex-direction: column;
+            max-height: 90vh;
+          }
+
+          .socio-lightbox-photo {
+            width: 100%;
+            height: 200px;
           }
         }
 
@@ -2137,6 +2201,7 @@
                 <img src="socios/gustavoOliveira.png" alt="Gustavo Oliveira" class="socio-photo">
               </div>
               <div class="socio-lightbox" aria-hidden="true">
+                <div class="socio-lightbox-card">
                 <img src="socios/gustavoOliveira.png" alt="" class="socio-lightbox-photo">
                 <div class="socio-lightbox-info">
                   <span class="socio-tag">PILAR VISÃO</span>
@@ -2157,6 +2222,7 @@
                     <p class="socio-quote">"A tecnologia e a operação devem sempre servir ao objetivo principal:
                       gerar crescimento sustentável e receita previsível."</p>
                   </div>
+                </div>
                 </div>
               </div>
               <span class="socio-tag">PILAR VISÃO</span>
@@ -2184,6 +2250,7 @@
                 <img src="socios/fredericoSilva.png" alt="Frederico" class="socio-photo">
               </div>
               <div class="socio-lightbox" aria-hidden="true">
+                <div class="socio-lightbox-card">
                 <img src="socios/fredericoSilva.png" alt="" class="socio-lightbox-photo">
                 <div class="socio-lightbox-info">
                   <span class="socio-tag">PILAR VENDAS</span>
@@ -2204,6 +2271,7 @@
                     <p class="socio-quote">"Gerar oportunidades sem saber convertê-las não é crescimento. Vender é
                       método e disciplina."</p>
                   </div>
+                </div>
                 </div>
               </div>
               <span class="socio-tag">PILAR VENDAS</span>
@@ -2231,6 +2299,7 @@
                 <img src="socios/gustavoHenrique.png" alt="Gustavo Henrique" class="socio-photo">
               </div>
               <div class="socio-lightbox" aria-hidden="true">
+                <div class="socio-lightbox-card">
                 <img src="socios/gustavoHenrique.png" alt="" class="socio-lightbox-photo">
                 <div class="socio-lightbox-info">
                   <span class="socio-tag">PILAR TECNOLOGIA</span>
@@ -2251,6 +2320,7 @@
                     <p class="socio-quote">"Tecnologia não é o produto final. É o motor que permite à máquina rodar
                       sem atrito e crescer exponencialmente."</p>
                   </div>
+                </div>
                 </div>
               </div>
               <span class="socio-tag">PILAR TECNOLOGIA</span>
