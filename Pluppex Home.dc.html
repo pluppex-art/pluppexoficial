@@ -174,7 +174,11 @@
           border-radius: var(--radius-lg);
         }
 
-        .media-3d-card:hover {
+        .media-3d-wrapper:hover {
+          perspective: none;
+        }
+
+        .media-3d-wrapper:hover .media-3d-card {
           position: fixed;
           top: 50%;
           left: 50%;
@@ -189,10 +193,6 @@
             inset 0 1px 0 rgba(255, 255, 255, 0.35);
         }
 
-        .media-3d-wrapper:has(.media-3d-card:hover) {
-          perspective: none;
-        }
-
         .media-3d-wrapper::before {
           content: "";
           position: fixed;
@@ -205,7 +205,7 @@
           transition: opacity 300ms ease;
         }
 
-        .media-3d-wrapper:has(.media-3d-card:hover)::before {
+        .media-3d-wrapper:hover::before {
           opacity: 1;
         }
 
@@ -214,7 +214,7 @@
             transform: none !important;
           }
 
-          .media-3d-card:hover {
+          .media-3d-wrapper:hover .media-3d-card {
             position: relative;
             top: auto;
             left: auto;
@@ -223,7 +223,7 @@
             transform: none !important;
           }
 
-          .media-3d-wrapper:has(.media-3d-card:hover)::before {
+          .media-3d-wrapper:hover::before {
             opacity: 0;
           }
         }
@@ -1658,7 +1658,7 @@
                       style="margin: 28px 0 0; display: inline-block; padding: 10px 16px; border: 1px solid var(--color-accent-700); border-radius: var(--radius-md); font-size: 12px; letter-spacing: 0.12em; color: var(--color-accent-200);">
                       MAIS OPORTUNIDADES ENTRANDO.</p>
                   </div>
-                  <div class="media-3d-wrapper">
+                  <div class="media-3d-wrapper" style="aspect-ratio: 1672 / 941;">
                     <div class="media-3d-card">
                       <img src="Aquisicao/aquisicao-estrategia.png"
                         alt="Estratégia, criatividade e tráfego para gerar sinais"
@@ -1706,7 +1706,7 @@
                       style="margin: 28px 0 0; max-width: 30ch; font-family: var(--font-heading); font-size: 20px; line-height: 1.25; letter-spacing: -0.01em; color: var(--color-accent-200);">
                       NENHUMA OPORTUNIDADE DEVERIA DESAPARECER DENTRO DA OPERAÇÃO.</p>
                   </div>
-                  <div class="media-3d-wrapper" style="align-self: start;">
+                  <div class="media-3d-wrapper" style="align-self: start; aspect-ratio: 1024 / 640;">
                     <div class="media-3d-card">
                       <img src="uploads/spy-crm-dashboard.png" alt="S. P. Y. | CRM Dashboard"
                         style="width: 100%; height: auto; display: block;" />
@@ -1769,7 +1769,7 @@
                         CRM</span>
                     </div>
                   </div>
-                  <div class="media-3d-wrapper">
+                  <div class="media-3d-wrapper" style="aspect-ratio: 1672 / 941;">
                     <div class="media-3d-card">
                       <img src="Aurora/aurora-fluxo.png" alt="Aurora — do sinal à receita"
                         style="width: 100%; height: auto; display: block;">
