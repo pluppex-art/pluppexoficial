@@ -1270,7 +1270,7 @@
 
         .socio-lightbox-photo {
           flex: none;
-          width: min(34vw, 320px);
+          width: min(30vw, 300px);
           aspect-ratio: 5 / 6;
           object-fit: cover;
           border-radius: var(--radius-lg);
@@ -1279,8 +1279,11 @@
         }
 
         .socio-lightbox-info {
-          max-width: min(80vw, 380px);
+          max-width: min(80vw, 460px);
+          max-height: 86vh;
+          overflow-y: auto;
           text-align: left;
+          pointer-events: auto;
         }
 
         .socio-lightbox-info .socio-tag {
@@ -1297,6 +1300,14 @@
 
         .socio-lightbox-info .socio-lead {
           font-size: 17px;
+        }
+
+        .socio-lightbox-info .socio-desc {
+          font-size: 15.5px;
+        }
+
+        .socio-lightbox-info .socio-quote {
+          font-size: 14.5px;
         }
 
         @media (max-width: 900px) {
@@ -1343,54 +1354,6 @@
           font-size: 15.5px;
           line-height: 1.5;
           color: var(--color-neutral-200);
-        }
-
-        .socio-toggle {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          margin-top: 20px;
-          padding: 0;
-          background: none;
-          border: 0;
-          font-family: var(--font-body);
-          font-size: 11.5px;
-          font-weight: 700;
-          letter-spacing: 0.12em;
-          color: var(--color-neutral-400);
-          cursor: pointer;
-          transition: color 300ms ease;
-        }
-
-        .socio-card:hover .socio-toggle,
-        .socio-toggle:hover {
-          color: var(--color-accent-200);
-        }
-
-        .socio-toggle-arrow {
-          display: inline-block;
-          transition: transform 300ms ease;
-        }
-
-        .socio-card.is-open .socio-toggle-arrow {
-          transform: rotate(180deg);
-        }
-
-        .socio-panel {
-          display: grid;
-          grid-template-rows: 0fr;
-          opacity: 0;
-          transition: grid-template-rows 500ms cubic-bezier(0.22, 1, 0.36, 1), opacity 400ms ease;
-        }
-
-        .socio-card.is-open .socio-panel {
-          grid-template-rows: 1fr;
-          opacity: 1;
-        }
-
-        .socio-panel-inner {
-          overflow: hidden;
-          min-height: 0;
         }
 
         .socio-panel-body {
@@ -2169,7 +2132,7 @@
 
           <div
             style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px; margin-top: clamp(48px, 6vw, 64px); align-items: start;">
-            <div class="{{ socio1Cls }}">
+            <div class="socio-card">
               <div class="socio-photo-wrap">
                 <img src="socios/gustavoOliveira.png" alt="Gustavo Oliveira" class="socio-photo">
               </div>
@@ -2180,16 +2143,6 @@
                   <p class="socio-name">GUSTAVO OLIVEIRA</p>
                   <p class="socio-role">GESTÃO &amp; VISÃO ESTRATÉGICA</p>
                   <p class="socio-lead">Transforma estratégia em direção.</p>
-                </div>
-              </div>
-              <span class="socio-tag">PILAR VISÃO</span>
-              <p class="socio-name">GUSTAVO OLIVEIRA</p>
-              <p class="socio-role">GESTÃO &amp; VISÃO ESTRATÉGICA</p>
-              <p class="socio-lead">Transforma estratégia em direção.</p>
-              <button type="button" class="socio-toggle" onClick="{{ toggleSocio1 }}">VER ATUAÇÃO <span
-                  class="socio-toggle-arrow">↓</span></button>
-              <div class="socio-panel">
-                <div class="socio-panel-inner">
                   <div class="socio-panel-body">
                     <p class="socio-desc">Responsável pela visão estratégica, posicionamento e direcionamento da
                       Pluppex. Conecta negócio, marketing, vendas e tecnologia para transformar estratégia em
@@ -2206,9 +2159,27 @@
                   </div>
                 </div>
               </div>
+              <span class="socio-tag">PILAR VISÃO</span>
+              <p class="socio-name">GUSTAVO OLIVEIRA</p>
+              <p class="socio-role">GESTÃO &amp; VISÃO ESTRATÉGICA</p>
+              <p class="socio-lead">Transforma estratégia em direção.</p>
+              <div class="socio-panel-body">
+                <p class="socio-desc">Responsável pela visão estratégica, posicionamento e direcionamento da
+                  Pluppex. Conecta negócio, marketing, vendas e tecnologia para transformar estratégia em
+                  crescimento e receita.</p>
+                <p class="socio-areas-label">ATUAÇÃO</p>
+                <ul class="socio-areas">
+                  <li>Estratégia de Negócios</li>
+                  <li>Posicionamento</li>
+                  <li>Marketing &amp; Vendas</li>
+                  <li>Gestão &amp; Direcionamento</li>
+                </ul>
+                <p class="socio-quote">"A tecnologia e a operação devem sempre servir ao objetivo principal:
+                  gerar crescimento sustentável e receita previsível."</p>
+              </div>
             </div>
 
-            <div class="{{ socio2Cls }}">
+            <div class="socio-card">
               <div class="socio-photo-wrap">
                 <img src="socios/fredericoSilva.png" alt="Frederico" class="socio-photo">
               </div>
@@ -2219,16 +2190,6 @@
                   <p class="socio-name">FREDERICO</p>
                   <p class="socio-role">COMERCIAL &amp; VENDAS</p>
                   <p class="socio-lead">Transforma oportunidade em negócio.</p>
-                </div>
-              </div>
-              <span class="socio-tag">PILAR VENDAS</span>
-              <p class="socio-name">FREDERICO</p>
-              <p class="socio-role">COMERCIAL &amp; VENDAS</p>
-              <p class="socio-lead">Transforma oportunidade em negócio.</p>
-              <button type="button" class="socio-toggle" onClick="{{ toggleSocio2 }}">VER ATUAÇÃO <span
-                  class="socio-toggle-arrow">↓</span></button>
-              <div class="socio-panel">
-                <div class="socio-panel-inner">
                   <div class="socio-panel-body">
                     <p class="socio-desc">Responsável pela área comercial e pela transformação da máquina em receita.
                       Atua na prospecção, vendas, negociação e gestão do processo comercial, tornando a geração de
@@ -2245,9 +2206,27 @@
                   </div>
                 </div>
               </div>
+              <span class="socio-tag">PILAR VENDAS</span>
+              <p class="socio-name">FREDERICO</p>
+              <p class="socio-role">COMERCIAL &amp; VENDAS</p>
+              <p class="socio-lead">Transforma oportunidade em negócio.</p>
+              <div class="socio-panel-body">
+                <p class="socio-desc">Responsável pela área comercial e pela transformação da máquina em receita.
+                  Atua na prospecção, vendas, negociação e gestão do processo comercial, tornando a geração de
+                  clientes cada vez mais previsível.</p>
+                <p class="socio-areas-label">ATUAÇÃO</p>
+                <ul class="socio-areas">
+                  <li>Prospecção &amp; Cadência</li>
+                  <li>Gestão de Pipeline</li>
+                  <li>Negociação de Alto Ticket</li>
+                  <li>Follow-up &amp; Conversão</li>
+                </ul>
+                <p class="socio-quote">"Gerar oportunidades sem saber convertê-las não é crescimento. Vender é
+                  método e disciplina."</p>
+              </div>
             </div>
 
-            <div class="{{ socio3Cls }}">
+            <div class="socio-card">
               <div class="socio-photo-wrap">
                 <img src="socios/gustavoHenrique.png" alt="Gustavo Henrique" class="socio-photo">
               </div>
@@ -2258,16 +2237,6 @@
                   <p class="socio-name">GUSTAVO HENRIQUE</p>
                   <p class="socio-role">TECNOLOGIA &amp; INTELIGÊNCIA ARTIFICIAL</p>
                   <p class="socio-lead">Transforma operação em sistema.</p>
-                </div>
-              </div>
-              <span class="socio-tag">PILAR TECNOLOGIA</span>
-              <p class="socio-name">GUSTAVO HENRIQUE</p>
-              <p class="socio-role">TECNOLOGIA &amp; INTELIGÊNCIA ARTIFICIAL</p>
-              <p class="socio-lead">Transforma operação em sistema.</p>
-              <button type="button" class="socio-toggle" onClick="{{ toggleSocio3 }}">VER ATUAÇÃO <span
-                  class="socio-toggle-arrow">↓</span></button>
-              <div class="socio-panel">
-                <div class="socio-panel-inner">
                   <div class="socio-panel-body">
                     <p class="socio-desc">Responsável pela tecnologia, desenvolvimento e inteligência artificial da
                       Pluppex. Arquitetura o S. P. Y. e a Aurora para transformar dados, automações e inteligência em
@@ -2283,6 +2252,24 @@
                       sem atrito e crescer exponencialmente."</p>
                   </div>
                 </div>
+              </div>
+              <span class="socio-tag">PILAR TECNOLOGIA</span>
+              <p class="socio-name">GUSTAVO HENRIQUE</p>
+              <p class="socio-role">TECNOLOGIA &amp; INTELIGÊNCIA ARTIFICIAL</p>
+              <p class="socio-lead">Transforma operação em sistema.</p>
+              <div class="socio-panel-body">
+                <p class="socio-desc">Responsável pela tecnologia, desenvolvimento e inteligência artificial da
+                  Pluppex. Arquitetura o S. P. Y. e a Aurora para transformar dados, automações e inteligência em
+                  uma operação capaz de escalar.</p>
+                <p class="socio-areas-label">ATUAÇÃO</p>
+                <ul class="socio-areas">
+                  <li>Arquitetura do S. P. Y.</li>
+                  <li>Inteligência Artificial &amp; Aurora</li>
+                  <li>Automações &amp; APIs</li>
+                  <li>Infraestrutura da Máquina</li>
+                </ul>
+                <p class="socio-quote">"Tecnologia não é o produto final. É o motor que permite à máquina rodar
+                  sem atrito e crescer exponencialmente."</p>
               </div>
             </div>
           </div>
@@ -2493,7 +2480,7 @@
   <script type="text/x-dc" data-dc-script
     data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280},&quot;defaultTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;AQUISIÇÃO&quot;,&quot;S. P. Y. | CRM&quot;,&quot;INTELIGÊNCIA&quot;,&quot;OPERAÇÃO&quot;],&quot;default&quot;:&quot;AQUISIÇÃO&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Soluções&quot;}}">
 class Component extends DCLogic {
-  state = { tab: null, level1Open: true, level2Open: true, level3Open: true, level4Open: true, socio1Open: false, socio2Open: false, socio3Open: false, faq: 0, faqTouched: false, sent: false, menu: false };
+  state = { tab: null, level1Open: true, level2Open: true, level3Open: true, level4Open: true, faq: 0, faqTouched: false, sent: false, menu: false };
 
   get journeySteps() {
     return [
@@ -2707,12 +2694,6 @@ class Component extends DCLogic {
       toggleLevel2: () => this.setState(s => ({ level2Open: !s.level2Open })),
       toggleLevel3: () => this.setState(s => ({ level3Open: !s.level3Open })),
       toggleLevel4: () => this.setState(s => ({ level4Open: !s.level4Open })),
-      socio1Cls: "socio-card" + (this.state.socio1Open ? " is-open" : ""),
-      socio2Cls: "socio-card" + (this.state.socio2Open ? " is-open" : ""),
-      socio3Cls: "socio-card" + (this.state.socio3Open ? " is-open" : ""),
-      toggleSocio1: () => this.setState(s => ({ socio1Open: !s.socio1Open })),
-      toggleSocio2: () => this.setState(s => ({ socio2Open: !s.socio2Open })),
-      toggleSocio3: () => this.setState(s => ({ socio3Open: !s.socio3Open })),
       faq: this.faqItems.map(([q, a], i) => ({
         q, a, open: faqOpen === i, sign: faqOpen === i ? "\u2212" : "+",
         toggle: () => this.setState(s => ({ faqTouched: true, faq: s.faqTouched && s.faq === i ? -1 : i }))
