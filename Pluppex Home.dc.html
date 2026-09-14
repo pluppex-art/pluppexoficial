@@ -175,18 +175,56 @@
         }
 
         .media-3d-card:hover {
-          transform: rotateY(0deg) rotateX(0deg) scale(2);
-          z-index: 30;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          width: min(88vw, 760px);
+          max-height: 82vh;
+          transform: translate(-50%, -50%) rotateY(0deg) rotateX(0deg) scale(1);
+          z-index: 200;
           box-shadow:
-            -15px 35px 70px rgba(0, 0, 0, 0.75),
+            0 30px 90px -20px rgba(0, 0, 0, 0.75),
             0 0 90px rgba(116, 62, 228, 0.5),
             0 0 130px rgba(46, 168, 240, 0.35),
             inset 0 1px 0 rgba(255, 255, 255, 0.35);
         }
 
+        .media-3d-wrapper:has(.media-3d-card:hover) {
+          perspective: none;
+        }
+
+        .media-3d-wrapper::before {
+          content: "";
+          position: fixed;
+          inset: 0;
+          background: rgba(5, 5, 8, 0.78);
+          backdrop-filter: blur(3px);
+          z-index: 190;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 300ms ease;
+        }
+
+        .media-3d-wrapper:has(.media-3d-card:hover)::before {
+          opacity: 1;
+        }
+
         @media (max-width: 900px) {
           .media-3d-card {
             transform: none !important;
+          }
+
+          .media-3d-card:hover {
+            position: relative;
+            top: auto;
+            left: auto;
+            width: auto;
+            max-height: none;
+            transform: none !important;
+          }
+
+          .media-3d-wrapper:has(.media-3d-card:hover)::before {
+            opacity: 0;
           }
         }
 
@@ -1193,11 +1231,39 @@
           height: 100%;
           object-fit: cover;
           filter: grayscale(0.08) contrast(1.05);
-          transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+          transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+            width 500ms cubic-bezier(0.22, 1, 0.36, 1),
+            height 500ms cubic-bezier(0.22, 1, 0.36, 1),
+            border-radius 500ms cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .socio-card:hover .socio-photo {
-          transform: scale(1.04);
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          width: min(60vw, 420px, calc(72vh * 5 / 6));
+          height: auto;
+          aspect-ratio: 5 / 6;
+          transform: translate(-50%, -50%);
+          z-index: 100;
+          border-radius: var(--radius-lg);
+          box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.7);
+        }
+
+        .socio-card::before {
+          content: "";
+          position: fixed;
+          inset: 0;
+          background: rgba(5, 5, 8, 0.78);
+          backdrop-filter: blur(3px);
+          z-index: 90;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 300ms ease;
+        }
+
+        .socio-card:hover::before {
+          opacity: 1;
         }
 
         .socio-tag {
