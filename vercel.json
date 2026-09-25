@@ -5,6 +5,7 @@
     { "source": "/cases", "destination": "/Pluppex Cases.dc.html" },
     { "source": "/blog", "destination": "/Pluppex Blog.dc.html" },
     { "source": "/atendimento", "destination": "/Pluppex Atendimento.dc.html" },
-    { "source": "/proposta-autonomoous-fundador", "destination": "/proposta-autonomoous-fundador.html" }
+    { "source": "/proposta-autonomoous-fundador", "destination": "/proposta-autonomoous-fundador.html" },
+    { "source": "/proposta-autonomoous-fundador-branca", "destination": "/proposta-autonomoous-fundador-branca.html" }
   ]
 }

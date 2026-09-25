@@ -402,7 +402,8 @@ carregado.
 
 | Arquivo | Função |
 |---|---|
-| `proposta-autonomoous-fundador.html` | A página completa (HTML + CSS + JS inline) |
+| `proposta-autonomoous-fundador.html` | A página completa, tema escuro (HTML + CSS + JS inline) |
+| `proposta-autonomoous-fundador-branca.html` | A mesma proposta em tema claro |
 | `proposta/logos/*` | Logos tratados das empresas relacionadas (WebP + PNG) |
 | `proposta/spy-crm-dashboard.*` | Screenshot do produto otimizado (941 KB → 61 KB) |
 | `proposta/pluppex-logo.*` | Logo otimizado para esta página (205 KB → 8 KB) |
@@ -424,11 +425,37 @@ https://www.pluppex.com.br/proposta-autonomoous-fundador
 Implementação (`vercel.json`):
 
 ```json
-{ "source": "/proposta-autonomoous-fundador", "destination": "/proposta-autonomoous-fundador.html" }
+{ "source": "/proposta-autonomoous-fundador", "destination": "/proposta-autonomoous-fundador.html" },
+{ "source": "/proposta-autonomoous-fundador-branca", "destination": "/proposta-autonomoous-fundador-branca.html" }
 ```
 
 Os rewrites existentes (`/`, `/landing`, `/cases`, `/blog`, `/atendimento`) permanecem
 intactos.
+
+### Versão clara
+
+A rota `-branca` serve a mesma proposta com a paleta invertida. É uma **cópia
+independente** do arquivo, não um tema alternado por classe: as duas páginas são
+entregues separadamente e nenhuma depende da outra. Toda alteração de conteúdo
+precisa ser aplicada nas duas.
+
+Diferenças em relação à versão escura:
+
+| | Escura | Clara |
+|---|---|---|
+| Fundo | `#050505` | `#ffffff` |
+| Texto | `#f5f5f5` | `#0a0a12` |
+| Acento | `#743ee4` | `#5c2fbb` |
+| Grão | `overlay`, 0.35 | `multiply`, 0.16 |
+| Logo Pluppex | `proposta/pluppex-logo.*` | `proposta/pluppex-logo-escuro.*` |
+
+- O roxo escurece porque `#743ee4` sobre branco não sustenta contraste de texto.
+  Todos os pares passam WCAG AA (o menor é 4,87:1, no rodapé) e os principais, AAA.
+- O mockup do WhatsApp **continua escuro** nas duas versões — é a tela de um
+  aparelho, não uma superfície da página.
+- O logo da Pluppex tem wordmark branco e sumia no fundo claro. A variante
+  `pluppex-logo-escuro` recebe o mesmo tratamento aplicado ao Geplan: os pixels
+  quase-brancos vão para o neutro escuro e a marca colorida fica intacta.
 
 ---
 
