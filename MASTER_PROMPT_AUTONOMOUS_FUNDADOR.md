@@ -403,7 +403,7 @@ carregado.
 | Arquivo | Função |
 |---|---|
 | `proposta-autonomoous-fundador.html` | A página completa, tema escuro (HTML + CSS + JS inline) |
-| `proposta-autonomoous-fundador-branca.html` | A mesma proposta em tema claro |
+| `proposta-autonomoous-fundador-b.html` | A mesma proposta em tema claro |
 | `proposta/logos/*` | Logos tratados das empresas relacionadas (WebP + PNG) |
 | `proposta/spy-crm-dashboard.*` | Screenshot do produto otimizado (941 KB → 61 KB) |
 | `proposta/pluppex-logo.*` | Logo otimizado para esta página (205 KB → 8 KB) |
@@ -426,7 +426,7 @@ Implementação (`vercel.json`):
 
 ```json
 { "source": "/proposta-autonomoous-fundador", "destination": "/proposta-autonomoous-fundador.html" },
-{ "source": "/proposta-autonomoous-fundador-branca", "destination": "/proposta-autonomoous-fundador-branca.html" }
+{ "source": "/proposta-autonomoous-fundador-b", "destination": "/proposta-autonomoous-fundador-b.html" }
 ```
 
 Os rewrites existentes (`/`, `/landing`, `/cases`, `/blog`, `/atendimento`) permanecem
@@ -434,7 +434,7 @@ intactos.
 
 ### Versão clara
 
-A rota `-branca` serve a mesma proposta com a paleta invertida. É uma **cópia
+A rota `-b` serve a mesma proposta com a paleta invertida. É uma **cópia
 independente** do arquivo, não um tema alternado por classe: as duas páginas são
 entregues separadamente e nenhuma depende da outra. Toda alteração de conteúdo
 precisa ser aplicada nas duas.
