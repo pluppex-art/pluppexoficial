@@ -1,0 +1,2408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S.P.Y. CRM | Autonomous Fundador — Proposta comercial Pluppex</title>
+  <meta name="description"
+    content="Proposta comercial do S.P.Y. CRM | Autonomous Fundador: a operação comercial inteligente da Pluppex. O S.P.Y. CRM organiza os dados. A Aurora opera a inteligência.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#050505">
+  <link rel="canonical" href="https://www.pluppex.com.br/proposta-autonomoous-fundador">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="S.P.Y. CRM | Autonomous Fundador — Proposta comercial">
+  <meta property="og:description"
+    content="Foque no que realmente vai mexer o ponteiro da sua empresa. Deixe a tecnologia trabalhar nas atividades operacionais por você.">
+  <meta property="og:url" content="https://www.pluppex.com.br/proposta-autonomoous-fundador">
+  <meta property="og:image" content="https://www.pluppex.com.br/proposta/spy-crm-dashboard.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ══════════════════════════════════════════════════════════════════
+       S.P.Y. CRM | Autonomous Fundador — proposta comercial.
+       Página autônoma: herda os tokens de marca do site institucional
+       (ver MASTER_PROMPT_AUTONOMOUS_FUNDADOR.md) sem depender do runtime
+       x-dc/support.js usado pelas páginas .dc.html.
+       ══════════════════════════════════════════════════════════════════ */
+
+    :root {
+      --bg: #050505;
+      --surface: #0e0e11;
+      --surface-2: #131318;
+      --text: #f5f5f5;
+      --accent: #743ee4;
+      --accent-200: #ded2fc;
+      --accent-300: #c2adf9;
+      --accent-400: #9c7cf0;
+      --accent-800: #2d1760;
+      --accent-900: #180c35;
+      --n-300: #c9c9ce;
+      --n-400: #9a9aa2;
+      --n-500: #75757d;
+      --n-600: #55555c;
+      --n-800: #232327;
+      --divider: rgba(245, 245, 245, 0.10);
+      --divider-strong: rgba(245, 245, 245, 0.18);
+      --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --gutter: clamp(20px, 5vw, 48px);
+      --maxw: 1180px;
+      --fold: clamp(72px, 10vw, 152px);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* Duas camadas fixas atrás de tudo: manchas de luz que respiram
+       lentamente e um grão fino que tira o "chapado" do preto puro. */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    body::before {
+      background:
+        radial-gradient(52vw 42vw at 12% 8%, rgba(116, 62, 228, 0.16), transparent 60%),
+        radial-gradient(46vw 38vw at 88% 32%, rgba(29, 99, 201, 0.13), transparent 62%),
+        radial-gradient(56vw 44vw at 50% 92%, rgba(116, 62, 228, 0.12), transparent 64%);
+      animation: aurora-drift 34s ease-in-out infinite alternate;
+    }
+
+    body::after {
+      z-index: -1;
+      opacity: 0.35;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'>\
+<filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/>\
+<feColorMatrix type='saturate' values='0'/></filter>\
+<rect width='140' height='140' filter='url(%23n)' opacity='0.5'/></svg>");
+      background-size: 140px 140px;
+    }
+
+    @keyframes aurora-drift {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      to {
+        transform: translate3d(0, -2.5%, 0) scale(1.08);
+      }
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      margin: 0;
+      text-wrap: balance;
+    }
+
+    p {
+      margin: 0;
+      text-wrap: pretty;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      color: var(--accent-300);
+      text-decoration: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent-400);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding-inline: var(--gutter);
+    }
+
+    .fold {
+      padding-block: var(--fold);
+      border-top: 1px solid var(--divider);
+    }
+
+    /* ── Tipografia utilitária ───────────────────────────────────────── */
+    .kicker {
+      margin: 0;
+      font-size: clamp(10px, 1.1vw, 11.5px);
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-300);
+    }
+
+    .kicker-muted {
+      color: var(--n-500);
+    }
+
+    .display {
+      font-size: clamp(34px, 5.6vw, 68px);
+    }
+
+    .h2 {
+      font-size: clamp(28px, 4.2vw, 50px);
+    }
+
+    .h3 {
+      font-size: clamp(20px, 2.4vw, 28px);
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      font-size: clamp(16.5px, 1.7vw, 21px);
+      line-height: 1.55;
+      color: var(--n-300);
+      max-width: 62ch;
+    }
+
+    .body {
+      font-size: clamp(15px, 1.4vw, 16.5px);
+      color: var(--n-400);
+      max-width: 66ch;
+    }
+
+    .small {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--n-500);
+    }
+
+    .tiny {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--n-500);
+    }
+
+    .accent {
+      color: var(--accent-300);
+    }
+
+    /* ── Header (sem menu público) ───────────────────────────────────── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(5, 5, 5, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .topbar-in {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 14px var(--gutter);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .topbar picture,
+    .topbar img {
+      display: block;
+      height: 24px;
+      width: auto;
+    }
+
+    .topbar-label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--n-500);
+      padding-left: 16px;
+      border-left: 1px solid var(--divider-strong);
+    }
+
+    .pdf-btn {
+      margin-left: auto;
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 17px;
+      font: inherit;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      background: transparent;
+      border: 1px solid var(--divider-strong);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: border-color .2s ease, background .2s ease, transform .2s ease;
+    }
+
+    .pdf-btn:hover {
+      border-color: var(--accent-400);
+      background: rgba(116, 62, 228, 0.12);
+      transform: translateY(-1px);
+    }
+
+    .pdf-btn svg {
+      width: 14px;
+      height: 14px;
+      flex: 0 0 auto;
+    }
+
+    /* ── Dobra 1 · Hero ──────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      padding-block: clamp(56px, 9vw, 116px) clamp(56px, 8vw, 104px);
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: -160px 0 auto 50%;
+      translate: -50% 0;
+      width: min(1100px, 130vw);
+      aspect-ratio: 1.6;
+      background: radial-gradient(ellipse at 50% 0%, rgba(116, 62, 228, 0.30), transparent 62%);
+      pointer-events: none;
+    }
+
+    .hero-title {
+      margin-top: 26px;
+      max-width: 19ch;
+    }
+
+    .hero-sub {
+      margin-top: 28px;
+    }
+
+    .hero-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--divider);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 40px;
+    }
+
+    .hero-meta div {
+      min-width: 150px;
+    }
+
+    .hero-meta dt {
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--n-500);
+    }
+
+    .hero-meta dd {
+      margin: 6px 0 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .shot {
+      margin-top: clamp(44px, 6vw, 72px);
+      border: 1px solid var(--divider-strong);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--surface);
+      box-shadow: 0 40px 90px -40px rgba(116, 62, 228, 0.55), 0 2px 0 rgba(255, 255, 255, 0.04) inset;
+    }
+
+    .shot img {
+      width: 100%;
+    }
+
+    .shot figcaption {
+      padding: 12px 18px;
+      border-top: 1px solid var(--divider);
+      font-size: 11.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--n-500);
+      background: var(--surface);
+    }
+
+    /* ── Dobra 2 · Dependência operacional ───────────────────────────── */
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: clamp(32px, 5vw, 76px);
+      align-items: start;
+    }
+
+    .dep-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr));
+      gap: 1px;
+      background: var(--divider);
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .dep-list li {
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      padding: 15px 16px;
+      font-size: 14px;
+      color: var(--n-400);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .dep-list li::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--n-600);
+      flex: 0 0 auto;
+      translate: 0 -3px;
+    }
+
+    .shift {
+      margin-top: clamp(48px, 6vw, 88px);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: clamp(20px, 3vw, 44px);
+      align-items: stretch;
+    }
+
+    .shift-card {
+      padding: clamp(24px, 3vw, 36px);
+      border: 1px solid var(--divider);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .shift-card.is-now {
+      border-color: rgba(116, 62, 228, 0.55);
+      background: linear-gradient(180deg, rgba(116, 62, 228, 0.13), rgba(14, 14, 17, 0.9));
+    }
+
+    .shift-card q {
+      display: block;
+      margin-top: 14px;
+      font-size: clamp(18px, 2.2vw, 25px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      quotes: "“" "”";
+    }
+
+    .shift-arrow {
+      align-self: center;
+      color: var(--accent-400);
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    /* ── Equação ─────────────────────────────────────────────────────── */
+    .equation {
+      margin-top: clamp(48px, 6vw, 88px);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .eq-item {
+      flex: 1 1 190px;
+      padding: 22px 18px;
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .eq-item strong {
+      display: block;
+      font-size: 15.5px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .eq-item span {
+      display: block;
+      margin-top: 6px;
+      font-size: 12.5px;
+      color: var(--n-500);
+      line-height: 1.5;
+    }
+
+    .eq-op {
+      align-self: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--n-600);
+      padding: 0 2px;
+    }
+
+    .eq-item.is-result {
+      border-color: rgba(116, 62, 228, 0.55);
+      background: linear-gradient(180deg, rgba(116, 62, 228, 0.16), rgba(14, 14, 17, 0.9));
+    }
+
+    .eq-item.is-result strong {
+      color: var(--accent-200);
+    }
+
+    /* ── Fluxo DADOS → RESULTADO ─────────────────────────────────────── */
+    .flow {
+      margin-top: 34px;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .flow::before {
+      content: "";
+      position: absolute;
+      top: 21px;
+      left: 6%;
+      right: 6%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--n-800), var(--accent), var(--n-800));
+      opacity: .7;
+    }
+
+    .flow-step {
+      position: relative;
+      text-align: center;
+      padding-top: 46px;
+    }
+
+    .flow-step::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      translate: -50% 0;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1.5px solid var(--accent-400);
+      box-shadow: 0 0 0 5px rgba(116, 62, 228, 0.12);
+    }
+
+    .flow-step.is-on::before {
+      background: var(--accent);
+      box-shadow: 0 0 0 7px rgba(116, 62, 228, 0.22);
+      transition: background .35s ease, box-shadow .35s ease;
+    }
+
+    .flow-step strong {
+      display: block;
+      font-size: clamp(11px, 1.15vw, 13px);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .flow-step span {
+      display: block;
+      margin-top: 7px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--n-500);
+    }
+
+    /* ── Painel do fundador · aparelho com a interface do WhatsApp ───── */
+    .founder {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 380px);
+      gap: clamp(36px, 5vw, 72px);
+      align-items: center;
+    }
+
+    /* O mockup é um objeto de tela: adota as cores do WhatsApp em modo
+       escuro para ser reconhecido de imediato, e não os tokens da marca. */
+    .phone {
+      --wa-ground: #0b141a;
+      --wa-panel: #1f2c33;
+      --wa-in: #202c33;
+      --wa-out: #005c4b;
+      --wa-ink: #e9edef;
+      --wa-dim: #8696a0;
+      --wa-field: #2a3942;
+      position: relative;
+      width: 100%;
+      max-width: 344px;
+      margin: 0 auto;
+      padding: 11px;
+      border-radius: 50px;
+      background: linear-gradient(155deg, #33333d 0%, #0d0d11 34%, #0d0d11 66%, #33333d 100%);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.07),
+        0 50px 90px -46px rgba(116, 62, 228, 0.75),
+        0 22px 50px -24px rgba(0, 0, 0, 0.9);
+    }
+
+    .phone-screen {
+      position: relative;
+      border-radius: 40px;
+      overflow: hidden;
+      background: var(--wa-ground);
+      display: flex;
+      flex-direction: column;
+      color: var(--wa-ink);
+      font-size: 13px;
+    }
+
+    .phone-island {
+      position: absolute;
+      top: 9px;
+      left: 50%;
+      translate: -50% 0;
+      width: 84px;
+      height: 23px;
+      border-radius: 999px;
+      background: #000;
+      z-index: 4;
+    }
+
+    /* Barra de status ─────────────────────────────────────────────── */
+    .wa-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 22px 7px;
+      background: var(--wa-panel);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .wa-status svg {
+      height: 11px;
+      width: auto;
+      display: block;
+    }
+
+    .wa-status-icons {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Cabeçalho da conversa ───────────────────────────────────────── */
+    .wa-head {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 6px 13px 10px;
+      background: var(--wa-panel);
+    }
+
+    .wa-back {
+      width: 11px;
+      height: 18px;
+      flex: 0 0 auto;
+      color: var(--wa-ink);
+    }
+
+    .wa-avatar {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+      background: linear-gradient(140deg, #9c7cf0, #743ee4 45%, #1d63c9);
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .wa-who {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .wa-who b {
+      display: block;
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .wa-who span {
+      display: block;
+      font-size: 11.5px;
+      color: var(--wa-dim);
+      line-height: 1.3;
+    }
+
+    .wa-head-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--wa-ink);
+      flex: 0 0 auto;
+    }
+
+    .wa-head-actions svg {
+      width: 17px;
+      height: 17px;
+      display: block;
+    }
+
+    /* Conversa ────────────────────────────────────────────────────── */
+    .wa-body {
+      flex: 1 1 auto;
+      padding: 12px 9px 8px;
+      display: grid;
+      gap: 7px;
+      align-content: start;
+      background-color: var(--wa-ground);
+      background-image:
+        radial-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+        radial-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+      background-size: 34px 34px, 34px 34px;
+      background-position: 0 0, 17px 17px;
+    }
+
+    .wa-day {
+      justify-self: center;
+      margin-bottom: 3px;
+      padding: 4px 11px;
+      border-radius: 7px;
+      background: var(--wa-panel);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--wa-dim);
+    }
+
+    .wa-msg {
+      position: relative;
+      max-width: 83%;
+      padding: 6px 9px 7px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.42;
+      box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.22);
+    }
+
+    .wa-msg::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    /* A "orelha" da bolha — todas as mensagens alternam de autor,
+       então cada uma inicia o seu próprio grupo. */
+    .wa-msg::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+
+    .wa-out {
+      justify-self: end;
+      background: var(--wa-out);
+      border-top-right-radius: 0;
+    }
+
+    .wa-out::before {
+      right: -7px;
+      border-width: 0 0 11px 8px;
+      border-color: transparent transparent transparent var(--wa-out);
+    }
+
+    .wa-in {
+      justify-self: start;
+      background: var(--wa-in);
+      border-top-left-radius: 0;
+    }
+
+    .wa-in::before {
+      left: -7px;
+      border-width: 0 8px 11px 0;
+      border-color: transparent var(--wa-in) transparent transparent;
+    }
+
+    .wa-msg b {
+      font-weight: 600;
+    }
+
+    .wa-msg ul {
+      margin: 6px 0 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    /* O traço sai do fluxo e o recuo vale para todas as linhas, então a
+       quebra do item alinha com o texto e não com o traço. */
+    .wa-msg ul li {
+      position: relative;
+      padding-left: 1.35em;
+    }
+
+    .wa-msg ul li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--wa-dim);
+    }
+
+    .wa-msg p {
+      margin-top: 7px;
+    }
+
+    .wa-meta {
+      float: right;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin: 7px 0 -2px 9px;
+      font-size: 10.5px;
+      line-height: 1;
+      color: rgba(233, 237, 239, 0.55);
+      white-space: nowrap;
+    }
+
+    .wa-meta svg {
+      width: 15px;
+      height: 11px;
+      display: block;
+      color: #53bdeb;
+    }
+
+    /* Placeholder de dado ilustrativo, legível dentro da bolha. */
+    .ph {
+      display: inline-block;
+      padding: 0 5px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.16);
+      color: #fff;
+      font-weight: 600;
+      font-size: 12.5px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Campo de mensagem ───────────────────────────────────────────── */
+    .wa-input {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 8px;
+      background: var(--wa-panel);
+    }
+
+    .wa-field {
+      flex: 1 1 auto;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: var(--wa-field);
+      color: var(--wa-dim);
+      font-size: 12.5px;
+    }
+
+    .wa-field span {
+      flex: 1 1 auto;
+    }
+
+    .wa-field svg {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+      display: block;
+    }
+
+    .wa-send {
+      width: 35px;
+      height: 35px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: #00a884;
+      display: grid;
+      place-items: center;
+      color: #0b141a;
+    }
+
+    .wa-send svg {
+      width: 17px;
+      height: 17px;
+      display: block;
+    }
+
+    .wa-home {
+      padding: 7px 0 9px;
+      background: var(--wa-panel);
+    }
+
+    .wa-home::after {
+      content: "";
+      display: block;
+      width: 108px;
+      height: 4.5px;
+      margin: 0 auto;
+      border-radius: 999px;
+      background: rgba(233, 237, 239, 0.4);
+    }
+
+    .chat-foot {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 10.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--n-500);
+    }
+
+    .ask-list {
+      margin-top: 26px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .ask-list li {
+      padding: 12px 16px;
+      border: 1px solid var(--divider);
+      border-radius: 10px;
+      background: var(--surface);
+      font-size: 14.5px;
+      color: var(--n-300);
+    }
+
+    .ask-list li::before {
+      content: "“";
+      color: var(--accent-300);
+    }
+
+    .ask-list li::after {
+      content: "”";
+      color: var(--accent-300);
+    }
+
+    /* ── Capacidades ─────────────────────────────────────────────────── */
+    .caps {
+      margin-top: clamp(36px, 4vw, 56px);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 268px), 1fr));
+      gap: 1px;
+      background: var(--divider);
+      border: 1px solid var(--divider);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .cap {
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      padding: clamp(22px, 2.6vw, 30px);
+    }
+
+    .cap h3 {
+      margin-top: 12px;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .cap-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+    }
+
+    .cap ul {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .cap li {
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--n-400);
+      padding: 4px 9px;
+      border: 1px solid var(--divider);
+      border-radius: 6px;
+    }
+
+    /* ── Filosofia ───────────────────────────────────────────────────── */
+    .manifesto {
+      text-align: center;
+      padding-block: clamp(56px, 7vw, 96px);
+      border-top: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+      background:
+        radial-gradient(760px 320px at 50% 50%, rgba(116, 62, 228, 0.15), transparent 70%);
+    }
+
+    .manifesto blockquote {
+      margin: 22px auto 0;
+      max-width: 17ch;
+      font-size: clamp(28px, 4.6vw, 54px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    .manifesto blockquote em {
+      font-style: normal;
+      color: var(--accent-300);
+    }
+
+    .manifesto p {
+      margin: 28px auto 0;
+      max-width: 54ch;
+      font-size: clamp(15px, 1.5vw, 17px);
+      color: var(--n-400);
+      line-height: 1.7;
+    }
+
+    .stack {
+      margin: 34px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 7px;
+      max-width: 780px;
+    }
+
+    .stack li {
+      font-size: 11.5px;
+      letter-spacing: 0.06em;
+      color: var(--n-400);
+      padding: 6px 12px;
+      border: 1px solid var(--divider);
+      border-radius: 999px;
+    }
+
+    /* ── Empresas ────────────────────────────────────────────────────── */
+    /* Os logos têm cores e fundos incompatíveis entre si (um deles é um
+       bloco azul opaco), então cada um recebe o mesmo tile claro e mantém
+       a própria cor, em vez de um tratamento monocromático que quebraria. */
+    .clients {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 152px), 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .clients li {
+      display: grid;
+      place-items: center;
+      padding: 18px 20px;
+      min-height: 92px;
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      background: #f4f4f7;
+      transition: border-color .25s ease, transform .25s ease;
+    }
+
+    .clients li:hover {
+      border-color: var(--divider-strong);
+      transform: translateY(-2px);
+    }
+
+    .clients-clone {
+      display: none;
+    }
+
+    .clients li.is-square img {
+      max-height: 58px;
+    }
+
+    .clients img {
+      max-height: 46px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    /* ── Oferta ──────────────────────────────────────────────────────── */
+    .offer {
+      margin-top: clamp(36px, 4vw, 54px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+      gap: clamp(16px, 2vw, 24px);
+      align-items: stretch;
+    }
+
+    .plan {
+      padding: clamp(26px, 3vw, 40px);
+      border: 1px solid var(--divider);
+      border-radius: 16px;
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .plan-featured {
+      border-color: rgba(116, 62, 228, 0.6);
+      background:
+        linear-gradient(180deg, rgba(116, 62, 228, 0.16), rgba(14, 14, 17, 0.94));
+      box-shadow: 0 30px 70px -44px rgba(116, 62, 228, 0.9);
+    }
+
+    .plan-name {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--n-400);
+    }
+
+    .plan-featured .plan-name {
+      color: var(--accent-300);
+    }
+
+    .price {
+      margin-top: 20px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .price b {
+      font-size: clamp(34px, 4.6vw, 54px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .price span {
+      font-size: 14px;
+      color: var(--n-500);
+    }
+
+    .plan-ref {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--n-500);
+    }
+
+    .plan-ref s {
+      color: var(--n-400);
+      text-decoration-thickness: 1px;
+      text-decoration-color: var(--n-600);
+    }
+
+    .plan-setup-note {
+      color: var(--n-500);
+      font-weight: 400;
+    }
+
+    .addon {
+      padding: clamp(24px, 3vw, 34px);
+      border: 1px solid var(--divider);
+      border-radius: 16px;
+      background: var(--surface);
+      align-self: stretch;
+    }
+
+    .addon-lead {
+      margin-top: 14px;
+      font-size: clamp(16px, 1.8vw, 19px);
+      line-height: 1.4;
+      letter-spacing: -0.015em;
+      color: var(--n-300);
+    }
+
+    .addon-lead b {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .plan-setup {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--divider);
+      font-size: 14px;
+      color: var(--n-400);
+    }
+
+    .plan-setup b {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .plan-note {
+      margin-top: 18px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--n-500);
+    }
+
+    .plan-featured .plan-note {
+      color: var(--n-300);
+    }
+
+    .plan-includes {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--divider);
+      display: grid;
+      gap: 9px;
+      font-size: 14px;
+      color: var(--n-300);
+    }
+
+    /* O marcador sai do fluxo: com flex, um <b> no meio do item viraria
+       outro item de flex e quebraria a frase em colunas. */
+    .plan-includes li {
+      position: relative;
+      padding-left: 21px;
+      line-height: 1.5;
+    }
+
+    .plan-includes li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent-300);
+      font-weight: 700;
+    }
+
+
+    .limit {
+      margin-top: clamp(28px, 3vw, 42px);
+      padding: clamp(28px, 3.4vw, 44px);
+      border: 1px solid rgba(116, 62, 228, 0.45);
+      border-radius: 16px;
+      background: linear-gradient(120deg, rgba(116, 62, 228, 0.14), rgba(5, 5, 5, 0));
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: clamp(20px, 3vw, 44px);
+      align-items: center;
+    }
+
+    .limit-num {
+      font-size: clamp(56px, 9vw, 108px);
+      font-weight: 800;
+      line-height: 0.86;
+      letter-spacing: -0.06em;
+      color: var(--accent-300);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .limit-num small {
+      display: block;
+      margin-top: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--n-500);
+    }
+
+    .pdf-inline {
+      margin-top: clamp(26px, 3vw, 38px);
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ── Fechamento ──────────────────────────────────────────────────── */
+    .closing {
+      text-align: center;
+      padding-block: clamp(80px, 11vw, 168px);
+      border-top: 1px solid var(--divider);
+      background: radial-gradient(800px 420px at 50% 100%, rgba(116, 62, 228, 0.20), transparent 70%);
+    }
+
+    .closing-pre {
+      max-width: 34ch;
+      margin: 0 auto;
+      font-size: clamp(17px, 2vw, 22px);
+      line-height: 1.45;
+      color: var(--n-400);
+    }
+
+    .closing h2 {
+      margin: 30px auto 0;
+      max-width: 20ch;
+      font-size: clamp(30px, 5.2vw, 62px);
+    }
+
+    .closing h2 em {
+      font-style: normal;
+      color: var(--accent-300);
+    }
+
+    .closing-sign {
+      margin-top: clamp(50px, 6vw, 84px);
+      padding-top: 30px;
+      border-top: 1px solid var(--divider);
+      display: inline-block;
+    }
+
+    .closing-sign b {
+      display: block;
+      font-size: clamp(15px, 1.8vw, 19px);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .closing-sign span {
+      display: block;
+      margin-top: 8px;
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent-300);
+    }
+
+    /* ── Footer ──────────────────────────────────────────────────────── */
+    .foot {
+      border-top: 1px solid var(--divider);
+    }
+
+    .foot-in {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 26px var(--gutter);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px 28px;
+    }
+
+    .foot picture,
+    .foot img {
+      display: block;
+      height: 20px;
+      width: auto;
+      opacity: .85;
+    }
+
+    .foot p {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--n-600);
+    }
+
+    .foot p:last-child {
+      margin-left: auto;
+    }
+
+    /* ── Animações discretas ─────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .7s cubic-bezier(.22, .61, .36, 1), transform .7s cubic-bezier(.22, .61, .36, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── Responsivo ──────────────────────────────────────────────────── */
+    @media (max-width: 980px) {
+
+      .split,
+      .founder,
+      .offer {
+        grid-template-columns: 1fr;
+      }
+
+      .founder .chat {
+        max-width: 380px;
+      }
+
+      .flow {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        row-gap: 26px;
+      }
+
+      .flow::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shift {
+        grid-template-columns: 1fr;
+      }
+
+      .shift-arrow {
+        justify-self: center;
+        rotate: 90deg;
+      }
+
+      .eq-op {
+        flex: 1 0 100%;
+        text-align: center;
+        padding: 2px 0;
+      }
+
+      .eq-item {
+        flex: 1 0 100%;
+      }
+
+      .limit {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-label {
+        display: none;
+      }
+
+      .foot p:last-child {
+        margin-left: 0;
+      }
+
+      /* Muro de parceiros vira um marquee: o conjunto é duplicado e a
+         faixa desliza metade da própria largura, então o ponto de volta
+         cai exatamente sobre a cópia e o loop não tem emenda. */
+      .clients-viewport {
+        overflow: hidden;
+        margin-inline: calc(var(--gutter) * -1);
+        -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+        mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+      }
+
+      .clients-track {
+        display: flex;
+        width: max-content;
+        animation: clients-scroll 26s linear infinite;
+      }
+
+      .clients-viewport:hover .clients-track,
+      .clients-viewport:focus-within .clients-track {
+        animation-play-state: paused;
+      }
+
+      .clients {
+        display: flex;
+        gap: 12px;
+        padding-right: 12px;
+        margin-top: 26px;
+      }
+
+      .clients li {
+        width: 168px;
+        flex: 0 0 auto;
+        min-height: 88px;
+      }
+
+      .clients-clone {
+        display: flex;
+      }
+
+      /* O dashboard ganha a largura toda da tela — e nada além dela. */
+      .shot {
+        margin-inline: calc(var(--gutter) * -1);
+        border-radius: 0;
+        border-inline: 0;
+      }
+
+      .shot figcaption {
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        padding: 11px var(--gutter);
+      }
+    }
+
+    @keyframes clients-scroll {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Sem animação, a faixa vira rolagem manual — senão só o primeiro
+       logo ficaria acessível. */
+    @media (prefers-reduced-motion: reduce) and (max-width: 720px) {
+      .clients-viewport {
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .clients-viewport::-webkit-scrollbar {
+        display: none;
+      }
+
+      .clients-clone {
+        display: none;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .msg {
+        max-width: 94%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* ══════════════════════════════════════════════════════════════════
+       PDF — a mesma proposta, em versão documental (A4).
+       ══════════════════════════════════════════════════════════════════ */
+    @media print {
+      /* Margem zero e o recuo indo para o próprio conteúdo: assim o fundo
+         escuro sangra até a borda da folha, em vez de deixar tarja branca. */
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      :root {
+        --gutter: 13mm;
+        --fold: 13mm;
+        --maxw: 100%;
+      }
+
+      html,
+      body {
+        background: var(--bg) !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+        font-size: 10.5px;
+      }
+
+      .topbar {
+        position: static;
+        backdrop-filter: none;
+        background: transparent;
+      }
+
+      .pdf-btn,
+      .pdf-inline {
+        display: none !important;
+      }
+
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      /* O halo do hero mede 130vw; em mídia paginada ele alarga a página
+         e deixa uma faixa sem fundo na borda. Fora da impressão. */
+      .hero::before {
+        display: none;
+      }
+
+      .manifesto,
+      .closing {
+        background-image: none;
+      }
+
+      .hero {
+        padding-block: 18px 22px;
+      }
+
+      .hero-meta div {
+        min-width: 0;
+        flex: 1 1 0;
+      }
+
+      /* Em coluna única o aparelho centraliza na folha em vez de ficar
+         sozinho numa coluna lateral. */
+      .founder {
+        grid-template-columns: 1fr;
+        gap: 10mm;
+      }
+
+      .founder .chat {
+        justify-self: center;
+      }
+
+      .display {
+        font-size: 28px;
+      }
+
+      .h2 {
+        font-size: 21px;
+      }
+
+      .lead {
+        font-size: 12px;
+      }
+
+      .fold,
+      .closing,
+      .manifesto {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .page-break {
+        break-before: page;
+        page-break-before: always;
+      }
+
+      .shot,
+      .chat,
+      .plan,
+      .limit,
+      .caps,
+      .equation,
+      .flow,
+      .shift {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .shot,
+      .phone {
+        box-shadow: none;
+      }
+
+      .shot {
+        margin-inline: 0;
+      }
+
+      /* As camadas de fundo animadas não vão para o papel. */
+      body::before,
+      body::after {
+        display: none;
+      }
+
+      .clients-viewport {
+        overflow: visible;
+        margin-inline: 0;
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+
+      .clients-track {
+        display: block;
+        width: auto;
+        animation: none;
+      }
+
+      .clients-clone {
+        display: none;
+      }
+
+      /* Na largura do A4 o muro quebraria em 4+1; uma linha só lê melhor. */
+      .clients {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .clients li {
+        min-height: 0;
+        padding: 10px 12px;
+      }
+
+      .clients img {
+        max-height: 30px;
+      }
+
+      .clients-clone {
+      display: none;
+    }
+
+    .clients li.is-square img {
+        max-height: 38px;
+      }
+
+      .closing {
+        padding-block: 40px;
+      }
+
+      .closing h2 {
+        font-size: 26px;
+      }
+
+      a[href]::after {
+        content: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Cabeçalho mínimo: sem menu de navegação público ───────────── -->
+  <header class="topbar">
+    <div class="topbar-in">
+      <picture>
+        <source srcset="proposta/pluppex-logo.webp" type="image/webp">
+        <img src="proposta/pluppex-logo.png" alt="Pluppex" width="55" height="24">
+      </picture>
+      <span class="topbar-label">Proposta comercial</span>
+      <button class="pdf-btn" type="button" data-print aria-label="Baixar proposta em PDF">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12" />
+          <path d="m7 11 5 5 5-5" />
+          <path d="M4 21h16" />
+        </svg>
+        Baixar proposta em PDF
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         DOBRA 1 — HERO
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="hero wrap" aria-labelledby="titulo">
+      <p class="kicker">S.P.Y. CRM &nbsp;|&nbsp; Autonomous Fundador</p>
+
+      <h1 class="display hero-title" id="titulo">
+        O sistema operacional comercial para o fundador que quer deixar de ser o gargalo da própria empresa.
+      </h1>
+
+      <p class="lead hero-sub">
+        Gestão e vendas da sua empresa de forma tão simples quanto mandar uma mensagem no WhatsApp.
+      </p>
+
+      <dl class="hero-meta">
+        <div>
+          <dt>S.P.Y.</dt>
+          <dd>Sales Process Intelligence</dd>
+        </div>
+        <div>
+          <dt>Camada de dados</dt>
+          <dd>S.P.Y. CRM</dd>
+        </div>
+        <div>
+          <dt>Camada de inteligência</dt>
+          <dd>Aurora</dd>
+        </div>
+        <div>
+          <dt>Interface principal</dt>
+          <dd>WhatsApp</dd>
+        </div>
+      </dl>
+
+      <figure class="shot reveal">
+        <picture>
+          <source srcset="proposta/spy-crm-dashboard.webp" type="image/webp">
+          <img src="proposta/spy-crm-dashboard.png" width="1024" height="640" loading="eager" decoding="async"
+            alt="Painel do S.P.Y. CRM com indicadores comerciais, pipeline, funil de vendas e gestão financeira.">
+        </picture>
+        <figcaption>S.P.Y. CRM · interface do produto — dados exibidos são ilustrativos</figcaption>
+      </figure>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════════
+         DOBRA 2 — O PROBLEMA E A ARQUITETURA DA OPERAÇÃO
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="fold wrap page-break" aria-labelledby="problema">
+      <div class="split reveal">
+        <div>
+          <p class="kicker kicker-muted">A dependência operacional</p>
+          <h2 class="h2" id="problema" style="margin-top:20px">Quanto da sua empresa ainda depende de você?</h2>
+          <p class="body" style="margin-top:24px">
+            Muitas empresas crescem, mas a operação continua presa ao fundador. O crescimento acontece
+            no negócio e a execução continua na mesma pessoa.
+          </p>
+        </div>
+        <ul class="dep-list" aria-label="Atividades que recaem sobre o fundador">
+          <li>Acompanhar vendas</li>
+          <li>Cobrar a equipe</li>
+          <li>Descobrir oportunidades</li>
+          <li>Olhar o CRM</li>
+          <li>Acompanhar clientes</li>
+          <li>Verificar indicadores</li>
+          <li>Tomar decisões operacionais</li>
+          <li>Cobrar follow-ups</li>
+          <li>Entender o financeiro</li>
+          <li>Acompanhar processos</li>
+          <li>Procurar informações</li>
+          <li>Garantir a execução de tarefas</li>
+        </ul>
+      </div>
+
+      <div class="shift reveal">
+        <article class="shift-card">
+          <p class="tiny">Hoje</p>
+          <q>Eu preciso saber e fazer tudo.</q>
+        </article>
+        <div class="shift-arrow" aria-hidden="true">→</div>
+        <article class="shift-card is-now">
+          <p class="tiny" style="color:var(--accent-300)">Autonomous Fundador</p>
+          <q>Eu preciso saber o que importa e decidir o que realmente move a empresa.</q>
+        </article>
+      </div>
+    </section>
+
+
+    <section class="fold wrap" aria-labelledby="arquitetura">
+      <p class="kicker">A arquitetura</p>
+      <h2 class="h2" id="arquitetura" style="margin-top:20px; max-width:16ch">A Aurora trabalha enquanto você decide.
+      </h2>
+      <p class="body" style="margin-top:24px">
+        O S.P.Y. CRM organiza os dados da sua empresa e dos seus clientes. A Aurora interpreta esses dados,
+        analisa situações, recomenda e executa ações — e opera processos de forma autônoma. Você comanda
+        pelo WhatsApp.
+      </p>
+
+      <div class="equation reveal" role="group" aria-label="S.P.Y. CRM mais Aurora mais WhatsApp resulta em operação inteligente">
+        <div class="eq-item">
+          <strong>S.P.Y. CRM</strong>
+          <span>Dados, CRM e organização da operação comercial.</span>
+        </div>
+        <div class="eq-op" aria-hidden="true">+</div>
+        <div class="eq-item">
+          <strong>Aurora</strong>
+          <span>Inteligência que interpreta, recomenda e executa.</span>
+        </div>
+        <div class="eq-op" aria-hidden="true">+</div>
+        <div class="eq-item">
+          <strong>WhatsApp</strong>
+          <span>A interface de comando da operação.</span>
+        </div>
+        <div class="eq-op" aria-hidden="true">=</div>
+        <div class="eq-item is-result">
+          <strong>Operação inteligente</strong>
+          <span>Uma operação comercial que funciona por conta própria.</span>
+        </div>
+      </div>
+
+      <div style="margin-top:clamp(48px,6vw,80px)" class="reveal">
+        <p class="tiny">Modelo de funcionamento</p>
+        <ol class="flow" data-flow>
+          <li class="flow-step">
+            <strong>Dados</strong>
+            <span>Tudo que acontece na operação vira informação.</span>
+          </li>
+          <li class="flow-step">
+            <strong>S.P.Y. CRM</strong>
+            <span>Organiza e estrutura.</span>
+          </li>
+          <li class="flow-step">
+            <strong>Aurora</strong>
+            <span>Interpreta o contexto.</span>
+          </li>
+          <li class="flow-step">
+            <strong>Inteligência</strong>
+            <span>Identifica o que precisa acontecer.</span>
+          </li>
+          <li class="flow-step">
+            <strong>Ação</strong>
+            <span>A operação executa.</span>
+          </li>
+          <li class="flow-step">
+            <strong>Resultado</strong>
+            <span>Você acompanha e decide o que importa.</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+
+    <!-- ── O painel do fundador ───────────────────────────────────── -->
+    <section class="fold wrap page-break" aria-labelledby="painel">
+      <div class="founder">
+        <div class="reveal">
+          <p class="kicker">O painel do fundador</p>
+          <h2 class="h2" id="painel" style="margin-top:20px; max-width:15ch">Você não navega pelo sistema. Você conversa
+            com ele.</h2>
+          <p class="body" style="margin-top:24px">
+            O fundador não precisa percorrer dezenas de telas para entender a empresa. Ele pergunta.
+            A Aurora consulta os dados do S.P.Y. CRM e devolve informação, análise, alerta e ação —
+            e pode operar o CRM a partir do pedido. Do celular, onde você já está.
+          </p>
+          <p class="body" style="margin-top:16px">
+            E ela não espera ser chamada: a Aurora trabalha de forma autônoma e avisa o fundador
+            quando algo merece atenção.
+          </p>
+
+          <ul class="ask-list" aria-label="Exemplos de solicitações à Aurora">
+            <li>Quais oportunidades estão paradas?</li>
+            <li>Quais vendedores estão com follow-up atrasado?</li>
+            <li>Crie uma tarefa para o João.</li>
+            <li>Me mostre o que aconteceu no comercial ontem.</li>
+          </ul>
+        </div>
+
+        <figure class="chat reveal" style="margin:0">
+          <div class="phone">
+            <span class="phone-island" aria-hidden="true"></span>
+            <div class="phone-screen">
+
+              <div class="wa-status" aria-hidden="true">
+                <span>9:41</span>
+                <span class="wa-status-icons">
+                  <svg viewBox="0 0 18 12" fill="currentColor">
+                    <rect x="0" y="8" width="3" height="4" rx="1" />
+                    <rect x="5" y="5.5" width="3" height="6.5" rx="1" />
+                    <rect x="10" y="3" width="3" height="9" rx="1" />
+                    <rect x="15" y="0" width="3" height="12" rx="1" />
+                  </svg>
+                  <svg viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6"
+                    stroke-linecap="round">
+                    <path d="M1 4.2a10 10 0 0 1 14 0" />
+                    <path d="M3.6 7a6.4 6.4 0 0 1 8.8 0" />
+                    <path d="M6.3 9.7a2.6 2.6 0 0 1 3.4 0" />
+                  </svg>
+                  <svg viewBox="0 0 26 12" fill="none">
+                    <rect x="0.6" y="0.6" width="21" height="10.8" rx="3" stroke="currentColor"
+                      stroke-width="1.2" opacity="0.5" />
+                    <rect x="2.2" y="2.2" width="16" height="7.6" rx="1.8" fill="currentColor" />
+                    <path d="M23.4 4.2v3.6a2.4 2.4 0 0 0 0-3.6Z" fill="currentColor" opacity="0.5" />
+                  </svg>
+                </span>
+              </div>
+
+              <div class="wa-head">
+                <svg class="wa-back" viewBox="0 0 11 18" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M9 1 2 9l7 8" />
+                </svg>
+                <span class="wa-avatar" aria-hidden="true">A</span>
+                <span class="wa-who">
+                  <b>Aurora</b>
+                  <span>online</span>
+                </span>
+                <span class="wa-head-actions" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17 10.5V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-3.5l5 4v-11l-5 4Z" />
+                  </svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1l-2.2 2.2Z" />
+                  </svg>
+                </span>
+              </div>
+
+              <div class="wa-body">
+                <span class="wa-day">Hoje</span>
+
+                <div class="wa-msg wa-out">Como está o comercial hoje?<span class="wa-meta">09:12
+                    <svg viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.7"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M1 6.6 4.2 10 10.4 2.4" />
+                      <path d="M7.3 8.2 8.6 9.6l6.2-7.2" />
+                    </svg></span></div>
+
+                <div class="wa-msg wa-in">
+                  <b>Resumo de hoje</b>
+                  <ul>
+                    <li><span class="ph">[X]</span> oportunidades em andamento</li>
+                    <li><span class="ph">[X]</span> follow-ups pendentes</li>
+                    <li><span class="ph">[X]</span> oportunidades com alta intenção</li>
+                  </ul>
+                  <p>A principal atenção está em <span class="ph">[cliente]</span> — sem interação há
+                    <span class="ph">[X]</span> dias, com proposta enviada.<span class="wa-meta">09:12</span>
+                  </p>
+                </div>
+
+                <div class="wa-msg wa-out">Quais oportunidades têm maior chance de fechamento?<span
+                    class="wa-meta">09:13
+                    <svg viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.7"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M1 6.6 4.2 10 10.4 2.4" />
+                      <path d="M7.3 8.2 8.6 9.6l6.2-7.2" />
+                    </svg></span></div>
+
+                <div class="wa-msg wa-in">Separei <span class="ph">[X]</span> oportunidades com maior intenção
+                  identificada. Quer que eu acione o follow-up com cada uma delas?<span
+                    class="wa-meta">09:13</span></div>
+
+                <div class="wa-msg wa-out">Sim. E cria uma tarefa para o João revisar a proposta.<span
+                    class="wa-meta">09:14
+                    <svg viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.7"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M1 6.6 4.2 10 10.4 2.4" />
+                      <path d="M7.3 8.2 8.6 9.6l6.2-7.2" />
+                    </svg></span></div>
+
+                <div class="wa-msg wa-in">Feito. Follow-ups acionados, tarefa criada para <b>João</b> e o
+                  pipeline foi atualizado no S.P.Y. CRM.<span class="wa-meta">09:14</span></div>
+              </div>
+
+              <div class="wa-input" aria-hidden="true">
+                <span class="wa-field">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M8.5 14.5a4.5 4.5 0 0 0 7 0" stroke-linecap="round" />
+                    <circle cx="9" cy="9.8" r="1.1" fill="currentColor" stroke="none" />
+                    <circle cx="15" cy="9.8" r="1.1" fill="currentColor" stroke="none" />
+                  </svg>
+                  <span>Mensagem</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 11.5V9a8 8 0 0 0-16 0v6a8 8 0 0 0 13 6.2" />
+                    <path d="M8 9a4 4 0 0 1 8 0v6a4 4 0 0 1-6.9 2.7" />
+                  </svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 18a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h3l2-2.5h6L17 7h3a2 2 0 0 1 2 2Z" />
+                    <circle cx="12" cy="13" r="3.6" />
+                  </svg>
+                </span>
+                <span class="wa-send">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 15a3.5 3.5 0 0 0 3.5-3.5v-6a3.5 3.5 0 1 0-7 0v6A3.5 3.5 0 0 0 12 15Z" />
+                    <path
+                      d="M18.5 11a.9.9 0 0 0-1.8 0 4.7 4.7 0 0 1-9.4 0 .9.9 0 0 0-1.8 0 6.5 6.5 0 0 0 5.6 6.4V20h-2a.9.9 0 0 0 0 1.8h5.8a.9.9 0 0 0 0-1.8h-2v-2.6a6.5 6.5 0 0 0 5.6-6.4Z" />
+                  </svg>
+                </span>
+              </div>
+
+              <div class="wa-home" aria-hidden="true"></div>
+            </div>
+          </div>
+          <figcaption class="chat-foot">Conversa ilustrativa · valores em [X]</figcaption>
+        </figure>
+      </div>
+    </section>
+
+
+    <!-- ── Agentes comerciais ─────────────────────────────────────── -->
+    <section class="fold wrap" aria-labelledby="agentes">
+      <p class="kicker">Agentes comerciais autônomos</p>
+      <h2 class="h2" id="agentes" style="margin-top:20px; max-width:18ch">Eles não respondem mensagens. Eles operam
+        processos comerciais.</h2>
+      <p class="body" style="margin-top:24px">
+        Os agentes conversam com clientes por texto e por áudio, compreendem áudio, qualificam,
+        identificam intenção de compra e executam o que precisa ser feito — dentro do mesmo CRM
+        em que a sua operação vive.
+      </p>
+
+      <div class="caps">
+        <article class="cap">
+          <p class="cap-num">01</p>
+          <h3>Conversa</h3>
+          <ul>
+            <li>Conversas com clientes</li>
+            <li>Comunicação por texto</li>
+            <li>Comunicação por áudio</li>
+            <li>Interpretação de áudio</li>
+            <li>Identificação de intenção</li>
+            <li>Qualificação</li>
+          </ul>
+        </article>
+        <article class="cap">
+          <p class="cap-num">02</p>
+          <h3>Execução</h3>
+          <ul>
+            <li>Follow-ups automáticos</li>
+            <li>Criação de tarefas</li>
+            <li>Execução de tarefas</li>
+            <li>Criação de oportunidades</li>
+            <li>Movimentação do pipeline</li>
+            <li>Atualização do CRM</li>
+            <li>Recuperação de oportunidades</li>
+          </ul>
+        </article>
+        <article class="cap">
+          <p class="cap-num">03</p>
+          <h3>Comando</h3>
+          <ul>
+            <li>Geração de relatórios</li>
+            <li>Alertas para o fundador</li>
+            <li>Análise de situações</li>
+            <li>Recomendação de ações</li>
+            <li>Operação autônoma</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════════
+         DOBRA 3 — A TRANSFORMAÇÃO, A OFERTA E O FECHAMENTO
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="fold wrap page-break" aria-labelledby="incluso">
+      <p class="kicker">O que você passa a ter</p>
+      <h2 class="h2" id="incluso" style="margin-top:20px; max-width:16ch">Uma operação comercial inteira, em um lugar só.
+      </h2>
+      <p class="body" style="margin-top:24px">
+        O Autonomous Fundador inclui a estrutura completa do S.P.Y. CRM e da Aurora — comercial,
+        automação e financeiro na mesma visão de operação.
+      </p>
+
+      <div class="caps">
+        <article class="cap">
+          <p class="cap-num">CRM</p>
+          <h3>A operação organizada</h3>
+          <ul>
+            <li>Gestão de leads</li>
+            <li>Gestão de clientes</li>
+            <li>Gestão de empresas</li>
+            <li>Histórico de interações</li>
+            <li>Pipeline comercial</li>
+            <li>Oportunidades</li>
+            <li>Tarefas</li>
+            <li>Follow-ups</li>
+            <li>Propostas</li>
+            <li>Dashboards</li>
+            <li>Indicadores comerciais</li>
+            <li>KPIs de vendas</li>
+          </ul>
+        </article>
+        <article class="cap">
+          <p class="cap-num">IA</p>
+          <h3>A inteligência em operação</h3>
+          <ul>
+            <li>Agentes comerciais autônomos</li>
+            <li>Conversas por texto e áudio</li>
+            <li>Interpretação de áudio</li>
+            <li>Follow-ups automáticos</li>
+            <li>Identificação de intenção</li>
+            <li>Qualificação</li>
+            <li>Recuperação de oportunidades</li>
+            <li>Atualização do CRM</li>
+            <li>Movimentação do pipeline</li>
+            <li>Geração de relatórios</li>
+            <li>Alertas para o fundador</li>
+            <li>Operação autônoma</li>
+          </ul>
+        </article>
+        <article class="cap">
+          <p class="cap-num">FINANCEIRO</p>
+          <h3>A empresa inteira na mesma visão</h3>
+          <ul>
+            <li>Contas a pagar</li>
+            <li>Contas a receber</li>
+            <li>Fluxo de caixa</li>
+            <li>Receitas e despesas</li>
+            <li>Categorias</li>
+            <li>DRE</li>
+            <li>Conciliação</li>
+            <li>Faturamento</li>
+            <li>Recorrências</li>
+            <li>Indicadores financeiros</li>
+            <li>Previsões</li>
+            <li>Lucro</li>
+            <li>Integração bancária</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="small" style="margin-top:22px; max-width:70ch">
+        O módulo financeiro não é um produto à parte. Ele existe porque comandar a empresa
+        exige ver o comercial e o financeiro na mesma operação.
+      </p>
+    </section>
+
+
+    <!-- ── Filosofia Pluppex ──────────────────────────────────────── -->
+    <section class="manifesto" aria-labelledby="filosofia">
+      <div class="wrap reveal">
+        <p class="kicker" id="filosofia">Filosofia Pluppex</p>
+        <blockquote>Não prometemos ferramentas. <em>Prometemos uma operação.</em></blockquote>
+        <p>
+          Toda empresa tem potencial para crescer. Poucas possuem uma operação capaz de sustentar
+          esse crescimento. É essa operação que nós construímos e operamos.
+        </p>
+        <ul class="stack" aria-label="Ecossistema Pluppex">
+          <li>RevOps</li>
+          <li>IA aplicada a vendas</li>
+          <li>CRM</li>
+          <li>SDRs humanos e de IA</li>
+          <li>Marketing de performance</li>
+          <li>Processos comerciais</li>
+          <li>Dashboards</li>
+          <li>Automações</li>
+          <li>BI</li>
+          <li>Gestão financeira comercial</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ── Empresas relacionadas ──────────────────────────────────── -->
+    <section class="fold wrap" aria-labelledby="empresas">
+      <p class="kicker kicker-muted" id="empresas">Parceiros</p>
+      <div class="clients-viewport">
+        <div class="clients-track">
+          <ul class="clients">
+        <li class="is-square">
+          <picture>
+            <source srcset="proposta/logos/tonapista.webp" type="image/webp">
+            <img src="proposta/logos/tonapista.png" alt="Tô Na Pista Boliche" width="151" height="120" loading="eager" decoding="async">
+          </picture>
+        </li>
+        <li>
+          <picture>
+            <source srcset="proposta/logos/casa-sao-paulo.webp" type="image/webp">
+            <img src="proposta/logos/casa-sao-paulo.png" alt="Casa São Paulo Sport" width="463" height="120" loading="eager" decoding="async">
+          </picture>
+        </li>
+        <li class="is-square">
+          <picture>
+            <source srcset="proposta/logos/guruseg.webp" type="image/webp">
+            <img src="proposta/logos/guruseg.png" alt="Guruseg" width="182" height="120" loading="eager" decoding="async">
+          </picture>
+        </li>
+        <li>
+          <picture>
+            <source srcset="proposta/logos/geplan.webp" type="image/webp">
+            <img src="proposta/logos/geplan.png" alt="Geplan Contabilidade" width="442" height="120" loading="eager" decoding="async">
+          </picture>
+        </li>
+        <li>
+          <picture>
+            <source srcset="proposta/logos/tecnotins.webp" type="image/webp">
+            <img src="proposta/logos/tecnotins.png" alt="Tecnotins" width="646" height="120" loading="eager" decoding="async">
+          </picture>
+        </li>
+          </ul>
+          <ul class="clients clients-clone" aria-hidden="true">
+        <li class="is-square">
+          <picture>
+            <source srcset="proposta/logos/tonapista.webp" type="image/webp">
+            <img src="proposta/logos/tonapista.png" alt="Tô Na Pista Boliche" width="151" height="120" loading="eager" decoding="async">
+          </picture>
+        </li>
+        <li>
+          <picture>
+            <source srcset="proposta/logos/casa-sao-paulo.webp" type="image/webp">
+            <img src="proposta/logos/casa-sao-paulo.png" alt="Casa São Paulo Sport" width="463" height="120" loading="eager" decoding="async">
+          </picture>
+        </li>
+        <li class="is-square">
+          <picture>
+            <source srcset="proposta/logos/guruseg.webp" type="image/webp">
+            <img src="proposta/logos/guruseg.png" alt="Guruseg" width="182" height="120" loading="eager" decoding="async">
+          </picture>
+        </li>
+        <li>
+          <picture>
+            <source srcset="proposta/logos/geplan.webp" type="image/webp">
+            <img src="proposta/logos/geplan.png" alt="Geplan Contabilidade" width="442" height="120" loading="eager" decoding="async">
+          </picture>
+        </li>
+        <li>
+          <picture>
+            <source srcset="proposta/logos/tecnotins.webp" type="image/webp">
+            <img src="proposta/logos/tecnotins.png" alt="Tecnotins" width="646" height="120" loading="eager" decoding="async">
+          </picture>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── Condição comercial ─────────────────────────────────────── -->
+    <section class="fold wrap page-break" aria-labelledby="condicao">
+      <p class="kicker">A condição</p>
+      <h2 class="h2" id="condicao" style="margin-top:20px; max-width:16ch">A condição comercial desta proposta.</h2>
+      <p class="body" style="margin-top:24px">
+        O Autonomous Fundador é o mesmo produto do plano Autonomous, em uma condição criada
+        para os primeiros fundadores que entram nesta fase de evolução do S.P.Y. CRM.
+      </p>
+
+      <div class="offer">
+        <article class="plan plan-featured">
+          <p class="plan-name">Autonomous Fundador</p>
+          <p class="small" style="margin-top:10px; color:var(--accent-200)">Condição especial para os primeiros
+            fundadores</p>
+
+          <div class="price">
+            <b>R$&nbsp;997</b><span>/mês</span>
+          </div>
+
+          <p class="plan-ref">Condição padrão do Autonomous: <s>R$&nbsp;3.997/mês</s></p>
+          <p class="plan-setup">Implantação <b>R$&nbsp;3.000</b> <span class="plan-setup-note">— pagamento
+              único</span></p>
+
+          <ul class="plan-includes">
+            <li>Todas as funcionalidades atuais do S.P.Y. CRM e da Aurora — sem versão reduzida.</li>
+            <li>Todas as futuras atualizações do produto, <b>sem custo adicional</b>, enquanto você
+              permanecer dentro das condições do plano contratado.</li>
+            <li><b>10.000 créditos de IA por mês</b>, inclusos no plano.</li>
+            <li>Condição limitada a 10 empresas.</li>
+          </ul>
+        </article>
+
+        <aside class="addon">
+          <p class="tiny">Créditos de IA</p>
+          <p class="addon-lead"><b>10.000 créditos por mês</b> já fazem parte do plano.</p>
+          <p class="body" style="margin-top:14px; font-size:14.5px">
+            É o consumo da Aurora e dos agentes na sua operação. Se a operação precisar de mais,
+            os créditos adicionais custam <b class="accent">R$&nbsp;197</b> — um adicional
+            independente do plano, contratado apenas quando você precisar.
+          </p>
+          <p class="small" style="margin-top:16px">A mensalidade do Autonomous Fundador não muda por causa disso.</p>
+        </aside>
+      </div>
+
+      <!-- Limite real da condição comercial — sem contador, sem prazo artificial. -->
+      <div class="limit reveal">
+        <p class="limit-num">10<small>Empresas</small></p>
+        <div>
+          <h3 class="h3">Apenas 10 empresas.</h3>
+          <p class="body" style="margin-top:14px">
+            O Autonomous Fundador é uma condição especial criada para um grupo limitado de empresas
+            que participarão desta fase inicial da evolução do produto. São 10 posições — é uma
+            limitação da condição comercial, não um argumento de venda.
+          </p>
+        </div>
+      </div>
+
+      <div class="pdf-inline">
+        <button class="pdf-btn" type="button" data-print style="margin-left:0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12" />
+            <path d="m7 11 5 5 5-5" />
+            <path d="M4 21h16" />
+          </svg>
+          Baixar proposta em PDF
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ── Fechamento (sem botão) ─────────────────────────────────── -->
+    <section class="closing" aria-labelledby="fechamento">
+      <div class="wrap reveal">
+        <p class="closing-pre">
+          Seu papel não é operar cada detalhe da empresa.<br>
+          Seu papel é decidir o que merece a sua atenção.
+        </p>
+        <h2 id="fechamento">
+          Foque no que realmente vai mexer o ponteiro da sua empresa.
+          <em>Deixe a tecnologia trabalhar nas atividades operacionais por você.</em>
+        </h2>
+        <div class="closing-sign">
+          <b>S.P.Y. CRM &nbsp;|&nbsp; Autonomous Fundador</b>
+          <span>Vender é ciência, não sorte.</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="foot-in">
+      <picture>
+        <source srcset="proposta/pluppex-logo.webp" type="image/webp">
+        <img src="proposta/pluppex-logo.png" alt="Pluppex" width="46" height="20" loading="lazy">
+      </picture>
+      <p>Proposta comercial · S.P.Y. CRM | Autonomous Fundador</p>
+      <p>© 2026 Pluppex</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      // "Baixar proposta em PDF" — a folha @media print é a versão documental
+      // da mesma proposta; o diálogo do navegador salva em PDF (desktop e mobile).
+      document.querySelectorAll("[data-print]").forEach(function (btn) {
+        btn.addEventListener("click", function () { window.print(); });
+      });
+
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced || !("IntersectionObserver" in window)) {
+        document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("is-in"); });
+        document.querySelectorAll(".flow-step").forEach(function (el) { el.classList.add("is-on"); });
+        return;
+      }
+
+      // Entrada suave dos blocos.
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add("is-in");
+          io.unobserve(e.target);
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8%" });
+      document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+
+      // Fluxo DADOS → S.P.Y. CRM → AURORA → INTELIGÊNCIA → AÇÃO → RESULTADO:
+      // os nós acendem em sequência quando o bloco entra em tela.
+      var flow = document.querySelector("[data-flow]");
+      if (flow) {
+        var flowIO = new IntersectionObserver(function (entries) {
+          if (!entries[0].isIntersecting) return;
+          flowIO.disconnect();
+          var steps = flow.querySelectorAll(".flow-step");
+          steps.forEach(function (step, i) {
+            setTimeout(function () { step.classList.add("is-on"); }, 160 * i);
+          });
+        }, { threshold: 0.4 });
+        flowIO.observe(flow);
+      }
+
+      // O PDF precisa da página inteira revelada, mesmo sem scroll até o fim.
+      window.addEventListener("beforeprint", function () {
+        document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("is-in"); });
+        document.querySelectorAll(".flow-step").forEach(function (el) { el.classList.add("is-on"); });
+      });
+    })();
+  </script>
+</body>
+
+</html>
